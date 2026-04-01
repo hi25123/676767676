@@ -1,0 +1,903 @@
+# REALM OF FATE — COMPLETE REDESIGN PLAN
+
+---
+
+## TABLE OF CONTENTS
+1. Rarity System
+2. Full Hero Roster (50 Units)
+3. Combat System
+4. Skill / Ult / Passive System
+5. Unit Upgrade UI (Full-Screen)
+6. Equipment System
+7. Story Mode & Stage Rewards
+8. Tower (Full Enemy Teams)
+9. Arena (Real Watchable Fights)
+10. Gacha & Shop
+11. Resource Economy
+12. UI/UX Fixes
+13. Star-Up Copy Scaling
+14. Implementation Order
+
+---
+
+## 1. RARITY SYSTEM
+
+| Rank | Name | Color | Purpose | # Units |
+|------|------|-------|---------|---------|
+| 0 | **N** (Normal) | `#9099a0` Gray | Fodder. Starters. Useless past early game. | 5 |
+| 1 | **R** (Rare) | `#4a9eff` Blue | Slightly better fodder. Falls off by midgame. | 5 |
+| 2 | **SR** (Super Rare) | `#b44aff` Purple | Viable even late game with investment. Solid kits. | 10 |
+| 3 | **SSR** (Super Super Rare) | `#ff7830` Orange | Fully meta. Strong passives, game-changers. | 20 |
+| 4 | **EX** (Extra) | `#ff2855` Red+Gold glow | Tip-top. Unique mechanics, defining units. | 10 |
+
+**Total: 50 units.**
+- Bottom 2 (N + R): 10 units — stepping stones
+- Middle (SR): 10 units — reliable workhorses
+- SSR: 20 units — meat of the roster
+- EX: 10 units — chase units, extremely rare
+
+Every rarity has **at least 1 Tank, 1 DPS, 1 Healer, 1 Support**.
+
+---
+
+## 2. FULL HERO ROSTER (50 UNITS)
+
+### KEY DESIGN PRINCIPLES FOR UNIQUENESS
+- **Not all DPS ults are AOE.** Some are massive single-target nukes, some are DoT stacking, some are execute finishers, some target specific enemies (lowest HP, back row, etc.)
+- **Overheal mechanic:** Some healers/lifesteal units can heal PAST max HP. Excess healing becomes **Bonus HP** (shown as a blue extension on the HP bar, separate from shield). Bonus HP decays 10% per turn but stacks.
+- **Crit-reactive mechanics:** Some units gain shield when they crit, or heal when they crit, or their crits apply debuffs.
+- **DoT specialists:** Units whose damage is mostly through stacking burns, bleeds, and poisons rather than raw hit damage. Low multipliers but devastating over time.
+- **Single-target assassins:** Units with 12x–18x single-target ults that obliterate one enemy but do nothing to the rest.
+- **Bleed:** New status — % max HP damage per turn, stacks multiply (2 bleeds = each tick does more). Different from burn/poison.
+
+---
+
+### N RANK — 5 Units
+
+| ID | Name | Emoji | Role | Base HP | Base ATK | SPD |
+|----|------|-------|------|---------|----------|-----|
+| 0 | Iron Sentinel | 🛡️ | Tank | 2800 | 80 | 8 |
+| 1 | Ember Spark | 🔥 | DPS | 1800 | 140 | 12 |
+| 2 | Leaf Mender | 🌿 | Healer | 2400 | 65 | 9 |
+| 3 | Shadow Scout | 🗡️ | DPS | 2000 | 130 | 14 |
+| 4 | Stone Hermit | 🪨 | Support | 2600 | 90 | 7 |
+
+**ID 0 — Iron Sentinel (Tank)**
+- Passive: **Fortify** — -8% damage taken (★1 unlock, scales to -16% at ★5)
+- Skill: **Guard Slam** — 1.3x single + self 5% max HP shield
+- Ult: **Iron Wall** — Taunt all enemies 2 turns + self 20% shield
+
+**ID 1 — Ember Spark (DPS)**
+- Passive: **Kindle** — 8% chance burn on hit (2% enemy max HP/turn, 2 turns)
+- Skill: **Fire Bolt** — 1.6x single target
+- Ult: **Inferno** — 2.8x AOE
+
+**ID 2 — Leaf Mender (Healer)**
+- Passive: **Regrowth** — Self heal 3% max HP per turn
+- Skill: **Heal Light** — Heal lowest ally 20% max HP
+- Ult: **Nature's Grace** — Heal all allies 12% max HP
+
+**ID 3 — Shadow Scout (DPS)**
+- Passive: **Quick Step** — 10% dodge chance
+- Skill: **Swift Strike** — 1.5x single target
+- Ult: **Shadow Dance** — 3.2x single target, guaranteed crit *(single-target nuke, not AOE)*
+
+**ID 4 — Stone Hermit (Support)**
+- Passive: **Endure** — Survive one lethal hit at 1 HP (once per battle)
+- Skill: **Rock Toss** — 1.3x single + 20% stun 1 turn
+- Ult: **Earthquake** — 2x AOE + 30% stun all 1 turn
+
+---
+
+### R RANK — 5 Units
+
+| ID | Name | Emoji | Role | Base HP | Base ATK | SPD |
+|----|------|-------|------|---------|----------|-----|
+| 5 | Frost Blade | ❄️ | DPS | 2600 | 175 | 13 |
+| 6 | Iron Warden | 🏰 | Tank | 3800 | 100 | 8 |
+| 7 | Moon Acolyte | 🌙 | Healer | 2800 | 95 | 10 |
+| 8 | Storm Herald | ⚡ | DPS | 2200 | 185 | 15 |
+| 9 | Plague Rat | 🐀 | Support | 2800 | 140 | 11 |
+
+**ID 5 — Frost Blade (DPS)**
+- Passive: **Frostbite** — 15% chance slow on hit (-25% SPD 1 turn)
+- Skill: **Ice Slash** — 2x single + apply slow
+- Ult: **Frozen Tempest** — 3.2x AOE + slow all 2 turns
+
+**ID 6 — Iron Warden (Tank)**
+- Passive: **Iron Wall** — 40% taunt chance each turn
+- Skill: **Shield Bash** — 1.3x single + self 12% shield
+- Ult: **Bastion** — Taunt all 3 turns + self 30% shield
+
+**ID 7 — Moon Acolyte (Healer)**
+- Passive: **Moonlight** — Heals also cleanse 1 debuff from target
+- Skill: **Lunar Heal** — Heal lowest ally 25%
+- Ult: **Full Moon** — Heal all 18% + 8% shield all
+
+**ID 8 — Storm Herald (DPS)**
+- Passive: **Static** — 25% chance basic attacks chain to 1 extra enemy for 30% damage
+- Skill: **Lightning** — 2.2x single
+- Ult: **Thunder Storm** — 3.5x AOE
+
+**ID 9 — Plague Rat (Support)**
+- Passive: **Virulence** — Skills apply poison (2% max HP/turn, 3 turns)
+- Skill: **Plague Spit** — 1.6x AOE (low multi but poisons all)
+- Ult: **Pandemic** — 2.5x AOE + heavy poison (4% HP/turn, 3t)
+
+---
+
+### SR RANK — 10 Units
+
+| ID | Name | Emoji | Role | Base HP | Base ATK | SPD |
+|----|------|-------|------|---------|----------|-----|
+| 10 | Crimson Knight | 🏵️ | DPS (Lifesteal/Overheal) | 4200 | 280 | 12 |
+| 11 | Void Walker | 🌀 | DPS (Counter/Dodge) | 3600 | 300 | 14 |
+| 12 | Tide Warden | 🌊 | Tank (Debuff Tank) | 6500 | 150 | 9 |
+| 13 | Night Oracle | 🔮 | Support (Crit Buffer) | 4000 | 220 | 13 |
+| 14 | Sea Serpent | 🐍 | DPS (Execute Assassin) | 3800 | 290 | 11 |
+| 15 | Plague Doctor | 💀 | Support (DoT Specialist) | 3400 | 260 | 10 |
+| 16 | Rose Cleric | 🌹 | Healer (Shield Healer) | 4800 | 160 | 10 |
+| 17 | Berserker | 🪓 | DPS (Ramping) | 3200 | 320 | 13 |
+| 18 | Crystal Guard | 💎 | Tank (Reflector) | 5800 | 130 | 8 |
+| 19 | Wind Dancer | 💃 | Support (Speed Manipulation) | 3600 | 240 | 16 |
+
+**ID 10 — Crimson Knight (DPS — Lifesteal/Overheal)**
+- Passive: **Bloodrage** — +20% ATK below 50% HP. 10% lifesteal always. **Lifesteal can overheal** — excess HP becomes Bonus HP (blue bar, decays 10%/turn, stacks, separate from shield)
+- Skill: **Crimson Slash** — 2.5x SINGLE + heal 15% dmg dealt *(single-target, not AOE)*
+- Ult: **Blood Storm** — 4.5x SINGLE target + heal 40% of damage dealt as overheal-capable HP *(massive single-target nuke, not AOE — the overheal is his identity)*
+
+**ID 11 — Void Walker (DPS — Counter/Dodge)**
+- Passive: **Phase** — 18% dodge. On dodge → counter for 1.5x. Counters can crit
+- Skill: **Void Rift** — 2.8x single, ignores 15% DEF
+- Ult: **Dimension Tear** — 5x AOE *(one of the few SR AOE ults)*
+
+**ID 12 — Tide Warden (Tank — Debuff Tank)**
+- Passive: **Riptide** — 55% taunt. Attackers lose 10% ATK for 2 turns. Self gains 3% shield per hit taken
+- Skill: **Tidal Wall** — 1.3x single + self 20% shield
+- Ult: **Tsunami** — 3x AOE + team 15% shield
+
+**ID 13 — Night Oracle (Support — Crit Buffer)**
+- Passive: **Foresight** — Team +12% crit chance. When any ally crits, that ally gains 5% shield *(crit-reactive: crits create shields)*
+- Skill: **Star Reading** — 2x single + buff strongest ally +20% ATK 3 turns
+- Ult: **Prophecy** — 3.5x AOE + team +25% crit chance 3 turns
+
+**ID 14 — Sea Serpent (DPS — Execute Assassin)**
+- Passive: **Depth Pressure** — +25% damage to targets below 40% HP
+- Skill: **Tidal Fang** — 2.5x targets LOWEST HP enemy *(auto-targets the weakest, not random)*
+- Ult: **Leviathan** — 6x single target LOWEST HP enemy. Execute: instant kill if <20% HP *(single-target finisher)*
+
+**ID 15 — Plague Doctor (Support — DoT Specialist)**
+- Passive: **Contagion** — Poisoned enemies deal 10% less damage. Poison/burn/bleed on enemies ticks 20% harder
+- Skill: **Plague Cloud** — Low 1.5x AOE + poison all (3% HP/turn, 3t) + bleed all (2% HP/turn, 3t, stacks)
+- Ult: **Epidemic** — Low 2x AOE + heavy poison (5% HP/turn, 3t) + heavy bleed (4% HP/turn, 3t, stacks) + heal reduction *(barely any direct damage — it's all about the DoTs)*
+
+**ID 16 — Rose Cleric (Healer — Shield Healer)**
+- Passive: **Thorns of Life** — All heals also apply 5% max HP shield to target
+- Skill: **Bloom** — Heal lowest ally 30% + cleanse debuffs
+- Ult: **Garden of Life** — Heal all 22% + 10% shield all + cleanse all
+
+**ID 17 — Berserker (DPS — Ramping)**
+- Passive: **Frenzy** — +5% ATK every time this unit takes damage (stacks 5×). +10% ATK every time this unit DEALS a kill (stacks infinite)
+- Skill: **Raging Blow** — 3.5x SINGLE target *(not AOE — he's a focused killer)*
+- Ult: **Rampage** — 6x SINGLE target + self +30% ATK rest of battle (-15% DEF) *(doubles down on single-target destruction)*
+
+**ID 18 — Crystal Guard (Tank — Reflector)**
+- Passive: **Crystallize** — 60% taunt. Reflect 10% of damage taken back to attacker. 2% max HP shield per turn
+- Skill: **Crystal Barrier** — 1.2x single + all allies gain 8% shield
+- Ult: **Diamond Fortress** — Taunt 3t + self 35% shield + reflect 25% for 3 turns *(reflect identity)*
+
+**ID 19 — Wind Dancer (Support — Speed Manipulation)**
+- Passive: **Tailwind** — Team +10% SPD. Fastest unit on your team gets +5% ATK
+- Skill: **Gust** — 2x single + enemy -30% SPD for 2 turns
+- Ult: **Cyclone** — 3x AOE + team +25% SPD 3t + all enemies -25% SPD 3t *(no huge damage, it's the speed swing that wins fights)*
+
+---
+
+### SSR RANK — 20 Units
+
+| ID | Name | Emoji | Role | Archetype | Base HP | Base ATK | SPD |
+|----|------|-------|------|-----------|---------|----------|-----|
+| 20 | Tempest Lord | 🌪️ | DPS | Ramping AOE | 5500 | 420 | 14 |
+| 21 | Abyss Seer | 👁️ | DPS | Shield-pierce single | 4800 | 450 | 12 |
+| 22 | The Reaper | ⚰️ | DPS | Kill-chain assassin | 4200 | 480 | 16 |
+| 23 | Dragon Slayer | ⚔️ | DPS | Splash cleave | 6200 | 400 | 11 |
+| 24 | Celestial Vow | ✨ | Healer | Overheal + revive | 6000 | 280 | 13 |
+| 25 | Eclipse Knight | 🌗 | Tank | Shield regen wall | 9000 | 220 | 10 |
+| 26 | The Fallen | 😈 | DPS | Self-sacrifice burst | 5000 | 460 | 14 |
+| 27 | Star Breaker | 💥 | DPS | Mega nuke single | 5200 | 440 | 15 |
+| 28 | Shadow Thief | 🌑 | DPS | Back-row assassin | 4000 | 500 | 17 |
+| 29 | Arch Priest | 🕊️ | Healer | Mass revive | 7000 | 250 | 11 |
+| 30 | Void Tyrant | 👑 | Tank | Debuff fortress | 8500 | 280 | 9 |
+| 31 | Phoenix | 🔥 | DPS | DoT burn stacker | 4600 | 340 | 13 |
+| 32 | Frost Empress | ❄️ | Support | CC freeze | 5800 | 350 | 12 |
+| 33 | Blood Moon | 🩸 | DPS | Bleed stacker | 4400 | 380 | 15 |
+| 34 | Soul Weaver | 🕸️ | Support | Damage link/redirect | 5400 | 320 | 13 |
+| 35 | Iron Colossus | 🗿 | Tank | Immovable wall | 10000 | 180 | 7 |
+| 36 | Thunder God | ⛈️ | DPS | Crit-reactive | 4800 | 460 | 16 |
+| 37 | Chrono Mage | ⏳ | Support | Turn manipulation | 5000 | 380 | 14 |
+| 38 | Demon Hunter | 🏹 | DPS | Mega single-target | 4200 | 500 | 15 |
+| 39 | War Maiden | ⚜️ | Support | Team-wide buffer | 6200 | 300 | 12 |
+
+**ID 20 — Tempest Lord (DPS — Ramping AOE)**
+- Passive: **Storm Armor** — Immune to debuffs first 3 turns. +8% ATK per turn (max 40%, permanent)
+- Skill: **Cyclone** — 3x AOE
+- Ult: **Category 5** — 6x AOE + strip all enemy buffs *(one of the few AOE ults — earned because he ramps slowly)*
+
+**ID 21 — Abyss Seer (DPS — Shield-Piercing Single-Target)**
+- Passive: **Gaze** — +12% damage per living enemy. All attacks bypass shields entirely
+- Skill: **Mind Shatter** — 3.5x SINGLE, bypasses shields + defense
+- Ult: **Abyssal Vision** — 8x SINGLE, bypasses shields + defense + ignores damage reduction *(pure single-target destroyer — shields and tanks mean nothing to him)*
+
+**ID 22 — The Reaper (DPS — Kill-Chain Assassin)**
+- Passive: **Harvest** — On kill: gain extra immediate turn + heal 15% max HP + +8% ATK permanently. Each kill in a battle makes him snowball
+- Skill: **Soul Rend** — 3x SINGLE target LOWEST HP enemy. Execute: kill if target <20% HP
+- Ult: **Death's Embrace** — 5.5x SINGLE target LOWEST HP enemy + lifesteal 40% *(targets weakest — he's a cleanup assassin, not an AOE bomber. Gets stronger with each kill)*
+
+**ID 23 — Dragon Slayer (DPS — Splash Cleave)**
+- Passive: **Dragonbane** — +30% damage to highest-HP enemy. Attacks splash 30% to ALL others
+- Skill: **Dragon Strike** — 3x single target HIGHEST HP enemy + 40% splash to all others
+- Ult: **Dragonfall** — 7x single target HIGHEST HP + 50% splash all. +100% bonus damage if target is a Tank role *(targets the biggest enemy and cleaves — anti-tank specialist)*
+
+**ID 24 — Celestial Vow (Healer — Overheal + Revive)**
+- Passive: **Blessing** — All heals +20% stronger. **Heals can overheal** — excess HP becomes Bonus HP (blue bar, decays 10%/turn, stacks). Dead allies auto-cleansed on revive
+- Skill: **Divine Heal** — Heal lowest ally 35% (can overheal) + shield 15%
+- Ult: **Grace** — Heal all 28% (can overheal) + revive 1 dead ally at 30% HP + 20% shield all
+
+**ID 25 — Eclipse Knight (Tank — Shield Regen Wall)**
+- Passive: **Eclipse** — Regenerate 10% max HP as shield every turn. 65% taunt. Permanent
+- Skill: **Shadow Guard** — 1.5x single + taunt all 2t + self 15% shield
+- Ult: **Total Eclipse** — 4x AOE + self 35% shield + team 15% shield + taunt 3 turns
+
+**ID 26 — The Fallen (DPS — Self-Sacrifice Burst)**
+- Passive: **Unholy Pact** — At battle start: sacrifice 25% max HP permanently → gain +50% ATK permanently. 12% lifesteal on all attacks. Below 30% HP: +25% crit chance
+- Skill: **Hellfire** — 3.5x single + burn (4% HP/turn, 2t)
+- Ult: **Damnation** — Sacrifice 20% current HP → deal 10x SINGLE TARGET + lifesteal 50% of damage dealt *(not AOE — it's a self-destructive mega nuke. He might kill himself using it)*
+
+**ID 27 — Star Breaker (DPS — Mega Single-Target Nuke)**
+- Passive: **Nova** — Start battle with 30 charge. Ult damage +50%. Crits deal +30% extra as AOE splash
+- Skill: **Star Strike** — 3x AOE *(skill is AOE for wave clear)*
+- Ult: **Supernova** — **14x SINGLE TARGET** + if it kills, deal 5x AOE to all remaining *(the quintessential single-target nuke — 14x base, 21x effective with passive. If the target dies, the explosion splashes)*
+
+**ID 28 — Shadow Thief (DPS — Back-Row Assassin)**
+- Passive: **Ambush** — First attack guaranteed crit. +20% crit chance always. +40% damage to BACK ROW enemies specifically
+- Skill: **Backstab** — 3.5x single, targets BACK ROW priority (healers/supports)
+- Ult: **Assassinate** — **12x single target** BACK ROW priority. Execute: instant kill if <25% HP *(pure assassin — dives past tanks to kill healers/supports)*
+
+**ID 29 — Arch Priest (Healer — Mass Revive)**
+- Passive: **Divine Grace** — Whenever any ally uses a skill, passively heal all allies 2% max HP. Start with 40 charge
+- Skill: **Miracle** — Heal all allies 25%
+- Ult: **Resurrection** — Full heal ALL living allies + revive ALL dead allies at 40% HP *(the ultimate healer ult — but no damage whatsoever)*
+
+**ID 30 — Void Tyrant (Tank — Debuff Fortress)**
+- Passive: **Sovereign** — Immune to ALL debuffs. 70% taunt. Attackers are debuffed -15% ATK for 2 turns automatically
+- Skill: **Void Crush** — 2x single + target -25% ATK 3 turns
+- Ult: **Dominion** — 4x AOE + all enemies -30% ATK 3 turns + self 40% shield *(wins by making enemies pathetically weak, not by dealing damage)*
+
+**ID 31 — Phoenix (DPS — DoT Burn Stacker)**
+- Passive: **Rebirth** — Revive once at 50% HP per battle. After reviving: +30% all stats. ALL attacks apply burn (1.5% HP/turn, 2t). Burns STACK — multiple burns tick separately
+- Skill: **Flame Wing** — Low 2x AOE + apply 2 stacks of burn to all enemies (3% HP/turn each, 3t)
+- Ult: **Infernal Rising** — Low 2.5x AOE + apply 4 stacks of burn to all (6% HP total/turn, 4t) + existing burns extended 2 turns *(barely any direct damage — a fight with Phoenix lasts 10 turns and the enemy team melts from stacking burns)*
+
+**ID 32 — Frost Empress (Support — CC Freeze)**
+- Passive: **Permafrost** — All enemies start with -15% SPD. Frozen enemies take +20% damage from all sources
+- Skill: **Glacial Prison** — 2x single + FREEZE 1 target (skip their next turn)
+- Ult: **Absolute Zero** — 3x AOE + FREEZE ALL enemies 1 turn + -30% SPD all enemies 3t *(almost no damage — pure control. The freeze sets up your DPS to obliterate)*
+
+**ID 33 — Blood Moon (DPS — Bleed Stacker)**
+- Passive: **Crimson Tide** — All attacks apply **Bleed** (1.5% max HP/turn, stacks infinitely, lasts 3 turns per stack). Each bleed stack on a target increases ALL bleed tick damage by +15%. 10% lifesteal
+- Skill: **Blood Lance** — 2.5x SINGLE target + apply 3 bleed stacks + drain 5% target max HP as direct heal
+- Ult: **Blood Eclipse** — 3x SINGLE target + apply 5 bleed stacks + **all existing bleed stacks on target have duration reset to 3 turns** + heal self 20% *(low direct damage, but after a few turns the target has 10+ bleed stacks each ticking for 15%+ max HP. Devastating over time. Single-target bleed assassin)*
+
+**ID 34 — Soul Weaver (Support — Damage Link/Redirect)**
+- Passive: **Thread of Fate** — Auto-link to lowest HP ally. Redirect 20% of their damage to Soul Weaver. Linked ally gains +15% ATK
+- Skill: **Life Thread** — 2x single + heal linked ally 20% + shield linked ally 10%
+- Ult: **Web of Souls** — 4x AOE + link ALL allies (each gets 15% damage redirect to Soul Weaver + 10% ATK buff) *(unique identity: a support who tanks for the team through damage sharing)*
+
+**ID 35 — Iron Colossus (Tank — Immovable Wall)**
+- Passive: **Immovable** — 80% taunt. -20% all damage taken. Cannot be pushed/moved. Immune to stun/freeze. Extremely slow but nearly unkillable
+- Skill: **Colossus Slam** — 1.5x AOE + stun 1 random enemy 1 turn
+- Ult: **Titanic Stand** — 2x AOE + self 50% shield + taunt all 4 turns + reflect 20% damage *(the ultimate wall — deals almost no damage but simply will not die)*
+
+**ID 36 — Thunder God (DPS — Crit-Reactive)**
+- Passive: **Lightning Rod** — +25% crit chance. **On crit: gain 8% max HP as shield + heal 5% max HP.** Every 3rd attack deals double damage
+- Skill: **Divine Thunder** — 3.5x SINGLE + chains to 2 more enemies for 50% each
+- Ult: **Judgment** — 7x SINGLE to highest-ATK enemy + guaranteed crit → guaranteed shield + heal on this hit + stun target 2t *(crit-reactive identity: crits keep him alive through shields and heals. Targets the biggest threat)*
+
+**ID 37 — Chrono Mage (Support — Turn Manipulation)**
+- Passive: **Time Warp** — 15% chance any ally gets an extra immediate turn after acting
+- Skill: **Haste** — Buff 1 ally: +40% SPD + +20% ATK 3 turns + give them +30 charge instantly
+- Ult: **Time Stop** — ALL enemies skip next turn + all allies gain +30 charge *(no damage at all — pure turn advantage. The most broken support mechanic in the game)*
+
+**ID 38 — Demon Hunter (DPS — Mega Single-Target)**
+- Passive: **Hunter's Mark** — First attack each turn marks target. Marked targets take +20% damage from ALL sources for 2 turns. Mark cannot be cleansed
+- Skill: **Silver Bolt** — 4x SINGLE + mark + ignore shields
+- Ult: **Annihilation** — **18x SINGLE TARGET.** If target is marked: additional 4x hit. *(THE single-target nuke of the game. 18x base, 22x on marked targets. Will one-shot almost anything but does nothing to others)*
+
+**ID 39 — War Maiden (Support — Team Buffer)**
+- Passive: **Battle Standard** — All allies +12% ATK and +12% HP at battle start (permanent)
+- Skill: **Rally Cry** — Buff all allies +15% ATK 3 turns + cleanse 1 debuff each
+- Ult: **Valor** — All allies +30% all stats 3 turns + shield all 15% + heal all 15% *(pure team amplifier — makes everyone else better)*
+
+---
+
+### EX RANK — 10 Units
+
+| ID | Name | Emoji | Role | Archetype | Base HP | Base ATK | SPD |
+|----|------|-------|------|-----------|---------|----------|-----|
+| 40 | The Absolute | ♾️ | DPS | Omnipotent | 8000 | 650 | 18 |
+| 41 | Abyss Dragon | 🐉 | DPS | AOE devastator | 9000 | 600 | 16 |
+| 42 | World Eater | 🐲 | DPS | Kill-snowball + overheal | 7500 | 680 | 17 |
+| 43 | Genesis | 🌅 | Healer | Clone summoner + full heal | 8500 | 400 | 14 |
+| 44 | The Fool | 🃏 | Support | Chaos RNG copycat | 6500 | 550 | 20 |
+| 45 | Null | ⬛ | DPS | Delete (instant kill) | 7000 | 700 | 15 |
+| 46 | Omega | ⚛️ | DPS | Free-skill reactor | 6800 | 720 | 19 |
+| 47 | The Undying | 💀 | Tank | Multi-revive wall | 12000 | 300 | 10 |
+| 48 | Cosmos | 🌌 | Support | Charge battery + crit amp | 8000 | 480 | 15 |
+| 49 | Eternal | ☀️ | Healer | Passive auto-revive + overheal | 9000 | 380 | 13 |
+
+**ID 40 — The Absolute (DPS — Omnipotent)**
+- Passive: **Beyond** — All basic attacks hit AOE. 20% execute threshold. 30% lifesteal (can overheal → Bonus HP). Immune to debuffs. +6% ATK/turn permanent. Revive once at 40%
+- Skill: **Reality Break** — 5x AOE + heal 20% of damage dealt (can overheal)
+- Ult: **Absolute Zero** — 12x AOE + full self-heal + 40% shield all allies *(the most loaded kit in the game — does everything)*
+
+**ID 41 — Abyss Dragon (DPS — AOE Devastator)**
+- Passive: **Oblivion** — All attacks AOE. 18% execute threshold. Heal 25% damage dealt. Immune to CC. +5% ATK/turn
+- Skill: **Void Breath** — 5x AOE + all enemies -25% ATK for 2t
+- Ult: **Armageddon** — 10x AOE + team 30% shield + heal all 20% *(pure AOE devastation — the hardest-hitting AOE ult in the game)*
+
+**ID 42 — World Eater (DPS — Kill-Snowball + Overheal)**
+- Passive: **Consume** — Heal 25% of ALL damage dealt (**can overheal → Bonus HP**). +10% ATK per kill (permanent, stacks infinitely). On kill: reset skill charge to 50%
+- Skill: **Devour** — 4.5x SINGLE + heal 35% of damage (can overheal) + steal 1 buff from target
+- Ult: **World End** — 9x SINGLE target HIGHEST HP + heal 50% of damage as overheal + gain ATK equal to 5% of damage dealt permanently *(single-target monster that gets stronger and fatter with every kill)*
+
+**ID 43 — Genesis (Healer — Clone Summoner)**
+- Passive: **Creation** — Start with 60 charge. Every turn: summon a clone (15% of Genesis stats, basic attacks only, dies in 3 turns). Team regen 2% HP/turn. Clones count as allies for targeting
+- Skill: **Life Wave** — Heal all 25% (can overheal) + 3x AOE
+- Ult: **Big Bang** — 8x AOE + full heal all allies + 25% shield all + revive all dead at 50%
+
+**ID 44 — The Fool (Support — Chaos RNG Copycat)**
+- Passive: **Fate Weaver** — Start with 50 charge. At battle start: copy a random enemy's passive for the whole fight. 10% chance each turn to copy another random passive from any unit on field. Wild and unpredictable
+- Skill: **Wild Card** — Random 3x–9x multiplier, random target (single or AOE chosen randomly). Random bonus effect (burn/poison/stun/freeze/bleed chosen randomly)
+- Ult: **Chaos Destiny** — 7x AOE + copy random enemy ult effect and apply it + buff all allies +20% all stats 3t *(completely chaotic — sometimes game-breaking, sometimes mediocre)*
+
+**ID 45 — Null (DPS — Delete)**
+- Passive: **Erasure** — 8% chance on ANY hit to instantly kill target (bypasses everything including revive). All attacks ignore shields + defense. Cannot be debuffed
+- Skill: **Delete** — 5x SINGLE + strip ALL buffs + prevent target from gaining buffs 2t
+- Ult: **Void Zero** — **15x SINGLE. Execute: instant kill if <30% HP. Cannot be dodged, blocked, reduced, or survived through revive.** *(the ultimate delete button — single-target only but nothing survives)*
+
+**ID 46 — Omega (DPS — Free-Skill Reactor)**
+- Passive: **Reactor** — Every 3rd basic attack triggers a FREE skill automatically (no charge cost). +12% skill damage permanently. All attacks penetrate 30% defense. On crit: next skill deals +25% damage
+- Skill: **Particle Beam** — 4.5x SINGLE, penetrates defense + shields
+- Ult: **Omega Surge** — 9x AOE + all enemies -20% ATK *(unique rhythm: basic → basic → basic+free skill → basic → basic → basic+free skill. Constant skill spam)*
+
+**ID 47 — The Undying (Tank — Multi-Revive Wall)**
+- Passive: **Deathless** — 80% taunt. On death: revive at 45% HP + 25% shield + 10% lifesteal. **Can trigger 3 times per battle.** -25% damage taken always
+- Skill: **Death Grip** — 2x single + lifesteal 30% + taunt all 2t
+- Ult: **Immortal** — 4x AOE + full self heal + 50% shield + taunt all 4t + reflect 25% damage *(cannot be killed permanently — you have to kill him 4 times)*
+
+**ID 48 — Cosmos (Support — Charge Battery + Crit Amplifier)**
+- Passive: **Constellation** — All allies +15% ATK and +15% HP. **When any ally crits, ALL allies gain +5 charge.** When any ally crits, that ally gains 5% max HP shield. Start with 30 charge
+- Skill: **Starlight** — Buff all: +25% crit chance + +25% crit damage 3t + all allies gain +15 charge
+- Ult: **Galaxy** — 6x AOE + all allies gain +50 charge + +30% all stats 3t + heal all 15% *(makes the whole team cycle ults faster through crit-charge generation)*
+
+**ID 49 — Eternal (Healer — Passive Auto-Revive + Overheal)**
+- Passive: **Timeless** — All heals +30% stronger. **All heals can overheal → Bonus HP.** Dead allies are auto-revived at 20% HP once each (happens passively at start of Eternal's turn, no action needed). Team regen 3% HP/turn
+- Skill: **Eternity's Touch** — Heal all allies 30% (can overheal) + shield 15% + cleanse all debuffs
+- Ult: **Immortal Light** — Full heal all allies (can overheal to +50% Bonus HP) + revive all dead at 60% HP + all allies immune to damage 1 turn
+
+---
+
+## 3. COMBAT SYSTEM
+
+### 3A. Charge Bar Mechanics (CRITICAL CHANGE)
+- **Basic Attack:** Always available when charge < 50. Grants **+15 charge** per use. 1x multiplier, single target
+- **Skill at 50% charge:** Fires automatically when charge ≥ 50. **Does NOT reset bar.** Charge continues accumulating. Skill itself grants +10 charge
+- **Ultimate at 100% charge:** Fires automatically when charge ≥ 100. **RESETS bar to 0.**
+- Getting hit: +8 charge. Killing an enemy: +20 charge
+- Some passives/gear grant starting charge
+- **This means:** Units cycle → basic attack (×3-4) → skill fires → basic attack (×2-3) → ult fires → reset. Much faster ult cycles. EVERYONE uses their ult regularly now
+
+### 3B. ALL Enemies Get Full Kits
+**ALL enemies in ALL modes use the actual hero database.**
+- Story enemies: random units from DB scaled to stage difficulty
+- Tower enemies: full team of 5 randomized DB units
+- Arena enemies: full team of 5 randomized DB units
+- Dungeon enemies: DB units
+- **Enemies use basic attack, skills at 50%, ults at 100%, have active passives** — same rules as player units. No more enemies that only basic attack
+
+### 3C. Team Composition > Pure Stats
+**Design philosophy: a balanced team of lower power should beat a stat-ball team of higher power.**
+
+- **Tanks:** 3-5× the HP of a DPS. ATK is 30-50% of a DPS. They exist to absorb, taunt, shield — NOT to deal damage
+- **Healers:** Moderate HP, low ATK. Without one, teams crumble in fights longer than 5 turns
+- **Supports:** Moderate everything. Their buffs/debuffs/CC create +50-100% effective team power swings
+- **DPS:** High ATK, low-medium HP. Without a tank to absorb aggro, they get focused and die
+- **5 DPS with no tank/healer should LOSE to a balanced comp of equal total power**
+
+**Enemy AI improvements:**
+- Enemies prioritize squishy targets (lowest HP) unless taunted
+- Enemy healers heal their lowest ally
+- Enemy supports buff their highest-ATK ally
+- Enemy assassins (Shadow Thief, etc.) target back-row
+- Enemy tanks use taunt on their turn
+
+### 3D. Formation System — Clear Front/Back with Swap
+
+**Layout: 2 Front + 3 Back**
+
+```
+FRONT ROW (2 slots):  [Slot 1]  [Slot 2]
+BACK ROW  (3 slots):  [Slot 3]  [Slot 4]  [Slot 5]
+```
+
+- Front row units have 65% targeting priority from enemies (they get hit more)
+- Back row units have 35% targeting priority (protected behind front)
+- Tanks naturally go front. Healers/supports go back. DPS is flexible
+- **Taunted units override targeting** — taunt forces enemies to hit the taunter regardless of row
+
+**Swapping positions:**
+- On the Team screen, tap one unit on your team → they highlight
+- Tap ANOTHER unit on your team → they swap positions
+- Tap an empty slot → the highlighted unit moves there
+- Tap the same unit again → deselect
+- Clear visual labels: "FRONT" and "BACK" with a dividing line
+- Row position matters for abilities (Shadow Thief targets back row, Dragon Slayer splash, etc.)
+
+### 3E. Shield Display on HP Bar
+- Shield shown as a **lighter semi-transparent segment** extending over/past the HP fill
+- Color: white/light blue overlay on the green/red HP bar
+- HP text shows: `HP / MaxHP + 🛡Shield`
+- Shield absorbs damage before HP
+
+### 3F. Bonus HP (Overheal) Display
+- Shown as a **blue extension** on the HP bar past the normal HP fill
+- Separate from shield (shield is white/light blue, bonus HP is blue)
+- Text: `HP / MaxHP + 💙BonusHP + 🛡Shield`
+- Bonus HP decays 10% per turn
+- Damage order: Shield → Bonus HP → HP
+
+### 3G. Bleed (New Status Effect)
+- Deals % max HP damage per turn
+- **Stacks infinitely** — multiple bleeds stack and each tick independently
+- Each bleed stack on a target makes ALL bleed ticks on that target +15% stronger
+- 3-turn duration per stack (can be refreshed)
+- Blood Moon and Plague Doctor specialize in this
+
+---
+
+## 4. SKILL / ULT / PASSIVE SYSTEM
+
+### 4A. Unlock Changes (CRITICAL)
+- **Skill:** Available immediately. No unlock
+- **Ultimate:** Available immediately. No unlock
+- **Passive:** Unlocked and strengthened via STARS:
+  - ★0: Passive at 50% effectiveness (or locked for N/R)
+  - ★1: Passive fully unlocked at base value
+  - ★3: Passive enhanced (stronger values)
+  - ★5: Passive maximum (some gain bonus effects)
+  - ★7+: Further enhancement for high-star units
+
+### 4B. Scaling with Level + Stars
+- **Skill/Ult multiplier scales with LEVEL:**
+  - Multiplier = base × (1 + level × 0.004)
+  - Level 100: +40% skill/ult damage
+  - Level 300: +120% skill/ult damage
+  - Level 500: +200% skill/ult damage
+- **Stars add flat bonus:**
+  - Each star: +5% to skill AND ult multiplier
+  - ★10: +50% total from stars
+- **Passives scale with STARS** (unit-specific, see roster)
+- **Base stats (HP/ATK/SPD) scale with LEVEL:**
+  - HP/ATK: base × (1 + (level-1) × 0.008) × star_multiplier
+  - Star multiplier: 1.12 per star
+  - This means a level 500 ★10 unit has roughly 12× their base stats
+
+### 4C. Detailed Skill Descriptions in UI
+Every ability shows:
+- Name + type tag (PASSIVE / SKILL 50⚡ / ULT 100⚡)
+- Full text description
+- Current multiplier → next upgrade multiplier
+- Targeting: Single / AOE / Lowest HP / Highest HP / Back Row / Self / All Allies
+- Special effects with values: Burn 3%/2t, Bleed 2%/3t, Stun 1t, etc.
+- Charge cost and charge gained
+
+---
+
+## 5. UNIT UPGRADE UI (FULL-SCREEN)
+
+**Replaces the current tiny modal. Now a dedicated full-screen view.**
+
+### Top Section (always visible):
+- **Large unit emoji** centered at top
+- **Unit name** in bold, large font, inside a styled box
+- **Rarity badge** (N/R/SR/SSR/EX) with color
+- **Power rating** ⚡ number
+- **◀ LEFT ARROW** and **RIGHT ARROW ▶** on the sides — tap to cycle through your collection without closing. Smooth transition between units
+
+### Tab Bar (3 tabs):
+
+#### TAB 1: "UPGRADE"
+- **Level section:**
+  - `Lv. 247 / 500` with progress bar
+  - Buttons: `+1` `+10` `+100` `MAX`
+  - Cost shown: "Cost: 1,200🪙 150✨"
+- **Star section:**
+  - Visual star display with icons
+  - Star-up button: "⬆ Star Up (Need 3 copies + 24,000🪙)"
+  - Current copies count
+- **Stat preview panel:**
+  ```
+  HP:    45,200  → 45,880 (+680)
+  ATK:   12,400  → 12,590 (+190)
+  SPD:   18
+  POWER: 82,500  → 84,200 (+1,700)
+  ```
+  Shows what CHANGES with the next level-up or star-up
+
+#### TAB 2: "SKILLS"
+Three cards stacked vertically:
+
+**PASSIVE card:**
+- Name + "PASSIVE" tag
+- Detailed description with current values
+- Star thresholds: "★1: Unlock → ★3: Enhanced → ★5: Maximum"
+- Current unlock state highlighted
+- Locked state shown with lock icon if stars too low
+
+**SKILL card (50⚡):**
+- Name + "SKILL · 50⚡" tag
+- Full description: targeting, multiplier, effects
+- Current multiplier and preview of next level's multiplier
+- "Lv.247: 3.5x → Lv.248: 3.51x"
+
+**ULT card (100⚡):**
+- Same format as skill card
+- "ULTIMATE · 100⚡" tag
+
+**TRAIT section:**
+- Current trait with rarity badge (Feeble/Normal/Strong/Elite/Legendary/Mythic)
+- Reroll button: "🎲 Reroll (1 Token)"
+- **If current trait is Legendary or Mythic rarity → CONFIRMATION POPUP before reroll:**
+  > "⚠️ You have a Mythic trait: '+45% ATK+HP+15% lifesteal'. Rerolling will DESTROY this trait. Continue?"
+  > [Reroll Anyway] [Cancel]
+- **"📊 View Chances" button** showing trait rarity weights
+
+#### TAB 3: "EQUIPMENT"
+Three gear slots displayed vertically:
+
+```
+⚔️ WEAPON:  [Cosmic Edge (EX)]     [Unequip]
+            +450 ATK · All attacks become AOE at 40% dmg
+
+🛡️ ARMOR:   [Empty — Tap to Equip]
+
+💍 ACCESSORY:[Chaos Orb (SSR)]      [Unequip]
+            +180 ATK +1200 HP · 15% double-strike on basic
+```
+
+- Tap empty slot or equipped gear → opens filtered gear inventory
+- Gear inventory shows all owned gear of that slot type
+- Tap gear → equip (auto-unequips from any other unit)
+- Each gear shows its unique passive in the list
+- Gear currently on another unit shows "(On: Shadow Thief)" — tap to steal/swap
+
+---
+
+## 6. EQUIPMENT SYSTEM
+
+### 6A. Unique Gear with Passives
+Every gear piece has: unique name, rarity, stats, and a **unique passive effect**.
+
+### 6B. Gear Rarity
+N / R / SR / SSR / EX (same colors as unit rarity).
+
+### 6C. Full Gear List (30 pieces — 10 per slot)
+
+**WEAPONS (⚔️ slot)**
+
+| # | Name | Rarity | ATK | Passive |
+|---|------|--------|-----|---------|
+| W0 | Rusty Blade | N | +30 | — |
+| W1 | Steel Sword | N | +60 | +3% crit chance |
+| W2 | Flame Edge | R | +100 | 10% attacks apply burn (2% HP, 2t) |
+| W3 | Thunder Fang | R | +130 | Every 4th attack deals +50% damage |
+| W4 | Void Saber | SR | +180 | Attacks ignore 15% defense |
+| W5 | Crescent Blade | SR | +220 | +20% damage to enemies >70% HP |
+| W6 | Dragon Tooth | SSR | +300 | +25% dmg to Tanks. Splash 15% |
+| W7 | Soul Reaver | SSR | +350 | On kill: +10% ATK rest of battle (×3 stack) |
+| W8 | Cosmic Edge | EX | +450 | All attacks splash 40% to all other enemies |
+| W9 | Oblivion | EX | +500 | 3% instant-kill chance. Ignore shields |
+
+**ARMOR (🛡️ slot)**
+
+| # | Name | Rarity | HP | Passive |
+|---|------|--------|-----|---------|
+| A0 | Cloth Wrap | N | +300 | — |
+| A1 | Iron Mail | N | +600 | -3% damage taken |
+| A2 | Frost Plate | R | +1000 | Attackers slowed 15% for 1t |
+| A3 | Bone Armor | R | +1300 | On death: deal 20% max HP to attacker |
+| A4 | Crystal Shell | SR | +1800 | Start battle with 10% max HP shield |
+| A5 | Blood Plate | SR | +2200 | 5% lifesteal on all attacks |
+| A6 | Titan Guard | SSR | +3000 | -15% all damage. Immune to stun |
+| A7 | Phoenix Mantle | SSR | +3500 | On first death: auto-revive 25% HP |
+| A8 | Voidweave | EX | +4500 | -25% damage + reflect 10% back |
+| A9 | Aegis Eternal | EX | +5000 | Start 20% shield. Shield regens 3%/turn |
+
+**ACCESSORIES (💍 slot)**
+
+| # | Name | Rarity | ATK | HP | Passive |
+|---|------|--------|-----|-----|---------|
+| C0 | Copper Ring | N | +10 | +100 | — |
+| C1 | Speed Charm | N | +15 | +150 | +1 SPD |
+| C2 | Crit Amulet | R | +40 | +400 | +8% crit chance |
+| C3 | Lifestone | R | +30 | +600 | Heal 2% max HP/turn |
+| C4 | Rage Pendant | SR | +80 | +800 | +15% skill damage |
+| C5 | Focus Gem | SR | +100 | +1000 | +20% ult damage. +15 start charge |
+| C6 | War Emblem | SSR | +150 | +1500 | +15% all stats |
+| C7 | Chaos Orb | SSR | +180 | +1200 | 15% double-strike on basic attack |
+| C8 | Infinity Loop | EX | +250 | +2000 | +20% all stats. +25 start charge |
+| C9 | Crown of Ages | EX | +200 | +2500 | Team +8% ATK. Self immune to first debuff |
+
+### 6D. Gear Sources
+- Story stages: gear drops based on stage# (higher = higher rarity chance)
+- Tower floors: gear drops every 5 floors
+- Dungeon: gear drops on milestone floors
+- Shop: buy with gold (prices scale with rarity)
+- Arena: rare gear from rank milestones
+
+---
+
+## 7. STORY MODE & STAGE REWARDS
+
+### 7A. 100 Stages, Slow Ramp
+- Stages 1–10: 2–3 N-rank enemies. Tutorial
+- Stages 11–25: 3–4 R/SR enemies
+- Stages 26–50: 4–5 SR enemies
+- Stages 51–75: 5 SSR enemies
+- Stages 76–100: 5 SSR/EX mix. Endgame
+- Every 10th stage: BOSS (5 enemies +50% stats)
+
+### 7B. Enemies are DB Units
+No more generic slimes. Every enemy is a real hero from the database with their full kit (basic/skill/ult/passive).
+
+### 7C. Rewards — ALL Stages Give Gold + Gems + Essence
+
+| Stage Range | Gold | Gems | Essence | Tokens |
+|-------------|------|------|---------|--------|
+| 1–10 | 500 + stg×200 | 10 + stg×5 | 50 + stg×30 | stg%3==0 ? 1 : 0 |
+| 11–25 | 2,000 + stg×500 | 30 + stg×10 | 200 + stg×80 | stg%3==0 ? 2 : 0 |
+| 26–50 | 10,000 + stg×1,500 | 80 + stg×25 | 800 + stg×200 | stg%2==0 ? 3 : 0 |
+| 51–75 | 50,000 + stg×5,000 | 200 + stg×50 | 3,000 + stg×500 | 5 per stage |
+| 76–100 | 200,000 + stg×15,000 | 500 + stg×100 | 10,000 + stg×1,500 | 10 per stage |
+
+First-clear bonus: double rewards.
+
+### 7D. Skip / Auto-Clear
+- **Before entering any previously beaten stage:** ☑ checkbox "Auto-Clear"
+- Checked: instant complete + rewards, no battle
+- **Spam-clickable:** tap stage → auto-clear → rewards silently added → next stage button appears → tap → repeat. You can rapid-fire through stages 1→2→3→…→(first unbeaten stage)
+- Unbeaten stages: must actually battle
+- Visual: beaten stages show ✅ checkmark
+
+---
+
+## 8. TOWER REDESIGN
+
+### 8A. Full 5v5 Enemy Teams Every Floor
+- Floor 1–20: 5 N/R enemies
+- Floor 21–50: 5 R/SR enemies, scaling levels
+- Floor 51–80: 5 SR/SSR enemies
+- Floor 81–100: 5 SSR enemies
+- Floor 100+: 5 SSR/EX mix, infinite scaling
+- Every 25th floor: Boss (+80% stats)
+
+### 8B. Same Skip System as Story
+Auto-clear for beaten floors. Spam-clickable to advance to frontier.
+
+### 8C. Tower Rewards (gold + gems + essence every floor)
+
+| Floor Range | Gold | Gems | Essence | Tokens |
+|-------------|------|------|---------|--------|
+| 1–25 | 1,000×fl | 5×fl | 100×fl | fl%5==0 ? 2 : 0 |
+| 26–50 | 3,000×fl | 15×fl | 300×fl | fl%5==0 ? 3 : 0 |
+| 51–100 | 8,000×fl | 30×fl | 800×fl | 5 per floor |
+| 100+ | 15,000×fl | 50×fl | 1,500×fl | 8 per floor |
+
+---
+
+## 9. ARENA REDESIGN
+
+### 9A. Real Teams
+Opponents have **actual randomized teams of 5 DB units**. Levels/stars scale with your arena rank. You see their full team before fighting.
+
+### 9B. Watchable Battles
+Arena uses the same battle engine as story. AUTO/SPEED/SKIP controls. Real combat, real composition matters.
+
+### 9C. Arena Rewards
+- Win: 10,000 gold + 50 gems + 2,000 essence (+ rank bonuses)
+- Rank milestones: big bonus at rank 100k / 50k / 10k / 1k / 100 / 10 / 1
+- Unlimited attempts
+
+---
+
+## 10. GACHA & SHOP
+
+### 10A. Summon Buttons
+
+| Button | Cost | Notes |
+|--------|------|-------|
+| ×1 | 30 💎 | Single pull |
+| ×10 | 270 💎 | Guaranteed R+ last |
+| ×100 | 2,500 💎 | Guaranteed SR+ last |
+| ×1,000 | 22,000 💎 | Guaranteed SSR+ last |
+| ×10,000 | 200,000 💎 | Guaranteed EX on last pull |
+
+### 10B. "📊 View Rates" Button (Prominent on Gacha Screen)
+
+| Rarity | Rate |
+|--------|------|
+| N | 45% |
+| R | 30% |
+| SR | 15% |
+| SSR | 8% |
+| EX | 2% |
+
+Also shows: Pity at 80 pulls (SSR+), Mega pity at 300 (EX guaranteed).
+
+### 10C. Shop: Buy Max Button
+- Hero shard shop: each hero has a **"Buy Max"** button
+- One click: buys as many copies as you can afford
+- Pricing: SR = 5,000/copy, SSR = 25,000/copy, EX = 100,000/copy
+
+### 10D. Trait Reroll Confirmation
+- If current trait is **Legendary or Mythic** rarity → popup:
+  > "⚠️ You have a Mythic trait: '+45% ATK+HP+15% lifesteal'. Rerolling will DESTROY this. Continue?"
+  > [Reroll Anyway] [Cancel]
+
+### 10E. View Chances on ALL Random Outcomes
+- Gacha: pull rates
+- Trait reroll: rarity weights
+- Gear drops: drop rate per stage
+- Every random thing gets an ℹ️ button
+
+---
+
+## 11. RESOURCE ECONOMY
+
+### 11A. Level-Up Cost (Flattened)
+
+| Level Range | Gold/Level | Dust/Level |
+|-------------|-----------|-----------|
+| 1–50 | 50 + lv×10 | 5 + lv×2 |
+| 51–100 | 200 + lv×20 | 20 + lv×4 |
+| 101–200 | 500 + lv×40 | 50 + lv×8 |
+| 201–300 | 1,000 + lv×80 | 100 + lv×15 |
+| 301–500 | 2,000 + lv×150 | 200 + lv×25 |
+
+Total 1→500: ~15M gold, ~3M dust. Very achievable with stage 80+ farming.
+
+### 11B. Cheats Buffed 1000×
+- Gem tap cheat: +9,999,999,999 gold, +9,999,999,999 gems, +999,999,999 dust, +9,999,999 tokens
+- Dev tap cheat: all heroes unlocked ★10 lv500, all gear ×10, maxStage=100
+
+### 11C. ALL Content Gives Resources
+Every activity rewards gold + gems + essence: Story, Tower, Dungeon, Arena, Daily login.
+
+---
+
+## 12. UI/UX FIXES — COMPLETE LIST
+
+| # | Fix | Details |
+|---|-----|---------|
+| 1 | Shield on HP bar | Lighter overlay segment. Text: `HP + 🛡Shield` |
+| 2 | Bonus HP on HP bar | Blue extension past HP. Text: `HP + 💙Bonus + 🛡Shield` |
+| 3 | Auto-clear checkmark | ☑ on beaten stages. Spam-clickable skip |
+| 4 | View Rates button | On gacha screen, prominent |
+| 5 | View Chances on traits | ℹ️ button showing trait rarity weights |
+| 6 | Trait reroll confirmation | Popup for Legendary/Mythic traits |
+| 7 | Summon ×10,000 | 200,000 gems. EX guaranteed on last |
+| 8 | Remove skill/ult unlock | Skills+ults active from level 1 |
+| 9 | Passive gated by stars | ★1 unlock, ★3 enhance, ★5 max |
+| 10 | Buy Max in shop | One-click buy all affordable copies |
+| 11 | Cheats ×1000 | Massively more resources from cheat codes |
+| 12 | Full-screen unit upgrade | 3-tab layout with arrows to switch units |
+| 13 | Equipment equip screen | Tab 3 of unit upgrade. Tap slot → inventory |
+| 14 | Formation swap | Tap unit A → tap unit B → positions swap |
+| 15 | Front 2 / Back 3 layout | Clear labels. Front row = higher targeting priority |
+| 16 | Enemies use full kits | Basic/skill/ult/passive — same as player units |
+| 17 | All stages give all resources | Gold + gems + essence from everything |
+| 18 | 100 story stages | Up from 25 |
+
+---
+
+## 13. STAR-UP COPY REQUIREMENTS
+
+**Rarer units need FEWER copies.**
+
+| Rarity | ★1 | ★2 | ★3 | ★4 | ★5 | ★6 | ★7 | ★8 | ★9 | ★10 | Max ★ |
+|--------|----|----|----|----|----|----|----|----|----|----|-------|
+| N | 4 | 6 | 8 | 10 | 14 | 18 | 22 | 28 | 34 | 40 | 10 |
+| R | 3 | 5 | 7 | 9 | 12 | 16 | 20 | 25 | 30 | 36 | 10 |
+| SR | 2 | 4 | 6 | 8 | 10 | 13 | 16 | 20 | 25 | 30 | 10 |
+| SSR | 1 | 2 | 3 | 5 | 7 | 9 | 12 | 15 | 18 | 22 | 10 |
+| EX | 1 | 1 | 2 | 3 | 4 | 6 | 8 | 10 | 12 | 15 | 10 |
+
+Gold cost per star-up: rarity_multiplier × 500 × (star+1)²
+- N: ×1, R: ×2, SR: ×5, SSR: ×10, EX: ×20
+
+---
+
+## 14. IMPLEMENTATION PRIORITY ORDER
+
+### Phase 1 — Core Systems
+1. Rarity collapse: 12 → 5 (N/R/SR/SSR/EX)
+2. Hero roster: 50 units with unique kits
+3. Charge bar: skill at 50% (no reset), ult at 100% (resets)
+4. Remove unlock system. Passives gated by stars
+5. Enemy AI: enemies use full kits from DB
+6. Resource economy: massive reward scaling + cheat buff
+
+### Phase 2 — UI Overhaul
+7. Full-screen unit upgrade (3 tabs + arrows)
+8. Equipment system (30 unique gear + equip UI)
+9. Shield + Bonus HP display on HP bar
+10. Formation: clear front 2 / back 3 with swap mechanic
+11. View Rates + View Chances buttons
+12. Trait reroll confirmation
+
+### Phase 3 — Content & Modes
+13. Story: 100 stages with DB-unit enemies + massive rewards
+14. Skip/auto-clear checkmark system
+15. Tower: full 5v5 enemy teams
+16. Arena: real watchable battles with randomized DB teams
+17. Summon ×10,000
+18. Shop Buy Max
+
+### Phase 4 — Polish
+19. Bleed status effect implementation
+20. Overheal / Bonus HP mechanic
+21. Crit-reactive effects (crit → shield, crit → heal, etc.)
+22. Gear drops from all content
+23. Star-up copy scaling by rarity
+24. Balance pass: ensure comp > stats
+
+---
+
+## CHANGE SUMMARY (34 total changes)
+
+| # | Change | Old | New |
+|---|--------|-----|-----|
+| 1 | Rarities | 12 (Common→Transcendent) | 5 (N/R/SR/SSR/EX) |
+| 2 | Unit count | 38, uneven | 50, all roles per rarity |
+| 3 | Skill at 50% | Unclear bar behavior | No reset, bar continues |
+| 4 | Ult at 100% | Enemies never used it | Resets bar. All use it |
+| 5 | Enemy combat | Basic attack only | Full kits (basic/skill/ult/passive) |
+| 6 | DPS ults | Nearly all AOE | Mixed: single-target nukes, DoTs, executes, AOE |
+| 7 | Overheal | Did not exist | Excess heal → Bonus HP (blue bar) |
+| 8 | Bleed | Did not exist | Stacking DoT, stacks amp each other |
+| 9 | Crit-reactive | Did not exist | Crits → shields, heals, debuffs |
+| 10 | Unit upgrade UI | Small modal | Full-screen, 3 tabs, arrows |
+| 11 | Equipment | Generic stat sticks, no equip screen | 30 unique gear with passives + equip UI |
+| 12 | Story stages | 25 | 100 |
+| 13 | Stage rewards | Some gave nothing | ALL give gold+gems+essence, massive scaling |
+| 14 | Tower enemies | 1-3 generic | Full team of 5 DB units |
+| 15 | Arena | Instant RNG resolve | Real watchable battles |
+| 16 | Auto-clear | Did not exist | ☑ checkmark, spam-clickable |
+| 17 | View Rates | Did not exist | Prominent button on gacha |
+| 18 | Trait confirmation | Did not exist | Popup for top-rarity traits |
+| 19 | Summon ×10,000 | Max ×1,000 | New button, EX guaranteed |
+| 20 | Skill/ult unlock | Level-gated | Immediate, no unlock |
+| 21 | Passive unlock | Always active | Star-gated (★1/★3/★5) |
+| 22 | Buy Max | Did not exist | One-click in shop |
+| 23 | Cheats | ~10M resources | ~10B resources (1000×) |
+| 24 | Shield display | Not shown | On HP bar as overlay |
+| 25 | Copy scaling | Uniform | Rarer = fewer copies |
+| 26 | Formation | Unclear | Clear front 2 / back 3 + swap |
+| 27 | Team comp | Stat-check | Comp > stats by design |
+| 28 | Tank design | Slightly bulkier DPS | Extreme HP, tiny ATK, taunt/shield |
+| 29 | Basic attack | Some units idled | Always available below 50% charge |
+| 30 | N/R kits | Bare/useless | Decent but weaker skills |
+| 31 | Level cost | Exponential, starving | Flattened curve |
+| 32 | DoT specialists | Limited | Phoenix (burn stacker), Blood Moon (bleed), Plague Doctor |
+| 33 | Single-target nukers | Rare | Demon Hunter 18x, Star Breaker 14x, Shadow Thief 12x |
+| 34 | Gear sources | Shop only | Drops from story/tower/dungeon + shop |
