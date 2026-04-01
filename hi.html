@@ -471,9 +471,9 @@ async function rTurns(){
     const canUlt=u.uM>0;
     if(TRANSFORM_IDS.has(u.id_orig!==undefined?u.id_orig:u.id)&&!u.transformed){u.tfBar=Math.min(100,(u.tfBar||0)+5);uTF(u);if(u.tfBar>=100&&!u.transformed)doTransform(u);}
     if((u.pT==='fw'||u.pT==='fw2')&&!u.transformed){
-      const allUnits=[...(u.side==='a'?B.ens:B.als),...(u.side==='a'?B.als:B.ens)].filter(f=>f.alive&&f!==u&&f.pT);
-      if(allUnits.length&&!u.copiedPT){const best=allUnits.sort((a,b)=>b.a-a.a)[0];u.copiedPT=best.pT;u.copiedPV=best.pV||0.1;blog('🃏 '+u.n+' copies: '+best.pN);}
-      if(u.copiedPT&&Math.random()<(u.pT==='fw2'?0.25:0.10)){const pool=allUnits.filter(f=>f.pT!==u.copiedPT);if(pool.length){const src2=pool.sort((a,b)=>b.a-a.a)[0];u.copiedPT=src2.pT;u.copiedPV=src2.pV||0.1;blog('🃏 '+u.n+' new passive: '+src2.pN);}}
+      const allUnits=[...(u.side==='a'?B.ens:B.als),...(u.side==='a'?B.als:B.ens)].filter(f=>f.alive&&f!==u&&f.pT).sort((a,b)=>b.a-a.a);
+      if(allUnits.length&&!u.copiedPT){const best=allUnits[0];u.copiedPT=best.pT;u.copiedPV=best.pV||0.1;blog('🃏 '+u.n+' copies: '+best.pN);}
+      if(u.copiedPT&&Math.random()<(u.pT==='fw2'?0.25:0.10)){const pool=allUnits.filter(f=>f.pT!==u.copiedPT);if(pool.length){const src2=pool[0];u.copiedPT=src2.pT;u.copiedPV=src2.pV||0.1;blog('🃏 '+u.n+' new passive: '+src2.pN);}}
       u.a=~~(u.a*1.015);
     }
     if(u.charge>=100&&canUlt)await doUlt(u);
@@ -494,7 +494,6 @@ async function doAtk(u){const t=pickT(u);if(!t)return;u.charge=Math.min(100,(u.c
   if(u.pT==='co'||u.pT==='ob'||u.pT==='absX'){u.hp=Math.min(u.maxHp,u.hp+~~(u.a*m*(u.pT==='co'?u.pV:.20)));uHP(u);}
   if(u.pT==='bc'&&Math.random()<u.pV&&t&&t.alive)t.efx.push({t:'burn',v:~~(u.maxHp*.03),dur:2});
   if(u.pT==='hv'&&t&&!t.alive){u.hp=Math.min(u.maxHp,u.hp+~~(u.maxHp*.15));uHP(u);blog('⚡ Extra turn!');await sl(bd()*.1);if(u.alive&&B&&!B.done)await doAtk(u);}
-  if(t&&t.alive){t.charge=Math.min(100,(t.charge||0)+8);uCH(t);}
   await sl(bd()*.08);retU(u);await sl(bd()*.1);}
 
 async function doSk(u){u.skFired=true;if(TRANSFORM_IDS.has(u.id_orig!==undefined?u.id_orig:u.id)&&!u.transformed){u.tfBar=Math.min(100,(u.tfBar||0)+5);uTF(u);if(u.tfBar>=100)doTransform(u);}const t=pickT(u);showSP(u.sN,RC[u.r]||'#fff');await sl(bd()*.15);
@@ -541,7 +540,7 @@ async function aDmg(atk,tgt,m,cr,isSk,type){
   if(atk.pT==='eb'&&tgt.hp<tgt.maxHp*.4)dmg=~~(dmg*(1+atk.pV));
   if((atk.pT==='ob'||atk.pT==='absX')&&tgt.hp>0&&tgt.hp<tgt.maxHp*atk.pV){tgt.hp=0;tgt.alive=0;uHP(tgt);showDN(tgt,'☠','ut');shk();return;}
   if(tgt.shield>0){const ab=Math.min(tgt.shield,dmg);tgt.shield-=ab;dmg-=ab;if(ab>0){showDN(tgt,'🛡'+ab.toLocaleString(),'wh');}}
-  if(tgt.pT==='dr'||tgt.pT==='dr2')dmg=~~(dmg*(1-tgt.pV));if((tgt.pT==='fw'||tgt.pT==='fw2')&&tgt.pCopiedDR)dmg=~~(dmg*(1-tgt.pCopiedDR));
+  if(tgt.pT==='dr'||tgt.pT==='dr2')dmg=~~(dmg*(1-tgt.pV));if((tgt.pT==='fw'||tgt.pT==='fw2')&&tgt.copiedPT&&(tgt.copiedPT==='dr'||tgt.copiedPT==='dr2'))dmg=~~(dmg*(1-(tgt.copiedPV||0.1)));
   if(tgt.pT==='ut'&&Math.random()<tgt.pV){atk.a=~~(atk.a*.8);}
   tgt.hp-=dmg;
   if(tgt.hp<=0&&tgt.pT==='en'&&!tgt.endured){tgt.hp=1;tgt.endured=1;}
