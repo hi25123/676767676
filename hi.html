@@ -52,8 +52,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:#eee;font-famil
 .uw.en .ue{transform:scaleX(-1)}
 .uw .hpb{width:58px;height:7px;background:rgba(0,0,0,.6);border-radius:4px;overflow:hidden;position:relative;margin-top:2px;border:1px solid rgba(255,255,255,.08)}
 .uw .hpf{height:100%;border-radius:3px;transition:width .3s;background:linear-gradient(90deg,#0e6,#6f0)}.uw.en .hpf{background:linear-gradient(90deg,#f44,#f17)}
-.uw .bpf{position:absolute;height:100%;border-radius:3px;background:linear-gradient(90deg,#48f,#84f);transition:width .3s,left .3s;opacity:.85}
-.uw .shf{position:absolute;height:100%;border-radius:3px;background:rgba(255,255,255,.65);transition:width .3s,left .3s}
+.uw .bpf{position:absolute;top:0;height:100%;border-radius:3px;background:linear-gradient(90deg,#48f,#84f);transition:width .3s,left .3s;opacity:.85}
+.uw .shf{position:absolute;top:0;height:100%;border-radius:3px;background:rgba(255,255,255,.65);transition:width .3s,left .3s}
 .uw .hpt{position:absolute;inset:0;text-align:center;font-size:6px;font-weight:700;line-height:7px;color:#fff;text-shadow:0 0 2px #000}
 .uw .cb{width:58px;height:4px;background:rgba(0,0,0,.5);border-radius:2px;overflow:hidden;margin-top:1px}
 .uw .cf{height:100%;border-radius:2px;transition:width .3s;background:#555}.uw .cf.sk{background:linear-gradient(90deg,#fd0,#fa0);box-shadow:0 0 3px rgba(255,215,0,.4)}.uw .cf.ul{background:linear-gradient(90deg,#fff,#fd0);box-shadow:0 0 5px rgba(255,255,255,.5)}
@@ -434,7 +434,7 @@ async function rTurns(){
     if(u.bonusHp&&u.bonusHp>0){u.bonusHp=~~(u.bonusHp*.90);if(u.bonusHp<1)u.bonusHp=0;}
     // Per-turn passives
     if(u.pT==='tsh'&&u.alive)u.shield=(u.shield||0)+~~(u.maxHp*u.pV);
-    if(u.pT==='ec2'&&u.alive&&!u.ec2_transformed)u.shield=(u.shield||0)+~~(u.maxHp*.10); // Dawn form shield
+    if((u.pT==='ec2'||u.pT==='ec2d')&&u.alive)u.shield=(u.shield||0)+~~(u.maxHp*.10); // Both Eclipse forms get shield regen
     if(u.pT==='sh'&&u.alive){u.hp=Math.min(u.maxHp,u.hp+~~(u.maxHp*u.pV));uHP(u);}
     if(u.pT==='st')u.stS=Math.min(5,(u.stS||0)+1);
     if(u.pT==='dp2'&&!u.pact_used){u.pact_used=1;u.hp=~~(u.hp*.85);u.a=~~(u.a*(1+u.pV));uHP(u);}
@@ -443,7 +443,7 @@ async function rTurns(){
     if(u.pT==='is'&&u.tc<=5){u.a=~~(u.a*1.08);}
     if(u.pT==='cr'){const fr=(u.side==='a'?B.als:B.ens).filter(f=>f.alive);fr.forEach(f=>{f.hp=Math.min(f.maxHp,f.hp+~~(f.maxHp*.02));uHP(f);});}
     if(u.pT==='et'){const fr=(u.side==='a'?B.als:B.ens).filter(f=>f.alive);fr.forEach(f=>{f.hp=Math.min(f.maxHp,f.hp+~~(f.maxHp*.03));uHP(f);});}
-    if(u.pT==='dw2'&&u.alive){const fr=(u.side==='a'?B.als:B.ens).filter(f=>f.alive);fr.forEach(f=>{f.hp=Math.min(f.maxHp,f.hp+~~(f.maxHp*u.pV));uHP(f);});}// team regen
+    if((u.pT==='dw2'||u.pT==='dw2n')&&u.alive){const fr=(u.side==='a'?B.als:B.ens).filter(f=>f.alive);fr.forEach(f=>{f.hp=Math.min(f.maxHp,f.hp+~~(f.maxHp*u.pV));uHP(f);});}// team regen
     if(u.pT==='tfm'){u.tfBar=(u.tfBar||0)+5;const form=u.tfBar>=100?3:u.tfBar>=66?2:u.tfBar>=33?1:0;if(form>(u.tfForm||0)){u.tfForm=form;if(form===1){u.shield=(u.shield||0)+~~(u.maxHp*.15);u.a=~~(u.a*1.2);blog('🗿 '+u.n+' → Form 2! Shield+ATK up');}if(form===2){u.a=~~(u.a*1.4);u.sp+=3;blog('🗿 '+u.n+' → Form 3! Chain attacks!');}if(form===3){u.a=~~(u.a*1.6);u.maxHp=~~(u.maxHp*1.3);u.hp=Math.min(u.maxHp,u.hp+~~(u.maxHp*.3));blog('🗿 '+u.n+' → FINAL FORM!');}uHP(u);}}
     // Eclipse Knight 2-form check: transform at 50% HP
     if(u.pT==='ec2'&&!u.ec2_transformed&&u.hp<=u.maxHp*.50&&u.alive){
@@ -477,7 +477,7 @@ async function doAtk(u){
   // Dark Eclipse form: attacks chain to a random extra enemy for 40%
   const isDark=u.pT==='ec2d';
   // Dusk Warden Night form: all basic attacks hit AOE
-  const isDuskNight=u.pT==='dw2'&&u.dw2_transformed;
+  const isDuskNight=u.pT==='dw2n';
   // The Fool: 25% crit chance always
   const foolCrit=u.pT==='fw';
   const t=pickT(u);if(!t)return;
@@ -507,6 +507,12 @@ async function doSk(u){
   // Skill fires at 50%+, gives +25 charge just like basic attack (no reset!)
   const t=pickT(u);showSP(u.sN,RC[u.r]||'#fff');await sl(bd()*.15);
   if(u.sT==='hs'||u.sT==='ha'){await doHl(u);u.charge=Math.min(100,(u.charge||0)+25);uCH(u);return;}
+  // Dusk Warden Dawn form: skill heals all + shield
+  if(u.pT==='dw2'&&!u.dw2_transformed){
+    const fr=(u.side==='a'?B.als:B.ens).filter(f=>f.alive);
+    fr.forEach(f=>{f.hp=Math.min(f.maxHp,f.hp+~~(f.maxHp*.25));f.shield=(f.shield||0)+~~(f.maxHp*.20);uHP(f);});
+    blog('💚 '+u.n+' ✦Dusk Wave — healed+shielded all');u.charge=Math.min(100,(u.charge||0)+25);uCH(u);return;
+  }
   if(t)await anAtk(u,t);const m=(u.sM||2)*(1+(u.stars||0)*.05);
   const foolCrit=u.pT==='fw';
   const cr=foolCrit||Math.random()<.20;
@@ -640,15 +646,23 @@ function showSP(n,c){const s=document.createElement('div');s.className='sp';s.st
 async function anAtk(u,t){const el=gU(u),te=gU(t);if(!el)return;const hx=parseFloat(el.style.left),hy=parseFloat(el.style.top);const tx=te?parseFloat(te.style.left):hx,ty=te?parseFloat(te.style.top):hy;el.style.zIndex='30';el.style.left=(u.side==='a'?tx-30:tx+30)+'px';el.style.top=ty+'px';await sl(bd()*.2);u._hx=hx;u._hy=hy;}
 function retU(u){const el=gU(u);if(!el||u._hx===undefined)return;el.style.left=u._hx+'px';el.style.top=u._hy+'px';el.style.zIndex='10';}
 async function pEfx(u){const rm=[];for(let i=0;i<(u.efx||[]).length;i++){const e=u.efx[i];
-  if(e.t==='poison'){const d=~~(u.maxHp*e.v);u.hp-=d;if(u.hp<=0){u.hp=0;u.alive=0;}uHP(u);showDN(u,d,'sk');}
-  else if(e.t==='burn'){u.hp-=e.v;if(u.hp<=0){u.hp=0;u.alive=0;}uHP(u);showDN(u,e.v,'ph');}
+  if(e.t==='poison'){let d=~~(u.maxHp*e.v);
+    if(u.shield&&u.shield>0){const ab=Math.min(u.shield,d);u.shield-=ab;d-=ab;}
+    if(d>0&&u.bonusHp&&u.bonusHp>0){const ab=Math.min(u.bonusHp,d);u.bonusHp-=ab;d-=ab;}
+    if(d>0)u.hp-=d;if(u.hp<=0){u.hp=0;u.alive=0;}uHP(u);showDN(u,~~(u.maxHp*e.v),'sk');}
+  else if(e.t==='burn'){let d=e.v;
+    if(u.shield&&u.shield>0){const ab=Math.min(u.shield,d);u.shield-=ab;d-=ab;}
+    if(d>0&&u.bonusHp&&u.bonusHp>0){const ab=Math.min(u.bonusHp,d);u.bonusHp-=ab;d-=ab;}
+    if(d>0)u.hp-=d;if(u.hp<=0){u.hp=0;u.alive=0;}uHP(u);showDN(u,e.v,'ph');}
   else if(e.t==='bleed'){
     // Count bleed stacks to amp damage (+15% per stack)
     const stackCount=(u.efx||[]).filter(x=>x.t==='bleed').length;
-    const amp=1+stackCount*.15;const d=~~(u.maxHp*e.v*amp);
-    // Damage bonus HP first, then HP
-    if(u.bonusHp&&u.bonusHp>0){const ab=Math.min(u.bonusHp,d);u.bonusHp-=ab;}else{u.hp-=d;}
-    if(u.hp<=0){u.hp=0;u.alive=0;}uHP(u);showDN(u,d,'sk');}
+    const amp=1+stackCount*.15;let d=~~(u.maxHp*e.v*amp);
+    // Damage order: Shield → Bonus HP → HP
+    if(u.shield&&u.shield>0){const ab=Math.min(u.shield,d);u.shield-=ab;d-=ab;}
+    if(d>0&&u.bonusHp&&u.bonusHp>0){const ab=Math.min(u.bonusHp,d);u.bonusHp-=ab;d-=ab;}
+    if(d>0){u.hp-=d;}
+    if(u.hp<=0){u.hp=0;u.alive=0;}uHP(u);showDN(u,~~(u.maxHp*e.v*amp),'sk');}
   else if(e.t==='stun'){e.dur--; continue;}// stun: skip turn handled in action check
   e.dur--;if(e.dur<=0)rm.push(i);}
   for(let i=rm.length-1;i>=0;i--)u.efx.splice(rm[i],1);}
