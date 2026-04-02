@@ -11,8 +11,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:#eee;font-famil
 .cur{display:flex;gap:5px;flex-wrap:wrap}.ci{display:flex;align-items:center;gap:3px;font-weight:700;font-size:13px;background:rgba(255,255,255,.08);padding:3px 8px;border-radius:14px}
 .cic{width:16px;height:16px;border-radius:50%;display:inline-block}
 .cc{background:linear-gradient(135deg,#ffd700,#e8a000)}.cg{background:linear-gradient(135deg,#88f,#b44aff);cursor:pointer}.cd{background:linear-gradient(135deg,#e8b830,#fff)}.ct{background:linear-gradient(135deg,#ff69b4,#ff2855)}
-.bnav{display:flex;justify-content:space-around;padding:3px 0 6px;background:rgba(0,0,0,.75);flex-shrink:0;z-index:100;border-top:1px solid rgba(255,255,255,.06)}
-.nb{display:flex;flex-direction:column;align-items:center;background:none;border:none;color:rgba(255,255,255,.3);font-weight:700;font-size:10px;cursor:pointer;padding:3px 5px;border-radius:6px;gap:1px}.nb:hover,.nb.on{color:#fff;background:rgba(255,255,255,.1)}.nb i{font-size:18px;font-style:normal}
+.bnav{display:flex;padding:3px 0 6px;background:rgba(0,0,0,.75);flex-shrink:0;z-index:100;border-top:1px solid rgba(255,255,255,.06);overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0}
+.bnav::-webkit-scrollbar{height:0;display:none}
+.nb{display:flex;flex-direction:column;align-items:center;background:none;border:none;color:rgba(255,255,255,.3);font-weight:700;font-size:10px;cursor:pointer;padding:3px 5px;border-radius:6px;gap:1px;flex-shrink:0;min-width:38px}.nb:hover,.nb.on{color:#fff;background:rgba(255,255,255,.1)}.nb i{font-size:18px;font-style:normal}
 .stl{font-size:20px;font-weight:900;color:var(--gold);margin-bottom:8px}
 .toast{position:fixed;top:40px;left:50%;transform:translateX(-50%);background:var(--gold);color:#080c18;padding:6px 16px;border-radius:10px;font-weight:700;font-size:13px;z-index:9999;animation:ti .2s,to .2s 1.4s forwards;white-space:nowrap}
 @keyframes ti{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%)}}
@@ -301,22 +302,34 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:#eee;font-famil
 <div id="Sshop" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div><div class="ci"><div class="cic cd"></div><span class="xD">0</span></div></div></div><div class="mi" id="SI"></div><div class="bnav" id="N5"></div></div>
 <div id="Sarena" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div></div></div><div class="mi" id="AI"></div><div class="bnav" id="N6"></div></div>
 <div id="Spvp" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div></div></div><div class="mi" id="PI"></div><div class="bnav" id="N7"></div></div>
+<div id="Svoid" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><span class="xSE" style="color:#f80">🔥0</span></div><div class="ci"><span class="xAD" style="color:#88f">🌌0</span></div><div class="ci"><span class="xRS" style="color:#4df">💠0</span></div></div></div><div class="mi" id="VI2"></div><div class="bnav" id="N8"></div></div>
+<div id="Swboss" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><span class="xSE" style="color:#f80">🔥0</span></div><div class="ci"><span class="xRS" style="color:#4df">💠0</span></div></div></div><div class="mi" id="WBI"></div><div class="bnav" id="N9"></div></div>
+<div id="Sexpd" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><span class="xAD" style="color:#88f">🌌0</span></div></div></div><div class="mi" id="EXI"></div><div class="bnav" id="N10"></div></div>
+<div id="Sguild" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div></div></div><div class="mi" id="GUI"></div><div class="bnav" id="N11"></div></div>
+<div id="Scoloss" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div></div></div><div class="mi" id="COI"></div><div class="bnav" id="N12"></div></div>
+<div id="Sdream" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><span class="xSE" style="color:#f80">🔥0</span></div></div></div><div class="mi" id="DRI"></div><div class="bnav" id="N13"></div></div>
+<div id="Strials" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cg"></div><span class="xG">0</span></div></div></div><div class="mi" id="TRI"></div><div class="bnav" id="N14"></div></div>
+<div id="Smail" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cg"></div><span class="xG">0</span></div></div></div><div class="mi" id="MAI"></div><div class="bnav" id="N15"></div></div>
+<div id="Scodex" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cg"></div><span class="xG">0</span></div></div></div><div class="mi" id="CDX"></div><div class="bnav" id="N16"></div></div>
+<div id="Sskins" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div><div class="ci"><div class="cic cg"></div><span class="xG">0</span></div></div></div><div class="mi" id="SKI"></div><div class="bnav" id="N17"></div></div>
+<div id="Sachieve" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cg"></div><span class="xG">0</span></div></div></div><div class="mi" id="ACI"></div><div class="bnav" id="N18"></div></div>
+<div id="Saltar" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div><div class="ci"><span class="xSE" style="color:#f80">🔥0</span></div></div></div><div class="mi" id="ALT"></div><div class="bnav" id="N19"></div></div>
 <div class="sol" id="SOL"><canvas id="sC"></canvas><div class="rb" id="RB"></div><button class="skb" id="SKB" onclick="skPull()">SKIP ▸</button></div>
 <div class="mr" id="MR" onclick="clMR()"><div style="font-size:20px;font-weight:900;color:var(--gold);margin-bottom:10px">Results — Tap to close</div><div class="mg" id="MG"></div></div>
 <div class="rwp" id="RWP" onclick="resultScreenClick(event)"><h2 id="RWT">🎉 Victory!</h2><div class="rwi" id="RWI"></div><div class="rwacts"><button class="rwghost" id="RSBTN" onclick="event.stopPropagation();toggleResultStats()">View Battle Stats</button><button class="rwok" onclick="event.stopPropagation();clRW()">Continue</button></div><div class="rsbox" id="RSBOX" onclick="event.stopPropagation()"><div class="rsthead"><div><div class="rst">Battle Stats</div><div class="rstsub">Clean split by side with each bar showing that unit's share of its own team total.</div></div><div class="rstabs"><button class="rstab on" id="RSTAB_A" onclick="event.stopPropagation();setResultStatsTab('a')">Your Team</button><button class="rstab enemy" id="RSTAB_E" onclick="event.stopPropagation();setResultStatsTab('e')">Enemy Team</button></div></div><div id="RST"></div></div></div>
 <div class="up" id="UP"><div class="uinn" id="UIN"></div></div>
-<div class="mbg" id="HM"><div class="db" id="DET"></div></div>
+<div class="mbg" id="HM" onclick="if(event.target===this)this.classList.remove('on')"><div class="db" id="DET" style="position:relative"></div></div>
 <div class="col" id="COL"><div class="cm" id="CMSG"></div><div class="cb2"><button class="cy" id="CY">Yes</button><button class="cn2" onclick="$('COL').classList.remove('on')">No</button></div></div>
 <script>
 const $=id=>document.getElementById(id);
 const RN=['Normal','Rare','Super Rare','SSR','EX'];
 const RC=['#9099a0','#4a9eff','#b44aff','#ff7830','#ff2855'];
 const RW=[45,37.5,15,2,0.5];
-const MXS=[15,13,12,11,10];
-const STAR_NEEDS={0:[4,6,8,10,14,18,22,28,34,40,48,56,65,75,85],1:[3,5,7,9,12,16,20,25,30,36,44,52,60],2:[2,4,6,8,10,13,16,20,25,30,36,42],3:[1,2,3,5,7,9,12,15,18,22,28],4:[1,1,2,3,4,6,8,10,12,15]};
+const MXS=[15,15,15,15,15];
+const STAR_NEEDS={0:[4,6,8,10,14,18,22,28,34,40,48,56,65,75,85],1:[3,5,7,9,12,16,20,25,30,36,44,52,60,70,80],2:[2,4,6,8,10,13,16,20,25,30,36,42,50,60,72],3:[1,2,3,5,7,9,12,15,18,22,28,35,44,55,68],4:[1,1,2,3,4,6,8,10,12,15,20,26,34,44,56]};
 const STAR_GOLD=[500,1000,2500,5000,10000];
-const NV=[['🎰','Sum','gacha'],['👥','Team','team'],['⚔️','Fight','battle'],['🏰','Spire','dung'],['🗼','Tower','tower'],['⚒️','Forge','shop'],['🏟️','Arena','arena'],['👊','PvP','pvp']];
-for(let i=0;i<8;i++){let h='';NV.forEach(([ic,nm,id])=>h+=`<button class="nb" onclick="go('${id}')"><i>${ic}</i>${nm}</button>`);$('N'+i).innerHTML=h;}
+const NV=[['🎰','Sum','gacha'],['👥','Team','team'],['⚔️','Fight','battle'],['🏰','Spire','dung'],['🗼','Tower','tower'],['⚒️','Forge','shop'],['🏟️','Arena','arena'],['👊','PvP','pvp'],['🌑','Void','void'],['👹','Boss','wboss'],['🗺️','Expd','expd'],['🏛️','Guild','guild'],['⚔️','Colo','coloss'],['💤','Dream','dream'],['🏆','Trial','trials'],['📬','Mail','mail'],['📖','Codex','codex'],['🎨','Skins','skins'],['🏅','Achv','achieve'],['🔥','Altar','altar']];
+for(let i=0;i<20;i++){let h='';NV.forEach(([ic,nm,id])=>h+=`<button class="nb" onclick="go('${id}')"><i>${ic}</i>${nm}</button>`);$('N'+i).innerHTML=h;}
 
 const DB=[
 // ═══ N RANK (5 units) — Tank~3x DPS HP, DPS~3x Tank ATK ═══
@@ -446,7 +459,12 @@ const BOOK_SLOTS=['b1','b2','b3'];
 const EQUIP_SLOTS=['w','a','c',...BOOK_SLOTS];
 const SLOT_LABELS={w:'⚔️ Weapon',a:'🛡️ Armor',c:'💍 Accessory',b1:'📘 Skill Book I',b2:'📗 Skill Book II',b3:'📙 Skill Book III'};
 
-const G={coins:5000,gems:300,dust:0,tok:0,lv:1,xp:0,pity:0,megaP:0,team:[null,null,null,null,null],coll:[],copies:{},maxStage:1,auto:1,spd:1,gI:{},hG:{},hT:{},dF:1,dB:0,dR:null,dA:0,dPick:0,tF:1,tR:null,tA:0,aR:1e6,aW:0,sT:0,s1:0,s2:0,curM:'story',cleared:{story:{},tower:{},arena:{}},autoClear:1,skipBattle:0,stageCap:200,rRet:'battle',modeSpd:{},newHeroes:{},pvpName:'',pvpW:0,pvpL:0,pvpHist:[]};
+const G={coins:5000,gems:300,dust:0,tok:0,lv:1,xp:0,pity:0,megaP:0,team:[null,null,null,null,null],coll:[],copies:{},maxStage:1,auto:1,spd:1,gI:{},hG:{},hT:{},dF:1,dB:0,dR:null,dA:0,dPick:0,tF:1,tR:null,tA:0,aR:1e6,aW:0,sT:0,s1:0,s2:0,curM:'story',cleared:{story:{},tower:{},arena:{}},autoClear:1,skipBattle:0,stageCap:200,rRet:'battle',modeSpd:{},newHeroes:{},pvpName:'',pvpW:0,pvpL:0,pvpHist:[],
+  sEmb:0,aDst:0,rSh:0,stFr:0,vI:{},sC:{},hA:{},ten:{},vR:1,vRC:{},wbBest:0,wbAtk:0,expR:0,expRun:null,wbDay:0,
+  mail:[],mailRead:{},guildLv:0,guildXp:0,guildDon:0,coloW:0,coloS:0,coloAtk:0,dreamBest:0,dreamAtk:0,
+  trialBest:{},loginDay:0,loginStreak:0,lastLogin:0,dailyQ:{},dailyQDay:0,
+  bpLv:0,bpXp:0,bpPrem:0,elemAura:{},heroBonds:{},bondLvs:{},
+  skins:{},achClaimed:{},altarPts:0,altarCount:0,altarAtk:0,altarHp:0,altarSpd:0,altarCr:0,altarAll:0,totalPulls:0};
 const COMBAT={attackCharge:30,hitCharge:15,skillFloor:50,damageScale:1.0,allyHpScale:1.0,enemyHpScale:1.0,enemyAtkScale:1.0,frontHp:1.12,frontAtk:.92,backHp:.97,backAtk:1.05,backSpd:2,transformTurn:7,transformAttack:5,transformHit:5,critBase:.10,critMult:1.50,basicScale:1.0,basicAoeScale:.70,skillScale:1.0,skillAoeScale:.80,ultSingleScale:1.20,ultAoeScale:.90,openingGuard:[.90,.95,1.0,1.0,1.0]};
 const TRANSFORMS={
 22:{trigger:'bar',emoji:'💀',name:'★ Death',hp:1.5,atk:1.6,spd:5,pN:'Deathmark',pD:'Kills heal 35%, grant +20% ATK and mark the weakest enemy for +40% damage.',pT:'deathmark',pV:.40,sN:'Soul Harvest',sD:'7x random target. Execute under 35%. Kills refund 50% skill charge.',sM:7,sT:'se',uN:"Death's Dominion",uD:'12x random target. Each kill grants +30 charge and +15% ATK permanently.',uM:12,uT:'s'},
@@ -497,6 +515,82 @@ async function showBattleIntro(){if(SIM||G.spd>=20)return;const bf=BF2();const i
 function markNew(heroId){G.newHeroes=G.newHeroes||{};G.newHeroes[heroId]=1;}
 function clearNew(heroId){if(G.newHeroes)delete G.newHeroes[heroId];}
 function isNew(heroId){return !!(G.newHeroes&&G.newHeroes[heroId]);}
+
+// ═══ ARTIFACTS ═══
+const ARTIFACTS=[
+  {id:0,n:'Blade of Ruin',e:'⚔️',r:3,atk:.25,cr:.10,desc:'Basic attacks hit twice at 30% dmg',eff:'dblStrike',v:.3},
+  {id:1,n:'Aegis of Dawn',e:'🛡️',r:3,hp:.30,desc:'First 3 hits reduced by 40%',eff:'aegis',v:.4},
+  {id:2,n:"Death's Whisper",e:'💀',r:4,atk:.20,desc:'Kills grant +15% ATK (3 stacks)',eff:'deathStack',v:.15},
+  {id:3,n:'Vortex Orb',e:'🌀',r:2,spd:.15,desc:'Start battle with 50 charge',eff:'startCharge',v:50},
+  {id:4,n:'Infernal Crown',e:'🔥',r:3,atk:.20,desc:'Ult burns all enemies 3% ATK/turn',eff:'ultBurn',v:.03},
+  {id:5,n:'Frostbound Heart',e:'❄️',r:3,hp:.25,desc:'20% chance freeze attacker 1 turn',eff:'frostCounter',v:.2},
+  {id:6,n:'Stormcaller',e:'⚡',r:4,atk:.15,spd:.10,desc:'Crits chain lightning to 2 enemies',eff:'chainLightning',v:2},
+  {id:7,n:'Lifetree Seed',e:'🌿',r:2,hp:.20,desc:'Heal 5% max HP after each action',eff:'lifeAction',v:.05},
+  {id:8,n:'All-Seeing Eye',e:'👁️',r:4,atk:.10,hp:.10,spd:.05,desc:'+10% all stats',eff:'allSee',v:.1},
+  {id:9,n:'Star Prism',e:'💫',r:4,atk:.15,hp:.15,desc:'Element advantage 1.5x instead of 1.25x',eff:'elemBoost',v:1.5},
+  {id:10,n:'Blood Pact',e:'🩸',r:3,atk:.35,desc:'-5% HP/turn, 15% lifesteal',eff:'bloodPact',v:.15},
+  {id:11,n:'Crown of Ages',e:'👑',r:4,atk:.08,hp:.08,spd:.03,desc:'Team +5% all stats (unique)',eff:'crownAura',v:.05}
+];
+
+// ═══ VOID IMPRINTS ═══
+const VI_NAMES=['Vitality','Ferocity','Resilience','Transcendence'];
+const VI_COSTS=[50,100,200,400,800];
+function viGet(id){return G.vI[id]||[0,0,0,0];}
+function viSet(id,arr){G.vI[id]=arr;}
+function viBonus(id){const v=viGet(id);return{hp:v[0]*.05,atk:v[1]*.04,cr:v[1]*.01,dmgRed:v[2]*.05,all:v[3]>=5?.10:0};}
+function viCost(lv){return VI_COSTS[lv]||9999;}
+function viUp(heroId,node){const h=G.coll.find(x=>x.id===heroId);if(!h)return;const mxS=MXS[h.r]||10;if((h.stars||0)<mxS){toast('Must be max stars!');return;}
+  const v=viGet(heroId);if(v[node]>=5){toast('Max level!');return;}
+  if(node>0&&v[node-1]<1){toast('Unlock previous node!');return;}
+  const cost=viCost(v[node]);if(G.sEmb<cost){toast('Need '+cost+' 🔥');return;}
+  G.sEmb-=cost;v[node]++;viSet(heroId,v);upUI();openD(heroId);toast('🔮 V'+(node+1)+' → Lv'+v[node]);}
+
+// ═══ SOUL CORE ═══
+const SC_NAMES=['HP','ATK','SPD','Crit','CritDMG','Resist'];
+const SC_COST=[10,15,25,40,60,85,115,150,190,240,300,370,450,540,650,780,930,1100,1300,1550];
+function scGet(id){return G.sC[id]||[0,0,0,0,0,0];}
+function scSet(id,arr){G.sC[id]=arr;}
+function scBonus(id){const c=scGet(id);return{hp:c[0]*.02,atk:c[1]*.02,spd:c[2],cr:c[3]*.015,cd:c[4]*.02,res:c[5]*.02,
+  resonance:c.filter(x=>x>=10).length>=3,awakened:c.filter(x=>x>=15).length>=6};}
+function scUp(heroId,slot){const h=G.coll.find(x=>x.id===heroId);if(!h||(h.stars||0)<5)return toast('Need 5+ stars!');
+  const c=scGet(heroId);if(c[slot]>=20)return toast('Max level!');
+  const cost=SC_COST[c[slot]]||9999;if(G.aDst<cost)return toast('Need '+cost+' 🌌');
+  G.aDst-=cost;c[slot]++;scSet(heroId,c);upUI();openD(heroId);toast('💎 '+SC_NAMES[slot]+' → Lv'+c[slot]);}
+
+// ═══ HOMESTEAD / TENANT ═══
+function tenGet(id){return G.ten[id]||[];}
+function tenSet(id,arr){G.ten[id]=arr;}
+function tenBonus(homeId){const ts=tenGet(homeId);if(!ts.length)return{hp:0,atk:0};
+  const homeElem=HERO_ELEM[homeId];let totalHp=0,totalAtk=0;
+  ts.forEach(tid=>{const th=G.coll.find(x=>x.id===tid);if(!th)return;const st=getSt(th);totalHp+=st.hp*.10;totalAtk+=st.atk*.08;});
+  const allMatch=ts.length===3&&ts.every(tid=>HERO_ELEM[tid]===homeElem);
+  const mult=allMatch?1.15:1;return{hp:~~(totalHp*mult),atk:~~(totalAtk*mult)};}
+function tenSlotCost(slot){return[0,500,2000][slot]||9999;}
+function canTenant(heroId){const v=viGet(heroId);return v[1]>=1;}
+function addTenant(homeId,tenantId){if(!canTenant(homeId))return toast('Need V2+ imprint!');
+  const ts=tenGet(homeId);const maxSlots=ts.length<1?1:viGet(homeId)[1]>=3?3:viGet(homeId)[1]>=1?2:1;
+  if(ts.length>=maxSlots)return toast('Max tenant slots!');
+  if(ts.includes(tenantId))return toast('Already a tenant!');
+  // check not tenanted elsewhere
+  for(const hid in G.ten)if(G.ten[hid]&&G.ten[hid].includes(tenantId))return toast('Hero is tenanted elsewhere!');
+  if(homeId===tenantId)return toast("Can't tenant self!");
+  const slotIdx=ts.length;const cost=tenSlotCost(slotIdx);
+  if(cost>0&&G.sEmb<cost)return toast('Need '+cost+' 🔥');
+  if(cost>0)G.sEmb-=cost;ts.push(tenantId);tenSet(homeId,ts);upUI();openD(homeId);toast('🏠 Tenant added!');}
+function removeTenant(homeId,tenantId){const ts=tenGet(homeId);const i=ts.indexOf(tenantId);if(i<0)return;ts.splice(i,1);tenSet(homeId,ts);upUI();openD(homeId);toast('Tenant removed');}
+
+// ═══ ARTIFACT FUNCTIONS ═══
+function heroArtifact(id){const aid=G.hA[id];return aid!==undefined?aid:null;}
+function equipArt(heroId,artId){const old=G.hA[heroId];if(old!==undefined)G.hA['_inv_'+old]=(G.hA['_inv_'+old]||0)+1;if((G.hA['_inv_'+artId]||0)<=0){toast('No copies!');return;}G.hA['_inv_'+artId]--;G.hA[heroId]=artId;upUI();toast('Artifact equipped!');}
+function unequipArt(heroId){const old=G.hA[heroId];if(old!==undefined)G.hA['_inv_'+old]=(G.hA['_inv_'+old]||0)+1;delete G.hA[heroId];upUI();toast('Artifact removed');}
+function artBonus(heroId){const aid=heroArtifact(heroId);if(aid===null)return{hp:0,atk:0,spd:0,cr:0};const a=ARTIFACTS.find(x=>x.id===aid);if(!a)return{hp:0,atk:0,spd:0,cr:0};return{hp:a.hp||0,atk:a.atk||0,spd:a.spd||0,cr:a.cr||0};}
+function pullArtifact(){
+  const weights=[0,0,30,50,20];let r=Math.random()*100,c=0,rk=2;
+  for(let i=0;i<weights.length;i++){c+=weights[i];if(r<c){rk=i;break;}}
+  const pool=ARTIFACTS.filter(a=>a.r===rk);if(!pool.length){const all=ARTIFACTS;pool.push(all[~~(Math.random()*all.length)]);}
+  const pick=pool[~~(Math.random()*pool.length)];G.gI['art_'+pick.id]=(G.gI['art_'+pick.id]||0)+1;
+  upUI();toast(`💠 Got ${pick.e} ${pick.n}!`);return pick;}
+
 let SIM=0;
 const sl=ms=>SIM?Promise.resolve():new Promise(r=>setTimeout(r,ms));
 function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),1800);}
@@ -753,16 +847,37 @@ function getSt(h){const lv=h.level||1,s=h.stars||0;const lM=1+(lv-1)*.008+Math.p
   const gps=EQUIP_SLOTS.map(sl=>GEAR[g[sl]]?.gP).filter(Boolean);
   const allStatBoost=gps.filter(p=>p.t==='allStats').reduce((sum,p)=>sum+p.v,0);
   pctAtk+=allStatBoost;pctHp+=allStatBoost;
+  // Void Imprints
+  const vi=viBonus(h.id);pctHp+=vi.hp;pctAtk+=vi.atk;pctAtk+=vi.all;pctHp+=vi.all;
+  // Soul Core
+  const sc=scBonus(h.id);pctHp+=sc.hp;pctAtk+=sc.atk;spd+=sc.spd;
+  if(sc.awakened){pctAtk+=.10;pctHp+=.10;}
+  // Artifact
+  const ab=artBonus(h.id);pctAtk+=ab.atk;pctHp+=ab.hp;
   let atk=~~((baseAtk+flatAtk)*(1+pctAtk)),hp=~~((baseHp+flatHp)*(1+pctHp));
   if(allStatBoost>0)spd+=Math.max(0,~~(spd*allStatBoost*.35));
+  if(ab.spd)spd+=Math.max(0,~~(spd*ab.spd));
+  // Tenant bonus (flat add)
+  const tb=tenBonus(h.id);hp+=tb.hp;atk+=tb.atk;
+  // Guild bonus
+  atk=~~(atk*(1+guildBonus('atk')));hp=~~(hp*(1+guildBonus('hp')));
+  // Element Aura
+  const aura=calcElemAura();atk=~~(atk*(1+aura.atk));hp=~~(hp*(1+aura.hp));spd+=aura.spd;
+  // Hero Bonds
+  const bnd=bondBonus();atk=~~(atk*(1+bnd.atk));hp=~~(hp*(1+bnd.hp));spd+=bnd.spd;
+  // Skin bonus
+  const skb=skinBonus(h.id);atk=~~(atk*(1+skb.atk));hp=~~(hp*(1+skb.hp));spd+=skb.spd;
+  // Altar perks
+  const alt=altarBonus();atk=~~(atk*(1+alt.atk));hp=~~(hp*(1+alt.hp));spd+=alt.spd;
   const tr=G.hT[h.id];if(tr!==undefined){const t=TRAITS[tr];if(t.s==='a')atk=~~(atk*(1+t.v));else if(t.s==='h')hp=~~(hp*(1+t.v));else if(t.s==='*'||t.s==='M'){atk=~~(atk*(1+t.v));hp=~~(hp*(1+t.v));}}
   return{hp,atk,spd};}
-function pwr(h){const s=getSt(h);return ~~(s.atk*4+s.hp*.5+s.spd*15+(h.stars||0)*1500+(h.level||1)*25+h.r*500);}
+function pwr(h){const s=getSt(h);const viLvl=(viGet(h.id)||[]).reduce((a,b)=>a+b,0);const scLvl=(scGet(h.id)||[]).reduce((a,b)=>a+b,0);
+  return ~~(s.atk*4+s.hp*.5+s.spd*15+(h.stars||0)*1500+(h.level||1)*25+h.r*500+viLvl*800+scLvl*200+(heroArtifact(h.id)?2000:0)+tenGet(h.id).length*1500);}
 function sCost(r,s){return STAR_NEEDS[r]?.[s]??999;}
 
-function upUI(){const f=n=>n.toLocaleString();$('DC').textContent=f(G.coins);$('DG').textContent=f(G.gems);$('DD').textContent=f(G.dust);$('DT').textContent=f(G.tok);$('DP').textContent=G.pity;$('DM').textContent=G.megaP;$('LVB').textContent='Lv.'+G.lv;document.querySelectorAll('.xL').forEach(e=>e.textContent='Lv.'+G.lv);document.querySelectorAll('.xC').forEach(e=>e.textContent=f(G.coins));document.querySelectorAll('.xG').forEach(e=>e.textContent=f(G.gems));document.querySelectorAll('.xD').forEach(e=>e.textContent=f(G.dust));}
-function go(n){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('S'+n).classList.add('on');if(n==='team')rTeam();if(n==='battle')rStages();if(n==='dung')rDung();if(n==='tower')rTower();if(n==='shop')rShop();if(n==='arena')rArena();if(n==='pvp')rPvp();upUI();}
-function infoPanel(title,body){$('DET').innerHTML=`<div class="dh"><div class="dhn" style="color:var(--gold)">${title}</div></div><div style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.45">${body}</div><button class="dcl" onclick="$('HM').classList.remove('on')">Close</button>`;$('HM').classList.add('on');}
+function upUI(){const f=n=>n.toLocaleString();$('DC').textContent=f(G.coins);$('DG').textContent=f(G.gems);$('DD').textContent=f(G.dust);$('DT').textContent=f(G.tok);$('DP').textContent=G.pity;$('DM').textContent=G.megaP;$('LVB').textContent='Lv.'+G.lv;document.querySelectorAll('.xL').forEach(e=>e.textContent='Lv.'+G.lv);document.querySelectorAll('.xC').forEach(e=>e.textContent=f(G.coins));document.querySelectorAll('.xG').forEach(e=>e.textContent=f(G.gems));document.querySelectorAll('.xD').forEach(e=>e.textContent=f(G.dust));document.querySelectorAll('.xSE').forEach(e=>e.textContent='🔥'+f(G.sEmb));document.querySelectorAll('.xAD').forEach(e=>e.textContent='🌌'+f(G.aDst));document.querySelectorAll('.xRS').forEach(e=>e.textContent='💠'+f(G.rSh));}
+function go(n){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('S'+n).classList.add('on');if(n==='team')rTeam();if(n==='battle')rStages();if(n==='dung')rDung();if(n==='tower')rTower();if(n==='shop')rShop();if(n==='arena')rArena();if(n==='pvp')rPvp();if(n==='void')rVoid();if(n==='wboss')rWBoss();if(n==='expd')rExpd();if(n==='guild')rGuild();if(n==='coloss')rColoss();if(n==='dream')rDream();if(n==='trials')rTrials();if(n==='mail')rMail();if(n==='codex')rCodex();if(n==='skins')rSkins();if(n==='achieve')rAchieve();if(n==='altar')rAltar();upUI();}
+function infoPanel(title,body){$('DET').innerHTML=`<button style="position:absolute;top:6px;right:6px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.5);color:#fff;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center" onclick="$('HM').classList.remove('on')">✕</button><div class="dh"><div class="dhn" style="color:var(--gold)">${title}</div></div><div style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.45">${body}</div><button class="dcl" onclick="$('HM').classList.remove('on')">Close</button>`;$('HM').classList.add('on');}
 function showRates(){infoPanel('Gacha Rates','N: 45%<br>R: 37.5%<br>SR: 15%<br>SSR: 2%<br>EX: 0.5%<br><br>Pity: SSR+ at 80 pulls<br>Mega pity: EX at 300 pulls<br>×10000 guarantees EX on the last pull.');}
 function showTraitRates(){infoPanel('Trait Chances','Feeble 35%<br>Normal 28%<br>Strong 20%<br>Elite 10%<br>Legendary 5%<br>Mythic 2%');}
 function toggleAutoClear(){G.autoClear=G.autoClear?0:1;$('ACT').textContent=G.autoClear?'ON':'OFF';rStages();}
@@ -772,8 +887,8 @@ function toggleSkipBattle(){G.skipBattle=G.skipBattle?0:1;refreshSkipBattleContr
 function skipBattleMarkup(){return `<button class="skchk${G.skipBattle?' on':''}" onclick="toggleSkipBattle()">${G.skipBattle?'☑':'☐'} SKIP BATTLE</button>`;}
 
 function rollR(g){G.pity++;G.megaP++;if(G.megaP>=300){G.megaP=0;G.pity=0;return 4;}if(G.pity>=80){G.pity=0;return Math.random()<.2?4:3;}if(g){const r=Math.random()*100;return r<.5?4:r<2.5?3:r<17.5?2:r<55?1:0;}const r=Math.random()*100;let c=0;for(let i=0;i<RW.length;i++){c+=RW[i];if(r<c)return i;}return 0;}
-function pull(n){const costs={1:30,10:270,100:2500,1000:22e3,10000:200000};if(G.gems<costs[n]){toast("Not enough!");return;}G.gems-=costs[n];const res=[];for(let i=0;i<n;i++){let rk;const last=i===n-1;if(n===10000&&last)rk=4;else if(n===1000&&last)rk=Math.random()<.5?4:3;else{const g=(n>=100&&last)?true:(n>=10&&last&&!res.some(r=>r.r>=2));rk=rollR(g);if(n===100&&last&&rk<2)rk=2;}const pool=DB.filter(x=>x.r===rk);res.push(pool.length?{...pool[~~(Math.random()*pool.length)]}:{...DB[0]});}
-  res.forEach(c=>{G.copies[c.id]=(G.copies[c.id]||0)+1;if(!G.coll.find(x=>x.id===c.id)){const h={...c,stars:0,level:1};G.coll.push(h);markNew(c.id);for(let s=0;s<5;s++)if(!G.team[s]){G.team[s]=h;break;}}});upUI();if(n<=10)playSm(res);else showMR(res);
+function pull(n){const costs={1:30,10:270,100:2500,1000:22e3,10000:200000};if(G.gems<costs[n]){toast("Not enough!");return;}G.gems-=costs[n];G.totalPulls=(G.totalPulls||0)+n;dqInc('dq_pull',n);bpAddXp(n);const res=[];for(let i=0;i<n;i++){let rk;const last=i===n-1;if(n===10000&&last)rk=4;else if(n===1000&&last)rk=Math.random()<.5?4:3;else{const g=(n>=100&&last)?true:(n>=10&&last&&!res.some(r=>r.r>=2));rk=rollR(g);if(n===100&&last&&rk<2)rk=2;}const pool=DB.filter(x=>x.r===rk);res.push(pool.length?{...pool[~~(Math.random()*pool.length)]}:{...DB[0]});}
+  res.forEach(c=>{G.copies[c.id]=(G.copies[c.id]||0)+1;if(!G.coll.find(x=>x.id===c.id)){const h={...c,stars:0,level:1};G.coll.push(h);markNew(c.id);for(let s=0;s<5;s++)if(!G.team[s]){G.team[s]=h;break;}}});upUI();if(n<=10)playSm(res);else showMR(res);}
 
 const sOL=$('SOL'),sC=$('sC'),ctx=sC.getContext('2d');let sRAF,sSkip=0,sDone=0,sQ=[],sI=0;
 function playSm(res){sQ=res;sI=0;nxtSm();}
@@ -809,13 +924,21 @@ let dTab=0;
 function openD(id,viewUnit){clearNew(id);const ownedHero=G.coll.find(h=>h.id===id);const baseHero=DB.find(h=>h.id===id);const enemyView=!!(viewUnit&&viewUnit.side==='e');const own=enemyView?null:ownedHero;const hero=viewUnit||own||baseHero;if(!hero)return;const cop=G.copies[id]||0;const st=hero.stars||0;const lv=hero.level||1;const mxS=MXS[hero.r]||10;const s=getSt(hero);const nc=st<mxS?sCost(hero.r,st):null;const uc=st<mxS?(hero.r+1)*800*(st+1):0;const canU=!!(own&&nc&&cop>=nc&&G.coins>=uc);const ml=maxLv(st);const lcO=levelCost(lv);const lc=lcO.c;const ld=lcO.d;const canL=!!(own&&lv<ml&&G.coins>=lc&&G.dust>=ld);
   let starD='';for(let i=0;i<st;i++)starD+=['⭐','⭐','⭐','⭐','⭐','💠','💠','💠','💠','💠','🌟','🌟','🌟','🌟','🌟','✦','✦','✦','✦','✦','◆','◆','◆','◆','◆'][i]||'⭐';
   const collIds=G.coll.map(c=>c.id).sort((a,b)=>a-b);const ci=collIds.indexOf(id);const prevId=!viewUnit&&ci>0?collIds[ci-1]:null;const nextId=!viewUnit&&ci<collIds.length-1?collIds[ci+1]:null;
-  let h=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">${prevId!==null?`<button class="dcl" style="width:36px;margin:0;padding:4px" onclick="openD(${prevId})">◀</button>`:'<div style="width:36px"></div>'}<div class="dh" style="flex:1"><div class="de">${hero.e}</div><div class="dhn" style="color:${RC[hero.r]}">${hero.n}</div><div class="dr r${hero.r}">${RN[hero.r]}</div><div class="dp">⚡ ${pwr(hero).toLocaleString()}</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px">Lv.${lv} · ★${st}${enemyView?' · Enemy Snapshot':''}</div></div>${nextId!==null?`<button class="dcl" style="width:36px;margin:0;padding:4px" onclick="openD(${nextId})">▶</button>`:'<div style="width:36px"></div>'}</div>`;
-  h+=`<div class="stabs" style="max-width:100%;margin-bottom:6px"><div class="stab${dTab===0?' on':''}" onclick="dTab=0;openD(${id}${viewUnit?`,${viewUnit.side==='e'?`B.ens.find(u=>u.idx===${viewUnit.idx})`:`B.als.find(u=>u.idx===${viewUnit.idx})`}`:''})">📊 Stats</div><div class="stab${dTab===1?' on':''}" onclick="dTab=1;openD(${id}${viewUnit?`,${viewUnit.side==='e'?`B.ens.find(u=>u.idx===${viewUnit.idx})`:`B.als.find(u=>u.idx===${viewUnit.idx})`}`:''})">⚔️ Skills</div><div class="stab${dTab===2?' on':''}" onclick="dTab=2;openD(${id}${viewUnit?`,${viewUnit.side==='e'?`B.ens.find(u=>u.idx===${viewUnit.idx})`:`B.als.find(u=>u.idx===${viewUnit.idx})`}`:''})">⚙️ Gear</div></div>`;
+  let h=`<button style="position:absolute;top:6px;right:6px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.5);color:#fff;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center" onclick="$('HM').classList.remove('on')">✕</button><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">${prevId!==null?`<button class="dcl" style="width:36px;margin:0;padding:4px" onclick="openD(${prevId})">◀</button>`:'<div style="width:36px"></div>'}<div class="dh" style="flex:1"><div class="de">${hero.e}</div><div class="dhn" style="color:${RC[hero.r]}">${hero.n}</div><div class="dr r${hero.r}">${RN[hero.r]}</div><div class="dp">⚡ ${pwr(hero).toLocaleString()}</div><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px">Lv.${lv} · ★${st}${enemyView?' · Enemy Snapshot':''}</div></div>${nextId!==null?`<button class="dcl" style="width:36px;margin:0;padding:4px" onclick="openD(${nextId})">▶</button>`:'<div style="width:36px"></div>'}</div>`;
+  const vRef=viewUnit?`,${viewUnit.side==='e'?`B.ens.find(u=>u.idx===${viewUnit.idx})`:`B.als.find(u=>u.idx===${viewUnit.idx})`}`:'';
+  const dtabs=[['📊 Stats',0],['⚔️ Skills',1],['⚙️ Gear',2]];
+  if(own&&!enemyView)dtabs.push(['🌑 Void',3],['💠 Core',4],['🗡️ Art',5],['🏠 Ten',6]);
+  h+=`<div class="stabs" style="max-width:100%;margin-bottom:6px;flex-wrap:wrap">${dtabs.map(([l,t])=>`<div class="stab${dTab===t?' on':''}" onclick="dTab=${t};openD(${id}${vRef})">${l}</div>`).join('')}</div>`;
   if(dTab===0){
     if(own)h+=`<div class="dlv"><div class="ln">Lv.${lv}/${ml}</div><div class="lb"><div class="lf" style="width:${lv/ml*100}%"></div></div><div class="li">Cost: ${lc.toLocaleString()}🪙 ${ld.toLocaleString()}✨ · Max Lv at ★${st}: ${ml}</div><div class="lbs"><button ${canL?`onclick="lvU(${id},1)"`:'disabled'}>+1</button><button ${canL?`onclick="lvU(${id},10)"`:'disabled'}>+10</button><button ${canL?`onclick="lvU(${id},100)"`:'disabled'}>+100</button></div></div>`;
     h+=`<div class="dstars">${starD||'No Stars'} (${st}/${mxS})</div>`;
     if(enemyView&&viewUnit){h+=`<div class="dsts"><div class="dst"><div class="v">${viewUnit.maxHp.toLocaleString()}</div><div class="l">HP</div></div><div class="dst"><div class="v">${viewUnit.a.toLocaleString()}</div><div class="l">ATK</div></div><div class="dst"><div class="v">${viewUnit.sp}</div><div class="l">SPD</div></div></div>`;}else{h+=`<div class="dsts"><div class="dst"><div class="v">${s.hp.toLocaleString()}</div><div class="l">HP</div></div><div class="dst"><div class="v">${s.atk.toLocaleString()}</div><div class="l">ATK</div></div><div class="dst"><div class="v">${s.spd}</div><div class="l">SPD</div></div></div>`;}
-    if(own){h+=`<div class="dcop">Copies:${cop}${nc?'/'+nc+' for★'+(st+1):' MAX'} · ${uc.toLocaleString()}🪙</div>`;h+=`<button class="dbtn dup" ${canU?`onclick="upS(${id})"`:'disabled'}>${canU?'⬆ Star Up':nc?'Need '+(nc-cop)+' copies':'MAX'}</button>`;h+=renderTraitSummary(id,1);h+=renderLoadoutSummary(id);}else if(viewUnit){h+=renderBattleUnitInfo(viewUnit);}
+    if(own){h+=`<div class="dcop">Copies:${cop}${nc?'/'+nc+' for★'+(st+1):' MAX'} · ${uc.toLocaleString()}🪙</div>`;h+=`<button class="dbtn dup" ${canU?`onclick="upS(${id})"`:'disabled'}>${canU?'⬆ Star Up':nc?'Need '+(nc-cop)+' copies':'MAX'}</button>`;
+      h+=`<div style="display:flex;gap:4px;margin-top:4px">`;
+      if(lv>1)h+=`<button class="dbtn" style="background:rgba(255,100,100,.1);color:#f88;flex:1" onclick="resetLevel(${id})">Reset Level</button>`;
+      if(st>0)h+=`<button class="dbtn" style="background:rgba(255,100,100,.1);color:#f88;flex:1" onclick="resetStars(${id})">Reset Stars</button>`;
+      h+=`</div>`;
+      h+=renderTraitSummary(id,1);h+=renderLoadoutSummary(id);}else if(viewUnit){h+=renderBattleUnitInfo(viewUnit);}
   }else if(dTab===1){
     const skScale=1+st*.10+(st>5?(st-5)*.08:0)+(st>8?(st-8)*.12:0)+(st>12?(st-12)*.15:0);const sML=(hero.sM*skScale).toFixed(1);const uML=(hero.uM*skScale).toFixed(1);
     h+=`<div class="ac"><div class="ah"><span class="at" style="color:#0e8">PASSIVE</span><span class="an">${hero.pN}</span></div><div class="ad">${hero.pD}</div></div>`;
@@ -833,6 +956,53 @@ function openD(id,viewUnit){clearNew(id);const ownedHero=G.coll.find(h=>h.id===i
       if(avail.length){h+=`<div style="display:flex;gap:3px;flex-wrap:wrap;margin-top:3px">`;avail.forEach(x=>{h+=`<button style="padding:2px 6px;border-radius:4px;border:1px solid ${RC[x.r]};background:rgba(255,255,255,.04);color:${RC[x.r]};font-size:9px;font-weight:700;cursor:pointer" onclick="equipG(${id},'${slT}',${x.id})">${x.n} · ${gearFreeCount(x.id,id,slT)} free</button>`;});h+=`</div>`;}
       h+=`</div>`;});
     }else{h+=`<div style="margin:6px 0;padding:8px;background:rgba(255,255,255,.03);border-radius:10px;font-size:11px;color:rgba(255,255,255,.55)">Gear and skill books are only available for your own roster units.</div>`;}
+  }else if(dTab===3&&own){
+    // Void Imprints
+    const maxStar=MXS[hero.r]||10;const canVI=st>=maxStar;
+    h+=`<div style="margin:6px 0;padding:8px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-size:12px;font-weight:700;color:#c4f;margin-bottom:6px">🌑 Void Imprints</div>`;
+    if(!canVI){h+=`<div style="font-size:11px;color:#f44">Requires max stars (★${maxStar})</div></div>`;}
+    else{const viArr=viGet(id);VI_NAMES.forEach((nm,i)=>{const lv=viArr[i];const cost=viCost(lv);const canUp=lv<5&&G.sEmb>=cost;
+      h+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;${i?'border-top:1px solid rgba(255,255,255,.05)':''}"><div><div style="font-size:11px;font-weight:700;color:#c4f">${nm}</div><div style="font-size:9px;color:rgba(255,255,255,.4)">Lv ${lv}/5 · ${i===0?'+HP':i===1?'+ATK':i===2?'+All%':'+Crit'}</div></div><button style="padding:3px 8px;border-radius:6px;border:1px solid ${canUp?'#c4f':'rgba(255,255,255,.1)'};background:${canUp?'rgba(200,70,255,.15)':'rgba(255,255,255,.03)'};color:${canUp?'#c4f':'rgba(255,255,255,.3)'};font-size:10px;cursor:pointer" ${canUp?`onclick="viUp(${id},${i});openD(${id})"`:'disabled'}>${lv>=5?'MAX':'🔥'+cost}</button></div>`;});
+      h+=`<div style="font-size:9px;color:rgba(255,255,255,.3);margin-top:4px">🔥 Soul Embers: ${G.sEmb.toLocaleString()}</div></div>`;}
+  }else if(dTab===4&&own){
+    // Soul Core
+    const canSC=st>=5;
+    h+=`<div style="margin:6px 0;padding:8px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-size:12px;font-weight:700;color:#0af;margin-bottom:6px">💠 Soul Core</div>`;
+    if(!canSC){h+=`<div style="font-size:11px;color:#f44">Requires ★5+</div></div>`;}
+    else{const scArr=scGet(id);SC_NAMES.forEach((nm,i)=>{const lv=scArr[i];const cost=SC_COST[lv]||9999;const canUp=lv<20&&G.aDst>=cost;
+      h+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;${i?'border-top:1px solid rgba(255,255,255,.05)':''}"><div><div style="font-size:11px;font-weight:700;color:#0af">${nm}</div><div style="font-size:9px;color:rgba(255,255,255,.4)">Lv ${lv}/20</div></div><button style="padding:3px 8px;border-radius:6px;border:1px solid ${canUp?'#0af':'rgba(255,255,255,.1)'};background:${canUp?'rgba(0,170,255,.15)':'rgba(255,255,255,.03)'};color:${canUp?'#0af':'rgba(255,255,255,.3)'};font-size:10px;cursor:pointer" ${canUp?`onclick="scUp(${id},${i});openD(${id})"`:'disabled'}>${lv>=20?'MAX':'🌌'+cost}</button></div>`;});
+      const totSC=scArr.reduce((s,v)=>s+v,0);
+      h+=`<div style="font-size:9px;color:rgba(255,255,255,.3);margin-top:4px">🌌 Astral Dust: ${G.aDst.toLocaleString()} · Total: ${totSC}/120${totSC>=30?' · 🔮 Resonance!':''}${totSC>=90?' · ⚡ Awakened!':''}</div></div>`;}
+  }else if(dTab===5&&own){
+    // Artifacts
+    const artId=heroArtifact(id);const art=artId!==null?ARTIFACTS.find(a=>a.id===artId):null;
+    h+=`<div style="margin:6px 0;padding:8px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:6px">🗡️ Artifact</div>`;
+    if(art){const artSt={};if(art.atk)artSt.ATK=art.atk;if(art.hp)artSt.HP=art.hp;if(art.spd)artSt.SPD=art.spd;if(art.cr)artSt.CRIT=art.cr;h+=`<div style="text-align:center;margin:8px 0"><div style="font-size:32px">${art.e}</div><div style="font-size:13px;font-weight:800;color:${RC[art.r]}">${art.n}</div><div style="font-size:10px;color:rgba(255,255,255,.4)">${Object.entries(artSt).map(([k,v])=>`+${~~(v*100)}% ${k}`).join(' · ')}</div><div style="font-size:10px;color:#0e8;margin-top:2px">Effect: ${art.desc}</div></div>`;
+      h+=`<button class="dcl" onclick="unequipArt(${id});openD(${id})">Unequip</button>`;}
+    else{h+=`<div style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:6px">No artifact equipped</div>`;}
+    // show owned unequipped artifacts
+    const equipped=new Set(Object.values(G.hA));const free=ARTIFACTS.filter(a=>G.hA['_inv_'+a.id]>0||(G.hA['_own_'+a.id]&&!equipped.has(a.id)));
+    // simpler: show all from inventory
+    const inv=[];ARTIFACTS.forEach(a=>{const cnt=(G.hA['_inv_'+a.id]||0);if(cnt>0)inv.push({...a,cnt});});
+    if(inv.length){h+=`<div style="font-size:10px;color:rgba(255,255,255,.5);margin:6px 0">Available artifacts:</div>`;
+      inv.forEach(a=>{h+=`<div class="si" onclick="equipArt(${id},${a.id});openD(${id})"><div class="sic">${a.e}</div><div class="sin"><div class="sinm" style="color:${RC[a.r]}">${a.n} (×${a.cnt})</div><div class="sid">${a.desc}</div></div><div class="sip">Equip</div></div>`;});}
+    h+=`<div style="font-size:9px;color:rgba(255,255,255,.3);margin-top:4px">💠 Relic Shards: ${G.rSh} · Pull artifacts in Forge shop</div></div>`;
+  }else if(dTab===6&&own){
+    // Tenants / Homestead
+    const vi0=viGet(id)[0];const canHome=vi0>=2;
+    h+=`<div style="margin:6px 0;padding:8px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-size:12px;font-weight:700;color:#4f4;margin-bottom:6px">🏠 Homestead</div>`;
+    if(!canHome){h+=`<div style="font-size:11px;color:#f44">Requires Void Imprint V2+ (Vitality Lv2)</div></div>`;}
+    else{const slots=tenSlotCost(id);const curTen=tenGet(id);
+      h+=`<div style="font-size:10px;color:rgba(255,255,255,.5);margin-bottom:6px">Tenants donate 10% HP + 8% ATK to homeowner. Same element = 1.15× bonus.</div>`;
+      for(let si=0;si<3;si++){const tid=curTen[si];const ten=tid?G.coll.find(h=>h.id===tid):null;
+        h+=`<div style="padding:4px 0;${si?'border-top:1px solid rgba(255,255,255,.05)':''}"><div style="font-size:10px;font-weight:700;color:#4f4">Slot ${si+1}</div>`;
+        if(ten){const synergy=ten.elem&&hero.elem&&ten.elem===hero.elem;h+=`<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px">${ten.e} ${ten.n}${synergy?' <span style="color:#0e8;font-size:9px">⚡ Synergy</span>':''}</span><button class="dcl" style="width:auto;margin:0;padding:2px 8px;font-size:10px" onclick="removeTenant(${id},${si});openD(${id})">Remove</button></div>`;}
+        else{// pick tenant
+          const avail=G.coll.filter(c=>canTenant(id,c.id));
+          if(avail.length){h+=`<div style="display:flex;gap:3px;flex-wrap:wrap;margin-top:3px">`;avail.slice(0,8).forEach(c=>{h+=`<button style="padding:2px 6px;border-radius:4px;border:1px solid ${RC[c.r]};background:rgba(255,255,255,.04);color:${RC[c.r]};font-size:9px;cursor:pointer" onclick="addTenant(${id},${c.id});openD(${id})">${c.e} ${c.n}</button>`;});h+=`</div>`;}
+          else{h+=`<div style="font-size:9px;color:rgba(255,255,255,.3)">No heroes available</div>`;}}
+        h+=`</div>`;}
+      h+=`</div>`;}
   }
   if(own){const inS=G.team.findIndex(t=>t&&t.id===id);h+=`<button class="dcl" onclick="tgTm(${id})">${inS>=0?'Remove (Slot '+(inS+1)+')':'Add to Team'}</button>`;}
   h+=`<button class="dcl" onclick="$('HM').classList.remove('on')">Close</button>`;$('DET').innerHTML=h;$('HM').classList.add('on');}
@@ -844,7 +1014,11 @@ function renderLoadoutSummary(id){const g=normalizeGearSlots(G.hG[id]||{});let t
 function gearUsedCount(gid){let used=0;Object.values(G.hG||{}).forEach(slots=>{slots=normalizeGearSlots(slots);if(!slots)return;EQUIP_SLOTS.forEach(sl=>{if(slots[sl]===gid)used++;});});return used;}
 function gearFreeCount(gid,hid,slT){const own=G.gI[gid]||0;let used=gearUsedCount(gid);const slots=normalizeGearSlots(G.hG[hid]||{});if(hid!==undefined&&slT&&slots[slT]===gid)used--;return Math.max(0,own-used);}
 function equipG(hid,slT,gid){if(gearFreeCount(gid,hid,slT)<=0){toast('No free copies');return;}G.hG[hid]=normalizeGearSlots(G.hG[hid]||{});G.hG[hid][slT]=gid;openD(hid);}
-function lvU(id,n){const h=G.coll.find(x=>x.id===id);if(!h)return;const ml=maxLv(h.stars||0);const oldLv=h.level||1;for(let i=0;i<n;i++){const lv=h.level||1;if(lv>=ml)break;const cost=levelCost(lv);if(G.coins<cost.c||G.dust<cost.d)break;G.coins-=cost.c;G.dust-=cost.d;h.level=(h.level||1)+1;}const newLv=h.level||1;if(newLv>oldLv)showLvUpFX(h,oldLv,newLv);upUI();openD(id);}
+function lvU(id,n){const h=G.coll.find(x=>x.id===id);if(!h)return;const ml=maxLv(h.stars||0);const oldLv=h.level||1;for(let i=0;i<n;i++){const lv=h.level||1;if(lv>=ml)break;const cost=levelCost(lv);if(G.coins<cost.c||G.dust<cost.d)break;G.coins-=cost.c;G.dust-=cost.d;h.level=(h.level||1)+1;}const newLv=h.level||1;if(newLv>oldLv){showLvUpFX(h,oldLv,newLv);dqInc('dq_level');}upUI();openD(id);}
+function resetLevel(id){const h=G.coll.find(x=>x.id===id);if(!h||!h.level||h.level<=1)return;
+  cfm('Reset level to 1? All coins & dust spent will be refunded.',()=>{let tc=0,td=0;for(let lv=1;lv<h.level;lv++){const c=levelCost(lv);tc+=c.c;td+=c.d;}G.coins+=tc;G.dust+=td;h.level=1;upUI();openD(id);toast(`Refunded ${tc.toLocaleString()}🪙 + ${td.toLocaleString()}✨`);});}
+function resetStars(id){const h=G.coll.find(x=>x.id===id);if(!h||!h.stars||h.stars<=0)return;
+  cfm('Reset stars to 0? All copies & coins spent will be refunded.',()=>{let tc=0,tCop=0;for(let s=0;s<h.stars;s++){tCop+=sCost(h.r,s);tc+=STAR_GOLD[h.r]*Math.pow(s+1,2);}G.coins+=tc;G.copies[id]=(G.copies[id]||0)+tCop;const ml=maxLv(0);if(h.level>ml)h.level=ml;h.stars=0;upUI();openD(id);toast(`Refunded ${tCop} copies + ${tc.toLocaleString()}🪙`);});}
 function showLvUpFX(h,oldLv,newLv){const det=$('DET');if(!det)return;const fx=document.createElement('div');fx.style.cssText='position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:999;pointer-events:none;text-align:center;animation:lvUpPop .7s ease-out forwards;';const big=newLv-oldLv>=10;fx.innerHTML=`<div style="font-size:${big?28:20}px;font-weight:900;color:var(--gold);text-shadow:0 0 ${big?20:10}px rgba(255,215,0,.8)">${big?'⬆':'↑'} Lv.${newLv}</div>${big?'<div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:2px">+'+( newLv-oldLv)+' levels</div>':''}`;det.style.position='relative';det.appendChild(fx);setTimeout(()=>fx.remove(),900);}
 function upS(id){const h=G.coll.find(x=>x.id===id);if(!h)return;const s=h.stars||0;if(s>=MXS[h.r])return;const need=sCost(h.r,s);const cost=STAR_GOLD[h.r]*Math.pow(s+1,2);if((G.copies[id]||0)<need||G.coins<cost)return;G.copies[id]-=need;G.coins-=cost;h.stars=s+1;upUI();showStarUpFX(h,s+1);openD(id);toast(`⭐★${h.stars}!`);}
 function showStarUpFX(h,newStar){const det=$('DET');if(!det)return;det.style.position='relative';const overlay=document.createElement('div');overlay.style.cssText='position:absolute;inset:0;z-index:998;pointer-events:none;overflow:hidden;border-radius:16px;';const c=RC[h.r]||'#fff';const flash=document.createElement('div');flash.style.cssText=`position:absolute;inset:0;background:radial-gradient(circle,${c}44 0%,transparent 70%);animation:starFlash .6s ease-out forwards;`;overlay.appendChild(flash);for(let i=0;i<(newStar>=8?20:newStar>=5?12:6);i++){const p=document.createElement('div');const dx=(Math.random()-.5)*200,dy=(Math.random()-.5)*200;p.style.cssText=`position:absolute;top:50%;left:50%;width:${newStar>=8?6:4}px;height:${newStar>=8?6:4}px;border-radius:50%;background:${c};box-shadow:0 0 8px ${c};pointer-events:none;animation:starPart .8s ease-out forwards;--dx:${dx}px;--dy:${dy}px;`;overlay.appendChild(p);}const label=document.createElement('div');label.style.cssText=`position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:999;text-align:center;animation:starPop .9s cubic-bezier(.34,1.56,.64,1) forwards;`;const icons=['⭐','⭐','⭐','⭐','⭐','💠','💠','💠','💠','💠','🌟'][newStar-1]||'🌟';label.innerHTML=`<div style="font-size:${newStar>=8?48:newStar>=5?40:32}px;filter:drop-shadow(0 0 ${newStar>=5?25:12}px ${c})">${icons}</div><div style="font-size:${newStar>=8?24:18}px;font-weight:900;color:${c};text-shadow:0 0 15px ${c}">★ ${newStar}</div>`;overlay.appendChild(label);det.appendChild(overlay);setTimeout(()=>overlay.remove(),1200);}
@@ -903,8 +1077,8 @@ function startB(stg,mode,roster,php){
   if(!skipNow){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');}
   $('RWP').classList.remove('on');$('MR').classList.remove('on');$('HM').classList.remove('on');$('COL').classList.remove('on');$('UP').classList.remove('on');sOL.classList.remove('on');
   if(!skipNow){$('SS').style.display='none';$('BA').classList.add('on');$('BL').innerHTML='';}
-  let cnt;if(mode==='story')cnt=storyEnemyCount(stg);else if(mode==='dungeon')cnt=stg%25===0?3:stg%5===0?2:1;else cnt=5;
-  const ens=mode==='tower'?mkTowerTeam(stg):mode==='arena'?(G.aOpp||mkArenaTeam(stg)).map((u,i)=>({...u,idx:i,side:'e'})):Array.from({length:cnt},(_,i)=>mkEn(stg,i,mode));
+  let cnt;if(mode==='story')cnt=storyEnemyCount(stg);else if(mode==='dungeon')cnt=stg%25===0?3:stg%5===0?2:1;else if(mode==='void')cnt=1;else if(mode==='wboss')cnt=1;else cnt=5;
+  let ens;if(mode==='tower')ens=mkTowerTeam(stg);else if(mode==='arena')ens=(G.aOpp||mkArenaTeam(stg)).map((u,i)=>({...u,idx:i,side:'e'}));else if(mode==='void'){const ve=mkVoidEnemy(stg);const st=getSt(ve);ens=[{...ve,hp:~~(st.hp*3),maxHp:~~(st.hp*3),a:ve.a,sp:ve.sp,alive:1,side:'e',idx:0,charge:0,efx:[],endured:0,dl_used:0,dl2_revives:0,har_revives:0,phx_used:0,tc:0,stS:0,row:'front',pact_used:0,oc_count:0,shield:0,bonusHp:0,tfBar:0,transformed:0,kills:0,dmgDealt:0,dmgTaken:0,healed:0,blocked:0}];}else if(mode==='wboss'){const boss=curWorldBoss();ens=[{...boss,level:200,stars:15,hp:boss.hp*10000,maxHp:boss.hp*10000,a:boss.a,sp:boss.sp,alive:1,side:'e',idx:0,charge:0,efx:[],endured:0,dl_used:0,dl2_revives:0,har_revives:0,phx_used:0,tc:0,stS:0,row:'front',pact_used:0,oc_count:0,shield:0,bonusHp:0,tfBar:0,transformed:0,kills:0,dmgDealt:0,dmgTaken:0,healed:0,blocked:0}];}else if(mode==='expd')ens=Array.from({length:cnt},(_,i)=>mkEn(stg,i,'story'));else if(mode==='dream'){const boss=curDreamBoss();ens=[{...boss,level:300,stars:15,hp:boss.hp*5000,maxHp:boss.hp*5000,a:boss.a,sp:boss.sp,alive:1,side:'e',idx:0,charge:0,efx:[],endured:0,dl_used:0,dl2_revives:0,har_revives:0,phx_used:0,tc:0,stS:0,row:'front',pact_used:0,oc_count:0,shield:0,bonusHp:0,tfBar:0,transformed:0,kills:0,dmgDealt:0,dmgTaken:0,healed:0,blocked:0}];}else if(mode==='coloss'||mode==='trials')ens=mkTowerTeam(stg);else ens=Array.from({length:cnt},(_,i)=>mkEn(stg,i,mode));
   const als=team.map((c,i)=>{const s=getSt(c);const maxHp=~~(s.hp*COMBAT.allyHpScale);return{...c,...s,hp:php&&php[c.id]!==undefined?Math.min(php[c.id],maxHp):maxHp,maxHp,a:s.atk,sp:s.spd,alive:1,side:'a',idx:i,charge:(c.sc||0)+startChargeBonus(c),efx:[],endured:0,dl_used:0,dl2_revives:0,har_revives:0,phx_used:0,tc:0,stS:0,row:i<2?'front':'back',pact_used:0,oc_count:0,shield:0,bonusHp:0,tfBar:0,transformed:0,kills:0,dmgDealt:0,dmgTaken:0,healed:0,blocked:0};});
   [...als,...ens].forEach(rowBoost);
   [...als,...ens].forEach(u=>u.pV=passiveScale(u));
@@ -926,7 +1100,7 @@ function plU(){if(SIM)return;BF2().querySelectorAll('.uw,.dn,.sp,.combo-display,
     const elemKey=HERO_ELEM[u.id];const elemIco=elemKey?ELEMENTS[elemKey]||'':'';
     d.innerHTML=`<div class="ue" style="position:relative">${u.e}${elemIco?`<span class="ele-badge">${elemIco}</span>`:''}</div><div class="hpb"><div class="hpf" style="width:${hp}%"></div><div class="ohf" style="width:${oh}%"></div><div class="shf" style="width:${sh}%"></div><div class="hpt">${renderHpText(u)}</div></div><div class="cb"><div class="cf${ch>=100?' ul':ch>=50?' sk':''}" style="width:${ch}%"></div></div><div class="tfb${hasTf(u)?' on':''}"><div class="tff" style="width:${tf}%"></div></div><div class="brkb"><div class="brkf" style="width:${((u.brk||0)/MAX_BREAK*100)}%"></div></div><div class="efx-bar"></div><div class="un">${u.n}</div>`;
     d.addEventListener('click',()=>{if(B&&!B.done)openD(u.id,u);});
-    const p=uPos(u,fw,fh);d.style.left=p.x+'px';d.style.top=p.y+'px';BF2().appendChild(d);});}}
+    const p=uPos(u,fw,fh);d.style.left=p.x+'px';d.style.top=p.y+'px';BF2().appendChild(d);});}
 
 function uPos(u,fw,fh){
   if(!fw)fw=Math.min(BF2().offsetWidth,760);if(!fh)fh=BF2().offsetHeight;
@@ -980,7 +1154,7 @@ async function rTurns(){
 
     if(afterActionExtras(u,'turn')&&u.alive&&B&&!B.done){if(el)el.classList.remove('act');await sl(bd()*.05);continue;}
     if(el)el.classList.remove('act');if(!B||B.done)return;
-    if(!B.ens.some(e=>e.alive)){winB();return;}if(!B.als.some(a=>a.alive)){loseB();return;}if(B.turn>200){if(B.als.reduce((s,u)=>s+(u.alive?u.hp:0),0)>=B.ens.reduce((s,u)=>s+(u.alive?u.hp:0),0))winB();else loseB();return;}await sl(bd()*.05);}}
+    if(!B.ens.some(e=>e.alive)){winB();return;}if(!B.als.some(a=>a.alive)){loseB();return;}if(B.mode==='wboss'&&B.turn>300){G._wbDmg=B.als.reduce((s,u)=>s+u.dmgDealt,0);loseB();return;}if(B.turn>200){if(B.als.reduce((s,u)=>s+(u.alive?u.hp:0),0)>=B.ens.reduce((s,u)=>s+(u.alive?u.hp:0),0))winB();else loseB();return;}await sl(bd()*.05);}}
 
 async function doAtk(u){const t=pickT(u);if(!t)return;
   const isAOE=u.pT==='an'||u.pT==='ob'||u.pT==='absX'||u.pT==='prim1'||u.pT==='prim2';await anAtk(u,t);
@@ -1128,14 +1302,29 @@ async function simB(){if(!B||B.done)return;SIM=1;B.done=0;await rTurns();SIM=0;}
 function winB(){B.done=1;$('TBT').textContent='BATTLE END';$('TB').textContent='🎉 VICTORY!';$('TB').style.color='var(--gold)';$('TB').classList.add('result-anim');const s=B.stg,md=B.mode;
   let cr,ge,dr,tk,extra='';const storyFirst=md==='story'&&!G.cleared.story[s];if(md==='story'){const rw=stageReward(s);cr=rw.c;ge=rw.g;dr=rw.d;tk=rw.t;if(storyFirst){cr*=2;ge*=2;dr*=2;tk*=2;extra='<div class="rwit"><div class="ri">✨</div>First Clear x2</div>';}}
   else if(md==='dungeon'){cr=80*s;ge=s%10===0?15+s:0;dr=8*s;tk=s%8===0?1:0;}
-  else if(md==='arena'){cr=10000;ge=50;dr=2000;tk=0;}
+  else if(md==='arena'){cr=10000;ge=50;dr=2000;tk=0;dqInc('dq_arena');}
   else if(md==='pvp'){cr=5000;ge=30;dr=500;tk=1;G.pvpW=(G.pvpW||0)+1;if(G.pvpOpp)G.pvpHist.push({w:1,n:G.pvpOpp.name,p:G.pvpOpp.power,t:G.pvpOpp.team.map(h=>h.e)});if(G.pvpHist.length>20)G.pvpHist=G.pvpHist.slice(-20);}
+  else if(md==='void'){const fl=G.vR;cr=0;ge=10+fl*2;dr=0;tk=0;const se=20+fl*5;G.sEmb+=se;extra+=`<div class="rwit"><div class="ri">🔥</div>${se} Soul Embers</div>`;if(fl%10===0){const rs=~~(fl/10);G.rSh+=rs;extra+=`<div class="rwit"><div class="ri">💠</div>${rs} Relic Shards</div>`;}G.vRC[fl]=1;if(G.vR<50)G.vR++;}
+  else if(md==='wboss'){const totalDmg=G._wbDmg||B.als.reduce((s,u)=>s+u.dmgDealt,0);if(totalDmg>G.wbBest)G.wbBest=totalDmg;cr=totalDmg>=1000000?totalDmg>=10000000?totalDmg>=100000000?totalDmg>=1000000000?500000:100000:20000:5000:0;ge=totalDmg>=1000000?totalDmg>=10000000?totalDmg>=100000000?totalDmg>=1000000000?2000:500:200:50:0;dr=0;tk=totalDmg>=10000000?2:0;if(totalDmg>=100000000){G.rSh+=1;extra+=`<div class="rwit"><div class="ri">💠</div>1 Relic Shard</div>`;}if(totalDmg>=1000000000){G.stFr+=1;extra+=`<div class="rwit"><div class="ri">⭐</div>1 Starlight Fragment</div>`;}extra+=`<div class="rwit"><div class="ri">💥</div>${totalDmg.toLocaleString()} total dmg</div>`;}
+  else if(md==='expd'){cr=3000;ge=30;dr=0;tk=0;if(G.expRun){expdAdvance();}}
+  else if(md==='coloss'){const mult=B._coloDiff!==undefined?[1,2,3][B._coloDiff]||1:1;cr=8000*mult;ge=40*mult;dr=1000*mult;tk=mult>1?1:0;G.coloW++;G.coloS++;
+    if(G.coloS===3){G.gems+=100;extra+=`<div class="rwit"><div class="ri">💎</div>Streak 3: +100💎</div>`;}
+    if(G.coloS===5){G.tok+=5;extra+=`<div class="rwit"><div class="ri">🎲</div>Streak 5: +5🎲</div>`;}
+    if(G.coloS===10){G.rSh+=2;extra+=`<div class="rwit"><div class="ri">💠</div>Streak 10: +2💠</div>`;}
+    if(G.coloS===15){G.stFr+=1;extra+=`<div class="rwit"><div class="ri">⭐</div>Streak 15: +1⭐</div>`;}}
+  else if(md==='dream'){const totalDmg=B.als.reduce((s,u)=>s+(u.dmgDealt||0),0);if(totalDmg>G.dreamBest)G.dreamBest=totalDmg;cr=0;ge=0;dr=0;tk=0;
+    let se=0;if(totalDmg>=1e5)se+=50;if(totalDmg>=1e6)se+=150;if(totalDmg>=1e7)se+=300;if(totalDmg>=1e8){se+=500;G.rSh+=1;extra+=`<div class="rwit"><div class="ri">💠</div>1 Relic Shard</div>`;}
+    G.sEmb+=se;extra+=`<div class="rwit"><div class="ri">🔥</div>${se} Soul Embers</div><div class="rwit"><div class="ri">💥</div>${totalDmg.toLocaleString()} dmg</div>`;}
+  else if(md==='trials'){cr=5000+s*1000;ge=10+s*5;dr=500+s*200;tk=s%5===0?3:0;if(G._trialElem){if(!G.trialBest[G._trialElem]||s>G.trialBest[G._trialElem])G.trialBest[G._trialElem]=s;}
+    if(s%5===0){ge+=50;extra+=`<div class="rwit"><div class="ri">💎</div>Milestone +50💎</div>`;}}
   else{cr=15000*s;ge=50*s;dr=1500*s;tk=8;}
   G.coins+=cr;G.gems+=ge;G.dust+=dr;G.tok+=tk;G.xp+=50+s*25;
+  // daily quest & battle pass tracking
+  dqInc('dq_battle');bpAddXp(10+s);checkMailTriggers();
   if(md==='story'){G.cleared.story[s]=1;if(s>=G.maxStage&&G.maxStage<G.stageCap)G.maxStage++;}
   if(md==='tower')G.cleared.tower[s]=1;
   if(G.xp>=G.lv*120){G.lv++;G.xp-=G.lv*120;}upUI();
-  if(Math.random()<.12+s*.01){const gid=~~(Math.random()*Math.min(~~(s/2)+3,GEAR.length));G.gI[gid]=(G.gI[gid]||0)+1;toast('⚙️ Found '+GEAR[gid].n+'!');}
+  if(md!=='wboss'&&md!=='expd'&&Math.random()<.12+s*.01){const gid=~~(Math.random()*Math.min(~~(s/2)+3,GEAR.length));G.gI[gid]=(G.gI[gid]||0)+1;toast('⚙️ Found '+GEAR[gid].n+'!');}
   if(md==='dungeon'){G.dF++;if(G.dF>G.dB)G.dB=G.dF;const hp={};B.als.forEach(u=>hp[u.id]=u.hp);G.dR.forEach(h=>{if(hp[h.id]!==undefined)h._hp=hp[h.id];});if(G.dF>100)G.dA=0;}
   if(md==='tower'){G.tF++;}
   if(md==='arena'){
@@ -1161,13 +1350,21 @@ function winB(){B.done=1;$('TBT').textContent='BATTLE END';$('TB').textContent='
     });
     upUI();
   }
-  const rewardHtml=`<div class="rwit"><div class="ri">🪙</div>${cr.toLocaleString()}</div><div class="rwit"><div class="ri">💎</div>${ge}</div><div class="rwit"><div class="ri">✨</div>${dr}</div>${tk?`<div class="rwit"><div class="ri">🎲</div>${tk}</div>`:''}${extra}`;
-  setTimeout(()=>openResult(md==='dungeon'&&G.dF>100?'🏰 Abyss Cleared!':md==='pvp'?'🏆 PvP Victory!':'🎉 Victory!',rewardHtml,md==='story'?'battle':md==='dungeon'?'dung':md),300);}
+  const rewardHtml=`${cr?`<div class="rwit"><div class="ri">🪙</div>${cr.toLocaleString()}</div>`:''}${ge?`<div class="rwit"><div class="ri">💎</div>${ge}</div>`:''}${dr?`<div class="rwit"><div class="ri">✨</div>${dr}</div>`:''}${tk?`<div class="rwit"><div class="ri">🎲</div>${tk}</div>`:''}${extra}`;
+  const title=md==='dungeon'&&G.dF>100?'🏰 Abyss Cleared!':md==='pvp'?'🏆 PvP Victory!':md==='void'?'🌑 Void Cleared!':md==='wboss'?'👹 Boss Defeated!':md==='expd'?'🗺️ Node Cleared!':'🎉 Victory!';
+  const retScreen=md==='story'?'battle':md==='dungeon'?'dung':md==='void'?'void':md==='wboss'?'wboss':md==='expd'?'expd':md;
+  setTimeout(()=>openResult(title,rewardHtml,retScreen),300);}
 function loseB(){B.done=1;$('TBT').textContent='BATTLE END';$('TB').textContent='💀 DEFEATED';$('TB').style.color='#f44';$('TB').classList.add('result-anim');
   if(B.mode==='dungeon'){const hp={};B.als.forEach(u=>hp[u.id]=0);G.dR.forEach(h=>{if(hp[h.id]!==undefined)h._hp=0;});if(!G.dR.some(h=>h._hp===undefined||h._hp>0))G.dA=0;setTimeout(()=>openResult('💀 Defeat','', 'dung'),300);}
   else if(B.mode==='tower'){setTimeout(()=>openResult('💀 Defeat','', 'tower'),300);}
   else if(B.mode==='pvp'){G.pvpL=(G.pvpL||0)+1;if(G.pvpOpp)G.pvpHist.push({w:0,n:G.pvpOpp.name,p:G.pvpOpp.power,t:G.pvpOpp.team.map(h=>h.e)});if(G.pvpHist.length>20)G.pvpHist=G.pvpHist.slice(-20);saveG();setTimeout(()=>openResult('💀 Defeat','','pvp'),300);}
   else if(B.mode==='arena'){G.aR=Math.min(1000000,G.aR+Math.max(50,~~(Math.max(1,1000000-G.aR)*.0025)));setTimeout(()=>openResult('💀 Defeat','', 'arena'),300);}
+  else if(B.mode==='void'){setTimeout(()=>openResult('💀 Defeat','','void'),300);}
+  else if(B.mode==='wboss'){const totalDmg=G._wbDmg||0;if(totalDmg>G.wbBest)G.wbBest=totalDmg;let extra='';let cr=0,ge=0;if(totalDmg>=1000000){cr=5000;ge=50;}if(totalDmg>=10000000){cr=20000;ge=200;}if(totalDmg>=100000000){cr=100000;ge=500;G.rSh+=1;extra+='<div class="rwit"><div class="ri">💠</div>1 Relic Shard</div>';}G.coins+=cr;G.gems+=ge;const rh=`<div class="rwit"><div class="ri">💥</div>${totalDmg.toLocaleString()} dmg</div>${cr?`<div class="rwit"><div class="ri">🪙</div>${cr.toLocaleString()}</div>`:''}${ge?`<div class="rwit"><div class="ri">💎</div>${ge}</div>`:''}${extra}`;setTimeout(()=>openResult('👹 Time Up!',rh,'wboss'),300);}
+  else if(B.mode==='expd'){if(G.expRun){G.expRun=null;toast('Expedition failed!');}setTimeout(()=>openResult('💀 Defeat','','expd'),300);}
+  else if(B.mode==='coloss'){G.coloS=0;setTimeout(()=>openResult('💀 Defeat','Streak reset!','coloss'),300);}
+  else if(B.mode==='dream'){const totalDmg=B.als.reduce((s,u)=>s+(u.dmgDealt||0),0);if(totalDmg>G.dreamBest)G.dreamBest=totalDmg;let se=0;if(totalDmg>=1e5)se+=50;if(totalDmg>=1e6)se+=150;if(totalDmg>=1e7)se+=300;if(totalDmg>=1e8)se+=500;G.sEmb+=se;const rh=`<div class="rwit"><div class="ri">💥</div>${totalDmg.toLocaleString()} dmg</div>${se?`<div class="rwit"><div class="ri">🔥</div>${se} Soul Embers</div>`:''}`;setTimeout(()=>openResult('💤 Dream Over',rh,'dream'),300);}
+  else if(B.mode==='trials'){setTimeout(()=>openResult('💀 Defeat','','trials'),300);}
   else setTimeout(()=>openResult('💀 Defeat','', 'battle'),300);}
 function clRW(){$('RWP').classList.remove('on');const ret=G.rRet||'battle';exitB();go(ret);}
 function doRet(){cfm("Retreat?",()=>{if(B){B.done=1;if(B.mode==='dungeon')G.dA=0;if(B.mode==='tower')G.tA=0;}exitB();go(G.curM==='story'?'battle':G.curM);toast("Retreated");});}
@@ -1199,7 +1396,7 @@ function rTower(){const c=$('TI');
 function tFight(){const team=G.team.filter(Boolean);if(!team.length){toast('Set team!');return;}G.curM='tower';if(!G.skipBattle){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');$('SS').style.display='none';$('BA').classList.add('on');}startB(G.tF,'tower',team.map(h=>({...h})),null);}
 
 // SHOP
-function rShop(){const c=$('SI');const tabs=['⚔️ Weapon','🛡️ Armor','💍 Accessory','📚 Books','🎲 Tokens','👤 Shards','⚙️ Settings'];
+function rShop(){const c=$('SI');const tabs=['⚔️ Weapon','🛡️ Armor','💍 Accessory','📚 Books','🎲 Tokens','👤 Shards','🗡️ Artifacts','⚙️ Settings'];
   let h=`<div class="mt">🏪 Forge & Shop</div><div class="stabs" style="flex-wrap:wrap">${tabs.map((t,i)=>`<div class="stab${G.sT===i?' on':''}" onclick="G.sT=${i};rShop()">${t}</div>`).join('')}</div>`;
   const slotMap=['w','a','c','b'];
   if(G.sT<=3){
@@ -1219,15 +1416,24 @@ function rShop(){const c=$('SI');const tabs=['⚔️ Weapon','🛡️ Armor','�
       h+=`<div class="si"><div class="sic">${g.e}</div><div class="sin"><div class="sinm" style="color:${RC[g.r]}">${g.n}${g.cl?' <span style="font-size:10px;opacity:.6">('+g.cl+')</span>':''}</div><div class="sid">${gearStatLine(g)}${g.gP?' · '+gearPDesc(g.gP):''}</div></div><div style="font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap">${own} owned · ${free} free</div></div>`;});
   }else if(G.sT===4){const mxT=~~(G.gems/50)||0;const mxD=~~(G.gems/100)||0;h+=`<div class="si"><div class="sic">🎲</div><div class="sin"><div class="sinm">Tokens</div><div class="sid">50💎 each</div></div><div style="display:flex;gap:3px;align-items:center"><button style="padding:3px 8px;border:none;border-radius:4px;background:var(--gold);color:#080c18;font-weight:700;font-size:11px;cursor:pointer" onclick="bTok(1,50)">×1</button><button style="padding:3px 8px;border:none;border-radius:4px;background:rgba(232,184,48,.3);color:var(--gold);font-weight:700;font-size:11px;cursor:pointer" onclick="bTok(10,500)">×10</button><button style="padding:3px 8px;border:none;border-radius:4px;background:rgba(232,184,48,.15);color:var(--gold);font-weight:700;font-size:11px;cursor:pointer" onclick="bTok(${mxT},${mxT*50})">MAX(${mxT})</button></div></div>`;
     h+=`<div class="si"><div class="sic">✨</div><div class="sin"><div class="sinm">Dust ×1000</div><div class="sid">100💎 each</div></div><div style="display:flex;gap:3px;align-items:center"><button style="padding:3px 8px;border:none;border-radius:4px;background:var(--gold);color:#080c18;font-weight:700;font-size:11px;cursor:pointer" onclick="bDust()">×1</button><button style="padding:3px 8px;border:none;border-radius:4px;background:rgba(232,184,48,.15);color:var(--gold);font-weight:700;font-size:11px;cursor:pointer" onclick="bDustN(${mxD})">MAX(${mxD})</button></div></div>`;}
-  else if(G.sT===6){
+  else if(G.sT===7){
     h+=`<div style="text-align:center;margin:12px 0"><div style="font-size:14px;font-weight:900;color:var(--gold)">⚙️ Settings</div></div>`;
     h+=`<div class="si"><div class="sic">💾</div><div class="sin"><div class="sinm">Save Progress</div><div class="sid">Auto-saves on every action. Manual save below.</div></div><button style="padding:5px 14px;border:none;border-radius:6px;background:var(--gold);color:#080c18;font-weight:700;font-size:12px;cursor:pointer" onclick="saveG();toast('💾 Saved!')">Save Now</button></div>`;
     h+=`<div class="si"><div class="sic">🗑️</div><div class="sin"><div class="sinm" style="color:#f44">Wipe Save Data</div><div class="sid">Permanently delete all progress. Cannot be undone!</div></div><button style="padding:5px 14px;border:none;border-radius:6px;background:#f44;color:#fff;font-weight:700;font-size:12px;cursor:pointer" onclick="wipeSave()">Wipe Save</button></div>`;
     h+=`<div class="si"><div class="sic">📋</div><div class="sin"><div class="sinm">Export Save</div><div class="sid">Copy save data to clipboard for backup.</div></div><button style="padding:5px 14px;border:none;border-radius:6px;background:rgba(255,255,255,.1);color:#fff;font-weight:700;font-size:12px;cursor:pointer" onclick="exportSave()">Export</button></div>`;
     h+=`<div class="si"><div class="sic">📥</div><div class="sin"><div class="sinm">Import Save</div><div class="sid">Paste previously exported save data.</div></div><button style="padding:5px 14px;border:none;border-radius:6px;background:rgba(255,255,255,.1);color:#fff;font-weight:700;font-size:12px;cursor:pointer" onclick="importSave()">Import</button></div>`;}
-  else DB.filter(d=>d.r>=2).forEach(d=>{const pr=d.r===2?5000:d.r===3?25000:100000;const mx=~~(G.coins/pr)||0;h+=`<div class="si"><div class="sic">${d.e}</div><div class="sin"><div class="sinm" style="color:${RC[d.r]}">${d.n}</div><div class="sid">${RN[d.r]} · ${pr.toLocaleString()}🪙</div></div><div style="display:flex;gap:3px;align-items:center"><button style="padding:3px 8px;border:none;border-radius:4px;background:var(--gold);color:#080c18;font-weight:700;font-size:11px;cursor:pointer" onclick="bShard(${d.id})">×1</button>${mx>=10?`<button style="padding:3px 8px;border:none;border-radius:4px;background:rgba(232,184,48,.3);color:var(--gold);font-weight:700;font-size:11px;cursor:pointer" onclick="bShardN(${d.id},10)">×10</button>`:''}<button style="padding:3px 8px;border:none;border-radius:4px;background:rgba(232,184,48,.15);color:var(--gold);font-weight:700;font-size:11px;cursor:pointer" onclick="bShardN(${d.id},${mx})">MAX(${mx})</button></div></div>`;});
+  else if(G.sT===6){
+    h+=`<div style="text-align:center;margin:8px 0"><div style="font-size:14px;font-weight:900;color:var(--gold)">🗡️ Artifact Summoning</div><div style="font-size:11px;color:rgba(255,255,255,.4)">Spend 💠 Relic Shards to pull artifacts. Equip on heroes for stat boosts & effects!</div></div>`;
+    h+=`<div style="text-align:center;margin:8px 0;font-size:12px;color:rgba(255,255,255,.5)">💠 Relic Shards: ${G.rSh}</div>`;
+    h+=`<div style="display:flex;gap:6px;justify-content:center;margin-bottom:10px">`;
+    h+=`<button class="gb gb1" onclick="pullArt(1)" ${G.rSh<10?'disabled':''}>Pull ×1<small>10💠</small></button>`;
+    h+=`<button class="gb gb3" onclick="pullArt(10)" ${G.rSh<100?'disabled':''}>Pull ×10<small>100💠</small></button>`;
+    h+=`</div>`;
+    h+=`<div style="font-size:12px;font-weight:800;color:var(--gold);margin:8px 0">📦 Artifact Inventory</div>`;
+    ARTIFACTS.forEach(a=>{const cnt=G.hA['_inv_'+a.id]||0;if(!cnt)return;const st={};if(a.atk)st.ATK=a.atk;if(a.hp)st.HP=a.hp;if(a.spd)st.SPD=a.spd;if(a.cr)st.CRIT=a.cr;h+=`<div class="si"><div class="sic">${a.e}</div><div class="sin"><div class="sinm" style="color:${RC[a.r]}">${a.n} (×${cnt})</div><div class="sid">${Object.entries(st).map(([k,v])=>`+${~~(v*100)}%${k}`).join(' ')} · ${a.desc}</div></div></div>`;});
+  }  else DB.filter(d=>d.r>=2).forEach(d=>{const pr=d.r===2?5000:d.r===3?25000:100000;const mx=~~(G.coins/pr)||0;h+=`<div class="si"><div class="sic">${d.e}</div><div class="sin"><div class="sinm" style="color:${RC[d.r]}">${d.n}</div><div class="sid">${RN[d.r]} · ${pr.toLocaleString()}🪙</div></div><div style="display:flex;gap:3px;align-items:center"><button style="padding:3px 8px;border:none;border-radius:4px;background:var(--gold);color:#080c18;font-weight:700;font-size:11px;cursor:pointer" onclick="bShard(${d.id})">×1</button>${mx>=10?`<button style="padding:3px 8px;border:none;border-radius:4px;background:rgba(232,184,48,.3);color:var(--gold);font-weight:700;font-size:11px;cursor:pointer" onclick="bShardN(${d.id},10)">×10</button>`:''}<button style="padding:3px 8px;border:none;border-radius:4px;background:rgba(232,184,48,.15);color:var(--gold);font-weight:700;font-size:11px;cursor:pointer" onclick="bShardN(${d.id},${mx})">MAX(${mx})</button></div></div>`;});
   c.innerHTML=h;}
-function forgeGear(slK,n){const cost=800;if(G.coins<cost*n){toast("Not enough coins!");return;}const weights=[40,35,18,5.5,1.5];const pool=GEAR.filter(x=>x.sl===slK);const results=[];for(let i=0;i<n;i++){if(G.coins<cost)break;G.coins-=cost;let r=Math.random()*100,c=0,rk=0;for(let j=0;j<weights.length;j++){c+=weights[j];if(r<c){rk=j;break;}}const opts=pool.filter(x=>x.r===rk);if(!opts.length)continue;const pick=opts[~~(Math.random()*opts.length)];G.gI[pick.id]=(G.gI[pick.id]||0)+1;results.push(pick);}upUI();if(n<=10&&results.length>0){const best=results.reduce((a,b)=>b.r>a.r?b:a,results[0]);toast(`Forged ${results.length}× gear! Best: ${best.n} (${RN[best.r]})`);}else if(results.length>0){const counts=[0,0,0,0,0];results.forEach(r=>counts[r.r]++);toast(`Forged ${results.length}: ${counts.map((c,i)=>c?c+'×'+RN[i]:'').filter(Boolean).join(', ')}`);}rShop();}
+function forgeGear(slK,n){const cost=800;if(G.coins<cost*n){toast("Not enough coins!");return;}dqInc('dq_forge',n);const weights=[40,35,18,5.5,1.5];const pool=GEAR.filter(x=>x.sl===slK);const results=[];for(let i=0;i<n;i++){if(G.coins<cost)break;G.coins-=cost;let r=Math.random()*100,c=0,rk=0;for(let j=0;j<weights.length;j++){c+=weights[j];if(r<c){rk=j;break;}}const opts=pool.filter(x=>x.r===rk);if(!opts.length)continue;const pick=opts[~~(Math.random()*opts.length)];G.gI[pick.id]=(G.gI[pick.id]||0)+1;results.push(pick);}upUI();if(n<=10&&results.length>0){const best=results.reduce((a,b)=>b.r>a.r?b:a,results[0]);toast(`Forged ${results.length}× gear! Best: ${best.n} (${RN[best.r]})`);}else if(results.length>0){const counts=[0,0,0,0,0];results.forEach(r=>counts[r.r]++);toast(`Forged ${results.length}: ${counts.map((c,i)=>c?c+'×'+RN[i]:'').filter(Boolean).join(', ')}`);}rShop();}
 function bGear(id){toast('Use the Forge!');rShop();}
 function bGearN(id,n){toast('Use the Forge!');rShop();}
 function bTok(n,cost){if(G.gems<cost){toast("Not enough!");return;}G.gems-=cost;G.tok+=n;upUI();toast('+'+n+' tokens');rShop();}
@@ -1235,6 +1441,488 @@ function bDust(){if(G.gems<100){toast("Not enough!");return;}G.gems-=100;G.dust+
 function bDustN(n){if(n<=0){toast("Not enough!");return;}for(let i=0;i<n;i++){if(G.gems<100)break;G.gems-=100;G.dust+=1e3;}upUI();toast('+'+n+'k dust');rShop();}
 function bShard(id){const d=DB.find(x=>x.id===id);if(!d)return;const pr=d.r===2?5000:d.r===3?25000:100000;if(G.coins<pr){toast("Not enough!");return;}G.coins-=pr;G.copies[id]=(G.copies[id]||0)+1;if(!G.coll.find(x=>x.id===id))G.coll.push({...d,stars:0,level:1});upUI();toast('+1 '+d.n);rShop();}
 function bShardN(id,n){const d=DB.find(x=>x.id===id);if(!d||n<=0)return;const pr=d.r===2?5000:d.r===3?25000:100000;for(let i=0;i<n;i++){if(G.coins<pr)break;G.coins-=pr;G.copies[id]=(G.copies[id]||0)+1;if(!G.coll.find(x=>x.id===id))G.coll.push({...d,stars:0,level:1});}upUI();toast('+'+n+' '+d.n);rShop();}
+function pullArt(n){const cost=10*n;if(G.rSh<cost){toast('Need '+cost+' 💠!');return;}G.rSh-=cost;const results=[];for(let i=0;i<n;i++){const art=pullArtifact();results.push(art);G.hA['_inv_'+art.id]=(G.hA['_inv_'+art.id]||0)+1;}upUI();const best=results.reduce((a,b)=>(b.r||0)>(a.r||0)?b:a,results[0]);toast(`Pulled ${n}× artifact! Best: ${best.e} ${best.n}`);rShop();}
+
+// ═══ MAIL SYSTEM ═══
+const MAIL_TEMPLATES=[
+  {id:'release',subj:'🎉 Game Release!',body:'Welcome to Realm of Fate! Here are your starting rewards to begin your journey!',rewards:{coins:50000,gems:500,dust:10000,tok:10}},
+  {id:'wb_bronze',subj:'👹 World Boss: Bronze',body:'You dealt 1M+ damage to the World Boss!',rewards:{coins:10000,gems:100,rSh:1}},
+  {id:'wb_silver',subj:'👹 World Boss: Silver',body:'You dealt 10M+ damage to the World Boss!',rewards:{coins:50000,gems:300,rSh:3,tok:5}},
+  {id:'wb_gold',subj:'👹 World Boss: Gold',body:'You dealt 100M+ damage to the World Boss!',rewards:{coins:200000,gems:1000,rSh:5,sEmb:100}},
+  {id:'wb_plat',subj:'👹 World Boss: Platinum',body:'You dealt 1B+ damage to the World Boss!',rewards:{coins:500000,gems:2000,stFr:2,sEmb:500}},
+  {id:'void10',subj:'🌑 Void Floor 10',body:'You cleared Void Realm Floor 10!',rewards:{gems:200,sEmb:100,rSh:2}},
+  {id:'void25',subj:'🌑 Void Floor 25',body:'Halfway through the Void Realm!',rewards:{gems:500,sEmb:300,rSh:5}},
+  {id:'void50',subj:'🌑 Void Floor 50',body:'You conquered the entire Void Realm!',rewards:{gems:2000,sEmb:1000,stFr:3,rSh:10}},
+  {id:'expd5',subj:'🗺️ Expedition Master',body:'You completed 5 Astral Expeditions!',rewards:{aDst:200,gems:300}},
+  {id:'stage50',subj:'⚔️ Story Stage 50',body:'You cleared Story Stage 50!',rewards:{coins:100000,gems:500,dust:5000}},
+  {id:'stage100',subj:'⚔️ Story Stage 100',body:'You cleared Story Stage 100!',rewards:{coins:500000,gems:1000,dust:20000,tok:10}},
+];
+function sendMail(id){if(G.mail.find(m=>m.id===id))return;const tpl=MAIL_TEMPLATES.find(t=>t.id===id);if(!tpl)return;G.mail.push({id,subj:tpl.subj,body:tpl.body,rewards:{...tpl.rewards},ts:Date.now(),claimed:0});}
+function claimMail(idx){const m=G.mail[idx];if(!m||m.claimed)return;const r=m.rewards;if(r.coins)G.coins+=r.coins;if(r.gems)G.gems+=r.gems;if(r.dust)G.dust+=r.dust;if(r.tok)G.tok+=r.tok;if(r.sEmb)G.sEmb+=r.sEmb;if(r.aDst)G.aDst+=r.aDst;if(r.rSh)G.rSh+=r.rSh;if(r.stFr)G.stFr+=r.stFr;m.claimed=1;upUI();rMail();
+  let msg='';Object.entries(r).forEach(([k,v])=>{const names={coins:'🪙',gems:'💎',dust:'✨',tok:'🎲',sEmb:'🔥',aDst:'🌌',rSh:'💠',stFr:'⭐'};msg+=(names[k]||k)+v.toLocaleString()+' ';});toast('Claimed: '+msg);}
+function claimAllMail(){G.mail.forEach((m,i)=>{if(!m.claimed)claimMail(i);});rMail();}
+function checkMailTriggers(){if(!G.mail.find(m=>m.id==='release'))sendMail('release');
+  if(G.wbBest>=1e6&&!G.mail.find(m=>m.id==='wb_bronze'))sendMail('wb_bronze');
+  if(G.wbBest>=1e7&&!G.mail.find(m=>m.id==='wb_silver'))sendMail('wb_silver');
+  if(G.wbBest>=1e8&&!G.mail.find(m=>m.id==='wb_gold'))sendMail('wb_gold');
+  if(G.wbBest>=1e9&&!G.mail.find(m=>m.id==='wb_plat'))sendMail('wb_plat');
+  if(G.vR>10&&!G.mail.find(m=>m.id==='void10'))sendMail('void10');
+  if(G.vR>25&&!G.mail.find(m=>m.id==='void25'))sendMail('void25');
+  if(G.vR>50||Object.keys(G.vRC).length>=50){if(!G.mail.find(m=>m.id==='void50'))sendMail('void50');}
+  if(G.expR>=5&&!G.mail.find(m=>m.id==='expd5'))sendMail('expd5');
+  if(G.maxStage>50&&!G.mail.find(m=>m.id==='stage50'))sendMail('stage50');
+  if(G.maxStage>100&&!G.mail.find(m=>m.id==='stage100'))sendMail('stage100');}
+let mailTab=0;
+function rMail(){checkMailTriggers();const c=$('MAI');const unclaimed=G.mail.filter(m=>!m.claimed).length;
+  const tabs=[['📬 Inbox',0],['📋 Quests',1],['📅 Login',2],['🎫 Pass',3],['🔮 Info',4]];
+  let h=`<div class="mt">📬 Hub</div>`;
+  h+=`<div class="stabs" style="margin-bottom:8px;flex-wrap:wrap">${tabs.map(([l,t])=>`<div class="stab${mailTab===t?' on':''}" onclick="mailTab=${t};rMail()">${l}${t===0&&unclaimed?' <span style="color:#f44">('+unclaimed+')</span>':''}</div>`).join('')}</div>`;
+  if(mailTab===0){
+    if(unclaimed>1)h+=`<button class="gb gb3" onclick="claimAllMail()" style="width:100%;margin:6px 0">Claim All (${unclaimed})</button>`;
+    if(!G.mail.length){h+=`<div class="mif" style="color:rgba(255,255,255,.4)">No mail yet</div>`;}
+    G.mail.slice().reverse().forEach((m,ri)=>{const i=G.mail.length-1-ri;
+      h+=`<div class="si" style="opacity:${m.claimed?.5:1}"><div class="sic">${m.claimed?'📭':'📬'}</div><div class="sin"><div class="sinm" style="color:${m.claimed?'rgba(255,255,255,.4)':'var(--gold)'}">${m.subj}</div><div class="sid">${m.body}</div><div class="sid" style="color:#0e8">${Object.entries(m.rewards).map(([k,v])=>{const n={coins:'🪙',gems:'💎',dust:'✨',tok:'🎲',sEmb:'🔥',aDst:'🌌',rSh:'💠',stFr:'⭐'};return(n[k]||k)+v.toLocaleString();}).join(' ')}</div></div>${m.claimed?'<div style="font-size:10px;color:rgba(255,255,255,.3)">Claimed</div>':`<div class="sip" onclick="event.stopPropagation();claimMail(${i})">Claim</div>`}</div>`;});
+  }else if(mailTab===1){
+    h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:6px">📋 Daily Quests</div>`;
+    DAILY_QUESTS.forEach(q=>{const prog=dqProgress(q.id);const done=prog>=q.goal;const claimed=dqClaimed(q.id);
+      h+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:11px"><div><span style="color:${done?'#0e8':'rgba(255,255,255,.6)'}">${q.n}</span> <span style="color:rgba(255,255,255,.3)">${prog}/${q.goal}</span></div>${claimed?'<span style="color:rgba(255,255,255,.3);font-size:9px">✓</span>':done?`<button style="padding:2px 8px;border-radius:4px;border:1px solid #0e8;background:rgba(0,238,136,.1);color:#0e8;font-size:9px;cursor:pointer" onclick="dqClaim('${q.id}');rMail()">Claim</button>`:'<span style="color:rgba(255,255,255,.2);font-size:9px">—</span>'}</div>`;});
+    h+=`</div>`;
+  }else if(mailTab===2){
+    h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:6px">📅 Login Calendar</div>`;
+    h+=`<div style="font-size:11px;color:rgba(255,255,255,.5)">Day ${G.loginDay||0} · Streak: ${G.loginStreak||0} · Next reward multiplier: ×${Math.min(3,1+~~((G.loginStreak||0)/7)*.5).toFixed(1)}</div>`;
+    h+=`<div style="display:flex;gap:3px;flex-wrap:wrap;margin-top:6px">`;
+    LOGIN_REWARDS.forEach((rw,i)=>{const done=i<(G.loginDay||0)%7;h+=`<div style="width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;background:${done?'rgba(100,255,100,.12)':'rgba(255,255,255,.04)'};border:1px solid ${done?'#0e8':'rgba(255,255,255,.08)'}">D${i+1}</div>`;});
+    h+=`</div></div>`;
+  }else if(mailTab===3){
+    h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:6px">🎫 Battle Pass Lv${G.bpLv}/20</div>`;
+    h+=`<div style="height:6px;background:rgba(255,255,255,.05);border-radius:3px;margin:4px 0"><div style="height:100%;background:linear-gradient(90deg,#f90,#fd0);border-radius:3px;width:${Math.min(100,G.bpXp/bpXpReq(G.bpLv)*100)}%"></div></div>`;
+    h+=`<div style="font-size:10px;color:rgba(255,255,255,.4)">XP: ${G.bpXp}/${bpXpReq(G.bpLv)} · Earn XP from battles & quests</div>`;
+    if(G.bpLv<20){const next=BP_FREE[G.bpLv];if(next)h+=`<div style="font-size:10px;color:#0e8;margin-top:2px">Next free: ${Object.entries(next).map(([k,v])=>{const n={coins:'🪙',gems:'💎',dust:'✨',tok:'🎲',rSh:'💠',stFr:'⭐',sEmb:'🔥',aDst:'🌌'};return(n[k]||k)+v;}).join(' ')}</div>`;}
+    h+=`</div>`;
+  }else if(mailTab===4){
+    const aura=calcElemAura();
+    if(aura.atk||aura.hp||aura.spd){h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:4px">🔮 Element Aura (Active)</div>`;
+      h+=`<div style="font-size:11px;color:#0e8">${aura.atk?'+'+~~(aura.atk*100)+'% ATK ':''} ${aura.hp?'+'+~~(aura.hp*100)+'% HP ':''} ${aura.spd?'+'+aura.spd+' SPD ':''}</div></div>`;}
+    else{h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:4px">🔮 Element Aura</div><div style="font-size:11px;color:rgba(255,255,255,.4)">Have 2+ heroes of the same element on your team to activate aura bonuses.</div></div>`;}
+    const bonds=activeBonds();
+    h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:4px">💕 Hero Bonds</div>`;
+    if(bonds.length){bonds.forEach(b=>{h+=`<div style="font-size:11px;color:#f6b">${b.n} — ${Object.entries(b.bonus).map(([k,v])=>`+${typeof v==='number'&&v<1?~~(v*100)+'%':v} ${k.toUpperCase()}`).join(', ')}</div>`;});}
+    else{h+=`<div style="font-size:11px;color:rgba(255,255,255,.4)">No active bonds. Collect bonded hero pairs to unlock stat bonuses.</div>`;}
+    h+=`</div>`;
+  }
+  c.innerHTML=h;}
+
+// ═══ HERO CODEX ═══
+function rCodex(){const c=$('CDX');
+  const owned=new Set(G.coll.map(h=>h.id));const total=DB.length;const count=owned.size;
+  let h=`<div class="mt">📖 Hero Codex</div>`;
+  h+=`<div class="mif">Collected: ${count}/${total} (${total?~~(count/total*100):0}%)</div>`;
+  // codex rewards
+  const milestones=[{n:10,r:{gems:100}},{n:25,r:{gems:300,stFr:5}},{n:50,r:{gems:500,sEmb:50}},{n:75,r:{gems:1000,tok:10}},{n:100,r:{gems:2000,aDst:100}},{n:125,r:{gems:3000,rSh:50}}];
+  h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:6px">🏅 Codex Milestones</div>`;
+  milestones.forEach(ms=>{const done=count>=ms.n;const claimed=G.achClaimed['cdx_'+ms.n];
+    const rwTxt=Object.entries(ms.r).map(([k,v])=>{const n={coins:'🪙',gems:'💎',dust:'✨',tok:'🎲',sEmb:'🔥',aDst:'🌌',rSh:'💠',stFr:'⭐'};return(n[k]||k)+v;}).join(' ');
+    h+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:11px"><div><span style="color:${done?'#0e8':'rgba(255,255,255,.5)'}">Collect ${ms.n} heroes</span> <span style="color:rgba(255,255,255,.3)">${Math.min(count,ms.n)}/${ms.n}</span></div>${claimed?'<span style="color:rgba(255,255,255,.3);font-size:9px">✓</span>':done?`<button style="padding:2px 8px;border-radius:4px;border:1px solid #0e8;background:rgba(0,238,136,.1);color:#0e8;font-size:9px;cursor:pointer" onclick="claimCdxMilestone(${ms.n})">Claim ${rwTxt}</button>`:`<span style="font-size:9px;color:rgba(255,255,255,.2)">${rwTxt}</span>`}</div>`;});
+  h+=`</div>`;
+  // hero list by rarity
+  for(let r=4;r>=0;r--){const heroes=DB.filter(x=>x.r===r);if(!heroes.length)continue;
+    h+=`<div style="margin:8px 0"><div style="font-weight:800;color:${RC[r]};font-size:12px;margin-bottom:4px">${RN[r]} (${heroes.filter(x=>owned.has(x.id)).length}/${heroes.length})</div>`;
+    h+=`<div class="cgrid">`;
+    heroes.forEach(hero=>{const has=owned.has(hero.id);const ownH=has?G.coll.find(x=>x.id===hero.id):null;
+      h+=`<div class="hc" style="opacity:${has?1:.35};border-color:${has?RC[hero.r]:'rgba(255,255,255,.06)'}" ${has?`onclick="openD(${hero.id})"`:''}><div class="e">${hero.e}</div><div class="cn" style="color:${RC[hero.r]}">${hero.n}</div>${has&&ownH?`<div class="cp">★${ownH.stars} Lv${ownH.level}</div>`:`<div class="cp" style="color:rgba(255,255,255,.2)">???</div>`}</div>`;});
+    h+=`</div></div>`;}
+  // lore entries
+  h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:6px">📜 Lore Fragments</div>`;
+  const loreCount=G.coll.filter(x=>x.stars>=5).length;
+  h+=`<div style="font-size:11px;color:rgba(255,255,255,.5)">Unlock lore by reaching ★5 on any hero. ${loreCount} fragment${loreCount!==1?'s':''} unlocked.</div>`;
+  G.coll.filter(x=>x.stars>=5).sort((a,b)=>b.r-a.r).forEach(hero=>{
+    h+=`<div style="padding:4px 0;font-size:10px;border-top:1px solid rgba(255,255,255,.05)"><span style="color:${RC[hero.r]}">${hero.e} ${hero.n}</span> — <span style="color:rgba(255,255,255,.4)">${hero.pD||'A mysterious warrior of the realm.'}</span></div>`;});
+  h+=`</div>`;
+  c.innerHTML=h;}
+function claimCdxMilestone(n){if(G.achClaimed['cdx_'+n])return;const milestones=[{n:10,r:{gems:100}},{n:25,r:{gems:300,stFr:5}},{n:50,r:{gems:500,sEmb:50}},{n:75,r:{gems:1000,tok:10}},{n:100,r:{gems:2000,aDst:100}},{n:125,r:{gems:3000,rSh:50}}];
+  const ms=milestones.find(m=>m.n===n);if(!ms)return;const owned=new Set(G.coll.map(h=>h.id));if(owned.size<n)return;
+  Object.entries(ms.r).forEach(([k,v])=>{G[k]=(G[k]||0)+v;});G.achClaimed['cdx_'+n]=1;toast('📖 Codex milestone claimed!');upUI();rCodex();}
+
+// ═══ HERO SKINS ═══
+const HERO_SKINS=[
+  {id:0,heroId:0,n:'Shadow Flame',e:'🔥',cost:500,stat:{atk:0.05}},
+  {id:1,heroId:1,n:'Crystal Guard',e:'💎',cost:500,stat:{hp:0.05}},
+  {id:2,heroId:2,n:'Storm Caller',e:'⚡',cost:500,stat:{spd:2}},
+  {id:3,heroId:3,n:'Void Walker',e:'🌑',cost:750,stat:{atk:0.08}},
+  {id:4,heroId:4,n:'Golden Phoenix',e:'✨',cost:750,stat:{hp:0.08}},
+  {id:5,heroId:5,n:'Frost King',e:'❄️',cost:750,stat:{atk:0.06,hp:0.04}},
+  {id:6,heroId:6,n:'Blood Moon',e:'🌙',cost:1000,stat:{atk:0.10}},
+  {id:7,heroId:7,n:'Celestial',e:'🌟',cost:1000,stat:{hp:0.10}},
+  {id:8,heroId:8,n:'Infernal',e:'👿',cost:1000,stat:{atk:0.08,spd:1}},
+  {id:9,heroId:9,n:'Abyssal',e:'🕳️',cost:1000,stat:{hp:0.06,atk:0.06}},
+  {id:10,heroId:10,n:'Divine Light',e:'👼',cost:1500,stat:{atk:0.12,hp:0.05}},
+  {id:11,heroId:11,n:'Nether Prince',e:'👑',cost:1500,stat:{hp:0.12,spd:2}},
+];
+function skinBonus(heroId){const sid=G.skins[heroId];if(sid===undefined)return{atk:0,hp:0,spd:0};const sk=HERO_SKINS.find(s=>s.id===sid);if(!sk)return{atk:0,hp:0,spd:0};return{atk:sk.stat.atk||0,hp:sk.stat.hp||0,spd:sk.stat.spd||0};}
+function rSkins(){const c=$('SKI');
+  let h=`<div class="mt">🎨 Hero Skins</div>`;
+  h+=`<div class="mif">Equip cosmetic skins for stat bonuses. Cost: 💎 Gems.</div>`;
+  const ownedIds=new Set(G.coll.map(x=>x.id));
+  HERO_SKINS.forEach(sk=>{const hero=DB.find(x=>x.id===sk.heroId);if(!hero)return;const has=ownedIds.has(sk.heroId);const equipped=G.skins[sk.heroId]===sk.id;const canBuy=has&&!equipped&&G.gems>=sk.cost;
+    const statTxt=Object.entries(sk.stat).map(([k,v])=>`+${v<1?~~(v*100)+'%':v} ${k.toUpperCase()}`).join(' ');
+    h+=`<div class="si" style="opacity:${has?1:.4}"><div class="sic" style="font-size:20px">${sk.e}</div><div class="sin"><div class="sinm" style="color:${RC[hero.r]}">${sk.n} <span style="font-size:9px;color:rgba(255,255,255,.4)">for ${hero.e} ${hero.n}</span></div><div class="sid">${statTxt}</div></div>${equipped?'<div style="font-size:10px;color:#0e8;font-weight:700">Equipped</div>':has?`<button style="padding:4px 10px;border-radius:6px;border:1px solid ${canBuy?'var(--gold)':'rgba(255,255,255,.1)'};background:${canBuy?'rgba(232,184,48,.15)':'rgba(255,255,255,.03)'};color:${canBuy?'var(--gold)':'rgba(255,255,255,.3)'};font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap" ${canBuy?`onclick="buySkin(${sk.id})"`:'disabled'}>💎${sk.cost}</button>`:'<div style="font-size:9px;color:rgba(255,255,255,.3)">Need hero</div>'}</div>`;});
+  c.innerHTML=h;}
+function buySkin(sid){const sk=HERO_SKINS.find(s=>s.id===sid);if(!sk)return;if(G.gems<sk.cost)return;if(!G.coll.find(h=>h.id===sk.heroId))return;G.gems-=sk.cost;G.skins[sk.heroId]=sk.id;toast('🎨 Skin equipped!');upUI();rSkins();}
+
+// ═══ ACHIEVEMENTS ═══
+const ACHIEVEMENTS=[
+  {id:'pull100',n:'Summoner I',d:'Perform 100 summons',goal:100,stat:'totalPulls',r:{gems:200}},
+  {id:'pull1000',n:'Summoner II',d:'Perform 1,000 summons',goal:1000,stat:'totalPulls',r:{gems:500,tok:5}},
+  {id:'pull10000',n:'Summoner III',d:'Perform 10,000 summons',goal:10000,stat:'totalPulls',r:{gems:1500,tok:15}},
+  {id:'stage25',n:'Adventurer I',d:'Clear Story Stage 25',goal:25,stat:'maxStage',r:{gems:150,dust:5000}},
+  {id:'stage50',n:'Adventurer II',d:'Clear Story Stage 50',goal:50,stat:'maxStage',r:{gems:300,dust:15000}},
+  {id:'stage100',n:'Adventurer III',d:'Clear Story Stage 100',goal:100,stat:'maxStage',r:{gems:600,sEmb:30}},
+  {id:'stage150',n:'Adventurer IV',d:'Clear Story Stage 150',goal:150,stat:'maxStage',r:{gems:1000,aDst:50}},
+  {id:'star5',n:'Star Gazer I',d:'Get a hero to ★5',goal:1,stat:'heroes5star',r:{gems:200,stFr:3}},
+  {id:'star10',n:'Star Gazer II',d:'Get a hero to ★10',goal:1,stat:'heroes10star',r:{gems:500,sEmb:25}},
+  {id:'star15',n:'Star Gazer III',d:'Get a hero to ★15',goal:1,stat:'heroes15star',r:{gems:1000,rSh:20}},
+  {id:'lv100',n:'Trainer I',d:'Get a hero to Lv 100',goal:1,stat:'heroesLv100',r:{gems:200,dust:10000}},
+  {id:'lv300',n:'Trainer II',d:'Get a hero to Lv 300',goal:1,stat:'heroesLv300',r:{gems:500,sEmb:40}},
+  {id:'lv500',n:'Trainer III',d:'Get a hero to Lv 500',goal:1,stat:'heroesLv500',r:{gems:1500,aDst:80}},
+  {id:'coll10',n:'Collector I',d:'Collect 10 unique heroes',goal:10,stat:'collSize',r:{gems:100}},
+  {id:'coll50',n:'Collector II',d:'Collect 50 unique heroes',goal:50,stat:'collSize',r:{gems:500,tok:5}},
+  {id:'coll100',n:'Collector III',d:'Collect 100 unique heroes',goal:100,stat:'collSize',r:{gems:1500,rSh:30}},
+  {id:'guild10',n:'Philanthropist I',d:'Reach Guild Level 10',goal:10,stat:'guildLv',r:{gems:300,coins:100000}},
+  {id:'guild20',n:'Philanthropist II',d:'Reach Guild Level 20',goal:20,stat:'guildLv',r:{gems:800,sEmb:60}},
+  {id:'void10',n:'Void Explorer I',d:'Reach Void Realm 10',goal:10,stat:'vR',r:{gems:300,sEmb:20}},
+  {id:'void30',n:'Void Explorer II',d:'Reach Void Realm 30',goal:30,stat:'vR',r:{gems:600,aDst:40}},
+  {id:'altar5',n:'Sacrifice I',d:'Sacrifice 5 heroes at the Altar',goal:5,stat:'altarCount',r:{gems:200,sEmb:15}},
+  {id:'altar25',n:'Sacrifice II',d:'Sacrifice 25 heroes at the Altar',goal:25,stat:'altarCount',r:{gems:500,aDst:30}},
+  {id:'skin3',n:'Fashionista I',d:'Unlock 3 skins',goal:3,stat:'skinCount',r:{gems:300}},
+  {id:'skin8',n:'Fashionista II',d:'Unlock 8 skins',goal:8,stat:'skinCount',r:{gems:800,tok:8}},
+  {id:'spire50',n:'Spire Climber I',d:'Reach Spire Floor 50',goal:50,stat:'dF',r:{gems:400,dust:20000}},
+  {id:'wb50k',n:'Boss Slayer I',d:'Deal 50k to World Boss',goal:50000,stat:'wbBest',r:{gems:400,sEmb:25}},
+];
+function achProgress(a){
+  if(a.stat==='totalPulls')return G.totalPulls||0;
+  if(a.stat==='maxStage')return G.maxStage||0;
+  if(a.stat==='heroes5star')return G.coll.filter(h=>(h.stars||0)>=5).length;
+  if(a.stat==='heroes10star')return G.coll.filter(h=>(h.stars||0)>=10).length;
+  if(a.stat==='heroes15star')return G.coll.filter(h=>(h.stars||0)>=15).length;
+  if(a.stat==='heroesLv100')return G.coll.filter(h=>(h.level||1)>=100).length;
+  if(a.stat==='heroesLv300')return G.coll.filter(h=>(h.level||1)>=300).length;
+  if(a.stat==='heroesLv500')return G.coll.filter(h=>(h.level||1)>=500).length;
+  if(a.stat==='collSize')return G.coll.length;
+  if(a.stat==='guildLv')return G.guildLv||0;
+  if(a.stat==='vR')return G.vR||0;
+  if(a.stat==='altarCount')return G.altarCount||0;
+  if(a.stat==='skinCount')return Object.keys(G.skins||{}).length;
+  if(a.stat==='dF')return G.dF||0;
+  if(a.stat==='wbBest')return G.wbBest||0;
+  return 0;}
+function rAchieve(){const c=$('ACI');
+  let h=`<div class="mt">🏅 Achievements</div>`;
+  const done=ACHIEVEMENTS.filter(a=>G.achClaimed[a.id]).length;
+  h+=`<div class="mif">Completed: ${done}/${ACHIEVEMENTS.length}</div>`;
+  ACHIEVEMENTS.forEach(a=>{const prog=achProgress(a);const complete=prog>=a.goal;const claimed=G.achClaimed[a.id];
+    const rwTxt=Object.entries(a.r).map(([k,v])=>{const n={coins:'🪙',gems:'💎',dust:'✨',tok:'🎲',sEmb:'🔥',aDst:'🌌',rSh:'💠',stFr:'⭐'};return(n[k]||k)+v;}).join(' ');
+    h+=`<div class="si" style="opacity:${claimed?.5:1}"><div class="sic" style="font-size:18px">${complete?'🏅':'🔒'}</div><div class="sin"><div class="sinm" style="color:${complete?'var(--gold)':'rgba(255,255,255,.5)'}">${a.n}</div><div class="sid">${a.d} — ${Math.min(prog,a.goal)}/${a.goal}</div><div class="sid" style="color:#0e8">${rwTxt}</div></div>${claimed?'<div style="font-size:10px;color:rgba(255,255,255,.3)">Claimed</div>':complete?`<div class="sip" onclick="event.stopPropagation();claimAch('${a.id}')">Claim</div>`:'<div style="font-size:10px;color:rgba(255,255,255,.2)">—</div>'}</div>`;});
+  c.innerHTML=h;}
+function claimAch(id){if(G.achClaimed[id])return;const a=ACHIEVEMENTS.find(x=>x.id===id);if(!a)return;if(achProgress(a)<a.goal)return;
+  Object.entries(a.r).forEach(([k,v])=>{G[k]=(G[k]||0)+v;});G.achClaimed[id]=1;toast('🏅 Achievement unlocked!');upUI();rAchieve();}
+
+// ═══ HERO ALTAR (RECYCLING) ═══
+function rAltar(){const c=$('ALT');
+  let h=`<div class="mt">🔥 Hero Altar</div>`;
+  h+=`<div class="mif">Sacrifice duplicate heroes for Soul Embers 🔥 and Altar Points. Altar Points unlock permanent bonuses.</div>`;
+  h+=`<div style="margin:6px 0;padding:8px;background:rgba(255,255,255,.03);border-radius:10px;font-size:11px;color:rgba(255,255,255,.5)">🔥 Soul Embers: ${G.sEmb.toLocaleString()} · 🏛️ Altar Points: ${(G.altarPts||0).toLocaleString()} · Sacrificed: ${(G.altarCount||0)}</div>`;
+  // altar permanent bonuses
+  const altarPerks=[{n:'ATK +2%',cost:50,stat:'altarAtk'},{n:'HP +2%',cost:50,stat:'altarHp'},{n:'SPD +1',cost:100,stat:'altarSpd'},{n:'Crit +1%',cost:150,stat:'altarCr'},{n:'All Stats +1%',cost:300,stat:'altarAll'}];
+  h+=`<div style="margin:8px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px"><div style="font-weight:800;color:var(--gold);font-size:12px;margin-bottom:6px">🏛️ Altar Perks (Permanent)</div>`;
+  altarPerks.forEach(p=>{const lv=G[p.stat]||0;const maxLv=p.stat==='altarSpd'?5:p.stat==='altarCr'?5:p.stat==='altarAll'?3:10;const cost=p.cost*(lv+1);const canUp=lv<maxLv&&(G.altarPts||0)>=cost;
+    h+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:11px;${lv?'':'border-top:1px solid rgba(255,255,255,.05)'}"><div><span style="color:${lv?'#0e8':'rgba(255,255,255,.5)'}">${p.n}</span> <span style="color:rgba(255,255,255,.3)">Lv ${lv}/${maxLv}</span></div><button style="padding:2px 8px;border-radius:4px;border:1px solid ${canUp?'#f80':'rgba(255,255,255,.1)'};background:${canUp?'rgba(255,136,0,.12)':'rgba(255,255,255,.03)'};color:${canUp?'#f80':'rgba(255,255,255,.3)'};font-size:9px;cursor:pointer" ${canUp?`onclick="altarPerkUp('${p.stat}',${cost})"`:'disabled'}>${lv>=maxLv?'MAX':'🏛️'+cost}</button></div>`;});
+  h+=`</div>`;
+  // sacrifice heroes
+  h+=`<div style="font-weight:800;color:var(--gold);font-size:12px;margin:8px 0">♻️ Sacrifice Heroes</div>`;
+  h+=`<div style="font-size:10px;color:rgba(255,255,255,.4);margin-bottom:6px">Heroes on your team cannot be sacrificed. Rarer heroes give more rewards.</div>`;
+  const teamIds=new Set(G.team.filter(Boolean).map(t=>t.id));
+  const sacrificeable=G.coll.filter(h=>!teamIds.has(h.id)).sort((a,b)=>a.r-b.r||a.id-b.id);
+  if(!sacrificeable.length){h+=`<div class="mif" style="color:rgba(255,255,255,.4)">No heroes available to sacrifice (remove from team first)</div>`;}
+  else{h+=`<div class="cgrid">`;
+    sacrificeable.forEach(hero=>{const reward=altarReward(hero);
+      h+=`<div class="hc" style="border-color:${RC[hero.r]};cursor:pointer" onclick="sacrificeHero(${hero.id})"><div class="e">${hero.e}</div><div class="cn" style="color:${RC[hero.r]}">${hero.n}</div><div class="cp">★${hero.stars||0} Lv${hero.level||1}</div><div class="cp" style="color:#f80">🔥${reward.emb} 🏛️${reward.pts}</div></div>`;});
+    h+=`</div>`;}
+  c.innerHTML=h;}
+function altarReward(hero){const r=hero.r||0;const s=hero.stars||0;const l=hero.level||1;
+  const baseEmb=[5,15,40,100,250][r]||5;const emb=baseEmb+s*3+~~(l/10);const pts=~~(emb/2)+r*5+s;return{emb,pts};}
+function sacrificeHero(id){const hero=G.coll.find(h=>h.id===id);if(!hero)return;const teamIds=new Set(G.team.filter(Boolean).map(t=>t.id));if(teamIds.has(id))return toast('Remove from team first!');
+  const reward=altarReward(hero);G.coll=G.coll.filter(h=>h.id!==id);G.sEmb+=reward.emb;G.altarPts=(G.altarPts||0)+reward.pts;G.altarCount=(G.altarCount||0)+1;
+  // clean up references
+  delete G.copies[id];delete G.hG[id];delete G.hT[id];delete G.vI[id];delete G.sC[id];delete G.skins[id];delete G.ten[id];
+  Object.keys(G.hA).forEach(k=>{if(G.hA[k]===id||k===String(id))delete G.hA[k];});
+  toast(`🔥 Sacrificed ${hero.e} ${hero.n}! +${reward.emb}🔥 +${reward.pts}🏛️`);upUI();rAltar();}
+function altarPerkUp(stat,cost){if((G.altarPts||0)<cost)return;G.altarPts-=cost;G[stat]=(G[stat]||0)+1;toast('🏛️ Altar perk upgraded!');upUI();rAltar();}
+function altarBonus(){return{atk:(G.altarAtk||0)*.02+(G.altarAll||0)*.01,hp:(G.altarHp||0)*.02+(G.altarAll||0)*.01,spd:(G.altarSpd||0),cr:(G.altarCr||0)*.01};}
+
+// ═══ GUILD SYSTEM ═══
+const GUILD_PERKS=['ATK +5%','HP +5%','Gold +10%','Dust +10%','XP +15%','Crit +3%','SPD +1','Summon Discount 5%'];
+function rGuild(){const c=$('GUI');const unlocked=G.maxStage>=10;
+  let h=`<div class="mt">🏛️ Guild</div>`;
+  if(!unlocked){h+=`<div class="mif" style="color:#f44">🔒 Clear Story Stage 10 to unlock</div>`;c.innerHTML=h;return;}
+  h+=`<div class="mif">Guild Level: ${G.guildLv} · XP: ${G.guildXp}/${guildXpReq(G.guildLv)} · Donations: ${G.guildDon.toLocaleString()}</div>`;
+  const perks=GUILD_PERKS.slice(0,Math.min(GUILD_PERKS.length,~~(G.guildLv/3)+1));
+  if(perks.length)h+=`<div style="padding:8px;background:rgba(255,255,255,.03);border-radius:10px;margin:6px 0"><div style="font-weight:800;color:var(--gold);font-size:11px;margin-bottom:4px">Active Perks:</div>${perks.map(p=>`<div style="font-size:10px;color:#0e8">✓ ${p}</div>`).join('')}</div>`;
+  h+=`<div style="display:flex;gap:6px;margin:8px 0">`;
+  h+=`<button class="gb gb1" onclick="guildDonate(10000)" style="flex:1" ${G.coins<10000?'disabled':''}>Donate 10k🪙</button>`;
+  h+=`<button class="gb gb2" onclick="guildDonate(100000)" style="flex:1" ${G.coins<100000?'disabled':''}>Donate 100k🪙</button>`;
+  h+=`<button class="gb gb3" onclick="guildDonate(1000000)" style="flex:1" ${G.coins<1000000?'disabled':''}>Donate 1M🪙</button>`;
+  h+=`</div>`;
+  h+=`<div style="font-size:10px;color:rgba(255,255,255,.4);margin:4px 0">Donate coins to earn Guild XP. New perks every 3 levels. Max level 24.</div>`;
+  c.innerHTML=h;}
+function guildXpReq(lv){return 100+lv*50;}
+function guildDonate(amt){if(G.coins<amt)return;G.coins-=amt;const xp=~~(amt/1000);G.guildXp+=xp;G.guildDon+=amt;while(G.guildXp>=guildXpReq(G.guildLv)&&G.guildLv<24){G.guildXp-=guildXpReq(G.guildLv);G.guildLv++;toast('🏛️ Guild Level '+G.guildLv+'!');}upUI();rGuild();}
+function guildBonus(stat){const lv=G.guildLv;if(stat==='atk')return Math.min(lv,8)*.05;if(stat==='hp')return Math.min(Math.max(0,lv-2),8)*.05;return 0;}
+
+// ═══ CELESTIAL COLOSSEUM ═══
+function rColoss(){const c=$('COI');const unlocked=G.maxStage>=40;
+  let h=`<div class="mt">⚔️ Celestial Colosseum</div>`;
+  if(!unlocked){h+=`<div class="mif" style="color:#f44">🔒 Clear Story Stage 40 to unlock</div>`;c.innerHTML=h;return;}
+  h+=`<div class="mif">Season Wins: ${G.coloW} · Streak: ${G.coloS} · Attempts: ${G.coloAtk}/5 today</div>`;
+  h+=`<div style="display:flex;justify-content:center;margin:8px 0">${skipBattleMarkup()}</div>`;
+  for(let i=0;i<3;i++){const diff=['Easy','Medium','Hard'][i];const col=['#4f4','var(--gold)','#f44'][i];const pw=(5000+G.coloW*500)*(1+i*.5);
+    h+=`<div class="si" onclick="coloFight(${i})"><div class="sic">⚔️</div><div class="sin"><div class="sinm" style="color:${col}">${diff} Opponent</div><div class="sid">~⚡${~~pw.toLocaleString()} power · ${[1,2,3][i]}× rewards</div></div><div class="sip">${G.coloAtk>=5?'—':'Fight'}</div></div>`;}
+  h+=`<div style="padding:8px;background:rgba(255,255,255,.03);border-radius:10px;margin:8px 0;font-size:11px;color:rgba(255,255,255,.5)"><div style="font-weight:800;color:var(--gold);margin-bottom:4px">Streak Rewards:</div>`;
+  h+=`3 wins: 💎100 · 5 wins: 🎲5 · 10 wins: 💠2 · 15 wins: ⭐1</div>`;
+  c.innerHTML=h;}
+function coloFight(diff){if(G.coloAtk>=5){toast('No attempts left!');return;}
+  const team=G.team.filter(Boolean);if(!team.length){toast('Set team!');return;}
+  G.coloAtk++;G.curM='coloss';
+  if(!G.skipBattle){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');$('SS').style.display='none';$('BA').classList.add('on');}
+  const stg=~~((G.coloW+5)*(1+diff*.5));
+  startB(stg,'coloss',team.map(h=>({...h})),null);}
+
+// ═══ DREAM REALM ═══
+const DREAM_BOSSES=[
+  {id:93,n:'Nightmare Hydra',e:'🐍',r:4,a:200,hp:40000,sp:10,pT:'tank'},
+  {id:92,n:'Dream Eater',e:'👻',r:4,a:180,hp:45000,sp:8,pT:'tank'},
+  {id:91,n:'Phantom King',e:'👑',r:4,a:160,hp:55000,sp:7,pT:'tank'}
+];
+function curDreamBoss(){return DREAM_BOSSES[~~(Date.now()/86400000)%3];}
+function rDream(){const c=$('DRI');const unlocked=G.maxStage>=60;const boss=curDreamBoss();
+  let h=`<div class="mt">💤 Dream Realm</div>`;
+  if(!unlocked){h+=`<div class="mif" style="color:#f44">🔒 Clear Story Stage 60 to unlock</div>`;c.innerHTML=h;return;}
+  h+=`<div class="mif">Attempts: ${G.dreamAtk}/1 today · Best dmg: ${G.dreamBest.toLocaleString()}</div>`;
+  h+=`<div style="display:flex;justify-content:center;margin:8px 0">${skipBattleMarkup()}</div>`;
+  h+=`<div style="text-align:center;margin:12px 0"><div style="font-size:48px">${boss.e}</div><div style="font-size:16px;font-weight:900;color:#a4f">${boss.n}</div><div style="font-size:12px;color:rgba(255,255,255,.5)">HP: ${(boss.hp*5000).toLocaleString()} · Daily DPS challenge</div></div>`;
+  h+=`<button class="gb gb3" onclick="dreamFight()" style="width:100%;margin:8px 0" ${G.dreamAtk>=1?'disabled':''}>⚔️ Enter Dream${G.dreamAtk>=1?' (No attempts)':''}</button>`;
+  h+=`<div style="padding:10px;background:rgba(255,255,255,.03);border-radius:10px;font-size:11px;color:rgba(255,255,255,.5)"><div style="font-weight:800;color:var(--gold);margin-bottom:4px">Damage Rewards (Soul Embers):</div>`;
+  h+=`100k+ → 🔥50 · 1M+ → 🔥200 · 10M+ → 🔥500 · 100M+ → 🔥1000 + 💠1</div>`;
+  c.innerHTML=h;}
+function dreamFight(){if(G.dreamAtk>=1){toast('No attempts!');return;}
+  const team=G.team.filter(Boolean);if(!team.length){toast('Set team!');return;}
+  G.dreamAtk++;G.curM='dream';
+  if(!G.skipBattle){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');$('SS').style.display='none';$('BA').classList.add('on');}
+  startB(1,'dream',team.map(h=>({...h})),null);}
+
+// ═══ HERO TRIALS ═══
+const TRIAL_ELEMS=['fire','ice','shadow','light','nature'];
+const TRIAL_NAMES={fire:'🔥 Trial of Flames',ice:'❄️ Trial of Frost',shadow:'🌑 Trial of Shadows',light:'✨ Trial of Light',nature:'🌿 Trial of Nature'};
+function rTrials(){const c=$('TRI');const unlocked=G.maxStage>=20;
+  let h=`<div class="mt">🏆 Hero Trials</div>`;
+  if(!unlocked){h+=`<div class="mif" style="color:#f44">🔒 Clear Story Stage 20 to unlock</div>`;c.innerHTML=h;return;}
+  h+=`<div class="mif">Element-restricted challenges. Only matching heroes can enter!</div>`;
+  h+=`<div style="display:flex;justify-content:center;margin:8px 0">${skipBattleMarkup()}</div>`;
+  TRIAL_ELEMS.forEach(elem=>{const best=G.trialBest[elem]||0;
+    h+=`<div class="si" onclick="trialFight('${elem}')"><div class="sic">${TRIAL_NAMES[elem].split(' ')[0]}</div><div class="sin"><div class="sinm">${TRIAL_NAMES[elem]}</div><div class="sid">Best: Stage ${best} · ${elem} heroes only</div></div><div class="sip">Fight ${best+1}</div></div>`;});
+  h+=`<div style="padding:8px;background:rgba(255,255,255,.03);border-radius:10px;margin:8px 0;font-size:11px;color:rgba(255,255,255,.5)"><div style="font-weight:800;color:var(--gold);margin-bottom:4px">Rewards per 5 stages:</div>💎50 + 🎲3 + element-specific bonuses</div>`;
+  c.innerHTML=h;}
+function trialFight(elem){const team=G.team.filter(Boolean).filter(h=>HERO_ELEM[h.id]===elem);
+  if(!team.length){toast('Need '+elem+' heroes in team!');return;}
+  const stg=(G.trialBest[elem]||0)+1;G.curM='trials';G._trialElem=elem;
+  if(!G.skipBattle){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');$('SS').style.display='none';$('BA').classList.add('on');}
+  startB(stg,'trials',team.map(h=>({...h})),null);}
+
+// ═══ DAILY LOGIN ═══
+const LOGIN_REWARDS=[
+  {coins:5000,gems:50},{coins:10000,gems:100},{dust:5000,tok:2},{coins:20000,gems:200},{gems:500,tok:5},
+  {coins:50000,gems:300,dust:10000},{gems:1000,tok:10,rSh:1}
+];
+function checkDailyLogin(){const today=~~(Date.now()/86400000);if(G.lastLogin===today)return;
+  if(G.lastLogin===today-1)G.loginStreak=(G.loginStreak||0)+1;else G.loginStreak=1;
+  G.lastLogin=today;G.loginDay=(G.loginDay||0)+1;
+  const dayIdx=(G.loginDay-1)%7;const rw=LOGIN_REWARDS[dayIdx];const mult=Math.min(3,1+~~(G.loginStreak/7)*.5);
+  let msg='📅 Day '+G.loginDay+' (Streak: '+G.loginStreak+')\n';
+  Object.entries(rw).forEach(([k,v])=>{const amt=~~(v*mult);
+    if(k==='coins')G.coins+=amt;if(k==='gems')G.gems+=amt;if(k==='dust')G.dust+=amt;if(k==='tok')G.tok+=amt;if(k==='rSh')G.rSh+=amt;
+    const names={coins:'🪙',gems:'💎',dust:'✨',tok:'🎲',rSh:'💠'};msg+=(names[k]||k)+amt.toLocaleString()+' ';});
+  toast(msg);
+  G.coloAtk=0;G.dreamAtk=0;G.dailyQDay=~~(Date.now()/86400000);G.dailyQ={};
+  upUI();}
+
+// ═══ DAILY QUESTS ═══
+const DAILY_QUESTS=[
+  {id:'dq_battle',n:'Win 3 Battles',goal:3,rw:{coins:10000,gems:50}},
+  {id:'dq_pull',n:'Summon 10 Heroes',goal:10,rw:{gems:100,tok:2}},
+  {id:'dq_forge',n:'Forge 5 Gear',goal:5,rw:{coins:20000}},
+  {id:'dq_arena',n:'Win 1 Arena Fight',goal:1,rw:{gems:80}},
+  {id:'dq_level',n:'Level Up a Hero',goal:1,rw:{dust:5000}},
+];
+function dqProgress(id){return G.dailyQ[id]||0;}
+function dqInc(id,amt){const today=~~(Date.now()/86400000);if(G.dailyQDay!==today){G.dailyQDay=today;G.dailyQ={};}G.dailyQ[id]=Math.min((G.dailyQ[id]||0)+(amt||1),999);}
+function dqClaimed(id){return G.dailyQ['_c_'+id]||0;}
+function dqClaim(id){const q=DAILY_QUESTS.find(x=>x.id===id);if(!q||dqProgress(id)<q.goal||dqClaimed(id))return;
+  G.dailyQ['_c_'+id]=1;const r=q.rw;if(r.coins)G.coins+=r.coins;if(r.gems)G.gems+=r.gems;if(r.dust)G.dust+=r.dust;if(r.tok)G.tok+=r.tok;upUI();toast('Quest claimed!');}
+
+// ═══ BATTLE PASS ═══
+const BP_FREE=[{coins:5000},{gems:50},{dust:3000},{tok:1},{coins:10000},{gems:100},{dust:5000},{tok:2},{coins:20000},{gems:200},
+  {dust:10000},{tok:3},{coins:50000},{gems:300},{dust:15000},{tok:5},{coins:100000},{gems:500},{rSh:1},{stFr:1}];
+const BP_PREM=[{gems:100},{tok:3},{gems:200},{tok:5},{gems:500},{rSh:2},{sEmb:100},{aDst:100},{gems:1000},{stFr:1},
+  {tok:10},{rSh:5},{sEmb:500},{aDst:500},{gems:2000},{stFr:2},{rSh:10},{sEmb:1000},{aDst:1000},{stFr:5}];
+function bpXpReq(lv){return 100+lv*20;}
+function bpAddXp(amt){G.bpXp+=amt;while(G.bpXp>=bpXpReq(G.bpLv)&&G.bpLv<20){G.bpXp-=bpXpReq(G.bpLv);G.bpLv++;const fr=BP_FREE[G.bpLv-1];if(fr)Object.entries(fr).forEach(([k,v])=>{if(G[k]!==undefined)G[k]+=v;});if(G.bpPrem){const pr=BP_PREM[G.bpLv-1];if(pr)Object.entries(pr).forEach(([k,v])=>{if(G[k]!==undefined)G[k]+=v;});}toast('🎫 Battle Pass Lv'+G.bpLv+'!');}}
+
+// ═══ ELEMENT AURA ═══
+function calcElemAura(){const team=G.team.filter(Boolean);const elems={};team.forEach(h=>{const e=HERO_ELEM[h.id];if(e)elems[e]=(elems[e]||0)+1;});
+  let bonus={atk:0,hp:0,spd:0};const total=Object.keys(elems).length;
+  if(total>=4){bonus.atk+=.10;bonus.hp+=.10;}
+  Object.values(elems).forEach(cnt=>{if(cnt>=3){bonus.atk+=.15;bonus.hp+=.10;}if(cnt>=5){bonus.atk+=.10;bonus.hp+=.10;bonus.spd+=2;}});
+  const pairs=Object.values(elems).filter(c=>c>=2);if(pairs.length===2){bonus.atk+=.08;bonus.hp+=.08;}
+  return bonus;}
+
+// ═══ HERO BONDS ═══
+const HERO_BONDS=[
+  {id:'b1',n:'🔥 Flame Brothers',heroes:[1,6],bonus:{atk:.12}},
+  {id:'b2',n:'🌿 Nature\'s Guard',heroes:[2,7],bonus:{hp:.15}},
+  {id:'b3',n:'🗡️ Shadow Duo',heroes:[3,10],bonus:{atk:.10,spd:1}},
+  {id:'b4',n:'🛡️ Iron Wall',heroes:[0,5],bonus:{hp:.20}},
+  {id:'b5',n:'✨ Holy Trinity',heroes:[8,13,18],bonus:{atk:.08,hp:.08}},
+  {id:'b6',n:'💀 Dark Pact',heroes:[22,38],bonus:{atk:.20}},
+  {id:'b7',n:'🌟 Celestials',heroes:[31,33],bonus:{atk:.15,hp:.10}},
+  {id:'b8',n:'⚡ Storm Pair',heroes:[14,19],bonus:{atk:.10,spd:2}},
+];
+function activeBonds(){const teamIds=G.team.filter(Boolean).map(h=>h.id);
+  return HERO_BONDS.filter(b=>b.heroes.every(hid=>teamIds.includes(hid)));}
+function bondBonus(){const active=activeBonds();let bonus={atk:0,hp:0,spd:0};
+  active.forEach(b=>{bonus.atk+=(b.bonus.atk||0);bonus.hp+=(b.bonus.hp||0);bonus.spd+=(b.bonus.spd||0);});return bonus;}
+
+// ═══ VOID REALM ═══
+const VOID_BOSSES=[
+  {id:99,n:'Void Sentinel',e:'🌑',r:4,a:220,hp:3200,sp:14,pT:'tank'},
+  {id:98,n:'Abyssal Watcher',e:'👁️',r:4,a:280,hp:2600,sp:16,pT:'ass'},
+  {id:97,n:'Entropy Weaver',e:'🕸️',r:4,a:260,hp:2800,sp:15,pT:'mage'}
+];
+function mkVoidEnemy(floor){const base=VOID_BOSSES[floor%3];const lv=50+floor*5;const s=~~(floor/5);
+  const scale=3+floor*.15;return{...base,level:lv,stars:Math.min(15,s),a:~~(base.a*scale),hp:~~(base.hp*scale),sp:base.sp+~~(floor/10)};}
+function rVoid(){const c=$('VI2');const floor=G.vR;const unlocked=G.maxStage>=100;
+  let h=`<div class="mt">🌑 Void Realm</div>`;
+  if(!unlocked){h+=`<div class="mif" style="color:#f44">🔒 Clear Story Stage 100 to unlock</div>`;c.innerHTML=h;return;}
+  h+=`<div class="mif">Floor ${floor}/50 · 🔥 Soul Embers: ${G.sEmb.toLocaleString()}</div>`;
+  h+=`<div style="display:flex;justify-content:center;margin:8px 0">${skipBattleMarkup()}</div>`;
+  const enemy=mkVoidEnemy(floor);const ep=pwr(enemy);
+  h+=`<div class="si" onclick="voidFight()"><div class="sic">${enemy.e}</div><div class="sin"><div class="sinm" style="color:#c4f">${enemy.n}</div><div class="sid">Floor ${floor} · Lv${enemy.level} · ★${enemy.stars} · ⚡${ep.toLocaleString()}</div></div><div class="sip">Fight</div></div>`;
+  // rewards info
+  h+=`<div style="margin:10px 0;padding:10px;background:rgba(255,255,255,.03);border-radius:10px;font-size:11px;color:rgba(255,255,255,.5)">`;
+  h+=`<div style="font-weight:800;color:var(--gold);margin-bottom:4px">Rewards per floor:</div>`;
+  h+=`🔥 ${20+floor*5} Soul Embers · 💎 ${10+floor*2} Gems<br>`;
+  if(floor%10===0)h+=`🏆 Boss floor: 💠 ${~~(floor/10)} Relic Shards bonus!<br>`;
+  h+=`</div>`;
+  // cleared floors
+  const cleared=Object.keys(G.vRC).length;
+  h+=`<div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:6px">Cleared: ${cleared}/50 floors</div>`;
+  c.innerHTML=h;}
+function voidFight(){if(G.maxStage<100){toast('Clear Stage 100!');return;}
+  const team=G.team.filter(Boolean);if(!team.length){toast('Set team!');return;}
+  const floor=G.vR;const enemy=mkVoidEnemy(floor);
+  G.curM='void';if(!G.skipBattle){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');$('SS').style.display='none';$('BA').classList.add('on');}
+  startB(floor,'void',team.map(h=>({...h})),null);}
+
+// ═══ WORLD BOSS ═══
+const WORLD_BOSSES=[
+  {id:96,n:'Abyssal Dragon',e:'🐉',r:4,a:150,hp:50000,sp:8,pT:'tank',elem:'fire'},
+  {id:95,n:'Void Kraken',e:'🦑',r:4,a:120,hp:65000,sp:6,pT:'tank',elem:'void'},
+  {id:94,n:'Death Colossus',e:'💀',r:4,a:100,hp:80000,sp:5,pT:'tank',elem:'shadow'}
+];
+function curWorldBoss(){return WORLD_BOSSES[~~(Date.now()/604800000)%3];}
+function rWBoss(){const c=$('WBI');const unlocked=G.maxStage>=30;const boss=curWorldBoss();
+  let h=`<div class="mt">👹 World Boss</div>`;
+  if(!unlocked){h+=`<div class="mif" style="color:#f44">🔒 Clear Story Stage 30 to unlock</div>`;c.innerHTML=h;return;}
+  h+=`<div class="mif">Attempts today: ${G.wbAtk}/2 · Best: ${G.wbBest.toLocaleString()} dmg</div>`;
+  h+=`<div style="display:flex;justify-content:center;margin:8px 0">${skipBattleMarkup()}</div>`;
+  h+=`<div style="text-align:center;margin:12px 0">`;
+  h+=`<div style="font-size:48px">${boss.e}</div>`;
+  h+=`<div style="font-size:16px;font-weight:900;color:#f44">${boss.n}</div>`;
+  h+=`<div style="font-size:12px;color:rgba(255,255,255,.5)">HP: ${(boss.hp*10000).toLocaleString()} · ATK: ${boss.a} · Element: ${boss.elem}</div>`;
+  h+=`<div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:4px">10,000× HP · Normal ATK · 300 turn limit · Pure DPS race!</div>`;
+  h+=`</div>`;
+  h+=`<button class="gb gb3" onclick="wbFight()" style="width:100%;margin:8px 0" ${G.wbAtk>=2?'disabled':''}>⚔️ Challenge Boss${G.wbAtk>=2?' (No attempts)':''}</button>`;
+  // Reward tiers
+  h+=`<div style="padding:10px;background:rgba(255,255,255,.03);border-radius:10px;font-size:11px;color:rgba(255,255,255,.5)">`;
+  h+=`<div style="font-weight:800;color:var(--gold);margin-bottom:4px">Damage Rewards:</div>`;
+  h+=`1M+ → 5k🪙 50💎<br>10M+ → 20k🪙 200💎 2🎲<br>100M+ → 100k🪙 500💎 10🎲 1💠<br>1B+ → 500k🪙 2k💎 ⭐ Starlight Fragment</div>`;
+  c.innerHTML=h;}
+function wbFight(){if(G.wbAtk>=2){toast('No attempts left!');return;}
+  const team=G.team.filter(Boolean);if(!team.length){toast('Set team!');return;}
+  G.wbAtk++;const boss=curWorldBoss();
+  G.curM='wboss';G._wbDmg=0;
+  if(!G.skipBattle){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');$('SS').style.display='none';$('BA').classList.add('on');}
+  const bossUnit={...boss,level:200,stars:15,a:boss.a,hp:boss.hp*10000,sp:boss.sp};
+  startB(1,'wboss',team.map(h=>({...h})),null);}
+
+// ═══ ASTRAL EXPEDITION ═══
+const EXPD_NODES=['⚔️ Battle','🎁 Treasure','🏪 Merchant','❓ Mystery','💀 Elite','👹 Boss'];
+const EXPD_BUFFS=['ATK +20%','HP +30%','SPD +3','Crit ×2','Lifesteal 10%','Start 50 Charge'];
+function rExpd(){const c=$('EXI');const unlocked=G.maxStage>=50;
+  let h=`<div class="mt">🗺️ Astral Expedition</div>`;
+  if(!unlocked){h+=`<div class="mif" style="color:#f44">🔒 Clear Story Stage 50 to unlock</div>`;c.innerHTML=h;return;}
+  h+=`<div class="mif">Runs completed: ${G.expR} · 🌌 Astral Dust: ${G.aDst.toLocaleString()}</div>`;
+  if(G.expRun){
+    // active expedition
+    const run=G.expRun;h+=`<div style="font-weight:800;color:var(--gold);margin:8px 0">Active Run — Node ${run.node+1}/15</div>`;
+    h+=`<div style="margin:4px 0;font-size:11px;color:rgba(255,255,255,.4)">Buffs: ${run.buffs.length?run.buffs.join(', '):'None'}</div>`;
+    const nodeType=run.map[run.node];h+=`<div class="si" onclick="expdNode()"><div class="sic">${EXPD_NODES[nodeType].split(' ')[0]}</div><div class="sin"><div class="sinm">${EXPD_NODES[nodeType]}</div><div class="sid">Node ${run.node+1} · ${nodeType===5?'FINAL BOSS':'Proceed'}</div></div><div class="sip">Go</div></div>`;
+    // path preview
+    h+=`<div style="display:flex;gap:4px;flex-wrap:wrap;margin:8px 0">`;
+    run.map.forEach((t,i)=>{const done=i<run.node;const cur=i===run.node;
+      h+=`<div style="width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;background:${done?'rgba(100,255,100,.15)':cur?'rgba(255,200,50,.2)':'rgba(255,255,255,.05)'};border:1px solid ${cur?'var(--gold)':'transparent'}">${EXPD_NODES[t].split(' ')[0]}</div>`;});
+    h+=`</div>`;
+    h+=`<button class="gb gb1" onclick="expdAbandon()" style="width:100%;margin-top:8px">Abandon Run</button>`;
+  }else{
+    h+=`<button class="gb gb3" onclick="expdStart()" style="width:100%;margin:10px 0">🗺️ Start Expedition</button>`;
+    h+=`<div style="padding:10px;background:rgba(255,255,255,.03);border-radius:10px;font-size:11px;color:rgba(255,255,255,.5)">`;
+    h+=`<div style="font-weight:800;color:var(--gold);margin-bottom:4px">How it works:</div>`;
+    h+=`Navigate 15 nodes: battles, treasure, merchants, mystery events & bosses.<br>`;
+    h+=`Collect expedition buffs along the way. Rewards: 🌌 Astral Dust, gems, hero copies.<br>`;
+    h+=`Boss at node 15 for massive rewards!</div>`;
+  }
+  c.innerHTML=h;}
+function expdStart(){
+  const map=[];for(let i=0;i<15;i++){if(i===14){map.push(5);}else if(i===7){map.push(4);}
+    else{const r=Math.random();map.push(r<.4?0:r<.55?1:r<.7?2:r<.85?3:4);}}
+  G.expRun={node:0,map,buffs:[],loot:{coins:0,gems:0,dust:0}};rExpd();}
+function expdAbandon(){G.expRun=null;toast('Run abandoned');rExpd();}
+function expdNode(){if(!G.expRun)return;const run=G.expRun;const nodeType=run.map[run.node];
+  if(nodeType===0||nodeType===4||nodeType===5){expdBattle(nodeType);}
+  else if(nodeType===1){expdTreasure();}
+  else if(nodeType===2){expdMerchant();}
+  else if(nodeType===3){expdMystery();}}
+function expdBattle(type){const team=G.team.filter(Boolean);if(!team.length){toast('Set team!');return;}
+  const stg=5+G.expR*2+(G.expRun.node*3)+(type===4?10:type===5?25:0);
+  G.curM='expd';if(!G.skipBattle){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');$('SS').style.display='none';$('BA').classList.add('on');}
+  startB(stg,'expd',team.map(h=>({...h})),null);}
+function expdTreasure(){const run=G.expRun;const coins=2000+G.expR*500;const gems=20+G.expR*5;
+  G.coins+=coins;G.gems+=gems;run.loot.coins+=coins;run.loot.gems+=gems;
+  toast(`🎁 Found ${coins.toLocaleString()}🪙 + ${gems}💎!`);expdAdvance();}
+function expdMerchant(){const run=G.expRun;const available=EXPD_BUFFS.filter(b=>!run.buffs.includes(b));
+  if(!available.length){toast('No buffs available!');expdAdvance();return;}
+  const buff=available[~~(Math.random()*available.length)];run.buffs.push(buff);
+  toast('🏪 Gained: '+buff);expdAdvance();}
+function expdMystery(){const r=Math.random();const run=G.expRun;
+  if(r<.3){const coins=5000+G.expR*1000;G.coins+=coins;run.loot.coins+=coins;toast('❓ Found '+coins.toLocaleString()+'🪙!');}
+  else if(r<.5){const gems=50+G.expR*10;G.gems+=gems;run.loot.gems+=gems;toast('❓ Found '+gems+'💎!');}
+  else if(r<.7){const buff=EXPD_BUFFS[~~(Math.random()*EXPD_BUFFS.length)];if(!run.buffs.includes(buff)){run.buffs.push(buff);toast('❓ Gained: '+buff);}else{toast('❓ Nothing happened...');}}
+  else if(r<.85){const ad=50+G.expR*20;G.aDst+=ad;run.loot.dust+=ad;toast('❓ Found '+ad+' 🌌!');}
+  else{toast('❓ A trap! Nothing lost though.');}
+  expdAdvance();}
+function expdAdvance(){if(!G.expRun)return;G.expRun.node++;
+  if(G.expRun.node>=15){expdComplete();}else{upUI();rExpd();}}
+function expdComplete(){const run=G.expRun;const ad=100+G.expR*30;const gems=100+G.expR*20;
+  G.aDst+=ad;G.gems+=gems;G.expR++;G.expRun=null;
+  upUI();toast(`🗺️ Expedition complete! +${ad}🌌 +${gems}💎`);rExpd();}
 
 // PVP MULTIPLAYER
 function encodeTeam(){const team=G.team.filter(Boolean);if(!team.length){toast('Set a team first!');return null;}
@@ -1298,7 +1986,16 @@ function saveG(){try{const d={coins:G.coins,gems:G.gems,dust:G.dust,tok:G.tok,lv
   maxStage:G.maxStage,auto:G.auto,spd:G.spd,gI:G.gI,hG:G.hG,hT:G.hT,
   dF:G.dF,dB:G.dB,dPick:G.dPick,tF:G.tF,aR:G.aR,aW:G.aW,
   curM:G.curM,cleared:G.cleared,autoClear:G.autoClear,skipBattle:G.skipBattle,
-  modeSpd:G.modeSpd,newHeroes:G.newHeroes,pvpName:G.pvpName,pvpW:G.pvpW,pvpL:G.pvpL,pvpHist:(G.pvpHist||[]).slice(-20),_v:1};
+  modeSpd:G.modeSpd,newHeroes:G.newHeroes,pvpName:G.pvpName,pvpW:G.pvpW,pvpL:G.pvpL,pvpHist:(G.pvpHist||[]).slice(-20),
+  sEmb:G.sEmb,aDst:G.aDst,rSh:G.rSh,stFr:G.stFr,vI:G.vI,sC:G.sC,hA:G.hA,ten:G.ten,
+  vR:G.vR,vRC:G.vRC,wbBest:G.wbBest,wbAtk:G.wbAtk,expR:G.expR,expRun:G.expRun||null,wbDay:G.wbDay||0,
+  mail:G.mail,guildLv:G.guildLv,guildXp:G.guildXp,guildDon:G.guildDon,
+  coloW:G.coloW,coloS:G.coloS,coloAtk:G.coloAtk,dreamBest:G.dreamBest,dreamAtk:G.dreamAtk,
+  trialBest:G.trialBest,loginDay:G.loginDay,loginStreak:G.loginStreak,lastLogin:G.lastLogin,
+  dailyQ:G.dailyQ,dailyQDay:G.dailyQDay,bpLv:G.bpLv,bpXp:G.bpXp,bpPrem:G.bpPrem,
+  skins:G.skins,achClaimed:G.achClaimed,altarPts:G.altarPts||0,altarCount:G.altarCount||0,
+  altarAtk:G.altarAtk||0,altarHp:G.altarHp||0,altarSpd:G.altarSpd||0,altarCr:G.altarCr||0,altarAll:G.altarAll||0,
+  totalPulls:G.totalPulls||0,_v:3};
   localStorage.setItem(SAVE_KEY,JSON.stringify(d));}catch(e){}}
 function loadG(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return false;const d=JSON.parse(raw);if(!d||!d._v)return false;
   G.coins=d.coins??5000;G.gems=d.gems??300;G.dust=d.dust??0;G.tok=d.tok??0;
@@ -1311,6 +2008,18 @@ function loadG(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return fal
   G.autoClear=d.autoClear??1;G.skipBattle=d.skipBattle??0;
   G.modeSpd=d.modeSpd||{};G.newHeroes=d.newHeroes||{};
   G.pvpName=d.pvpName||'';G.pvpW=d.pvpW||0;G.pvpL=d.pvpL||0;G.pvpHist=d.pvpHist||[];
+  G.skins=d.skins||{};G.achClaimed=d.achClaimed||{};G.altarPts=d.altarPts||0;G.altarCount=d.altarCount||0;
+  G.altarAtk=d.altarAtk||0;G.altarHp=d.altarHp||0;G.altarSpd=d.altarSpd||0;G.altarCr=d.altarCr||0;G.altarAll=d.altarAll||0;
+  G.totalPulls=d.totalPulls||0;
+  G.sEmb=d.sEmb||0;G.aDst=d.aDst||0;G.rSh=d.rSh||0;G.stFr=d.stFr||0;
+  G.vI=d.vI||{};G.sC=d.sC||{};G.hA=d.hA||{};G.ten=d.ten||{};
+  G.vR=d.vR||1;G.vRC=d.vRC||{};G.wbBest=d.wbBest||0;G.wbAtk=d.wbAtk||0;G.expR=d.expR||0;G.expRun=d.expRun||null;G.wbDay=d.wbDay||0;
+  G.mail=d.mail||[];G.guildLv=d.guildLv||0;G.guildXp=d.guildXp||0;G.guildDon=d.guildDon||0;
+  G.coloW=d.coloW||0;G.coloS=d.coloS||0;G.coloAtk=d.coloAtk||0;G.dreamBest=d.dreamBest||0;G.dreamAtk=d.dreamAtk||0;
+  G.trialBest=d.trialBest||{};G.loginDay=d.loginDay||0;G.loginStreak=d.loginStreak||0;G.lastLogin=d.lastLogin||0;
+  G.dailyQ=d.dailyQ||{};G.dailyQDay=d.dailyQDay||0;G.bpLv=d.bpLv||0;G.bpXp=d.bpXp||0;G.bpPrem=d.bpPrem||0;
+  // Daily reset for world boss attempts
+  const today=~~(Date.now()/86400000);if(G.wbDay!==today){G.wbAtk=0;G.wbDay=today;}
   // rebuild collection from saved hero data
   G.coll=[];(d.coll||[]).forEach(s=>{const base=DB.find(x=>x.id===s.id);if(!base)return;
     G.coll.push({...base,stars:s.stars||0,level:s.level||1});});
@@ -1328,6 +2037,7 @@ upUI=function(){_origUpUI();saveG();};
 
 // INIT
 (function(){const loaded=loadG();if(!loaded){[0,2,3].forEach((id,i)=>{const c={...DB[id],stars:0,level:1};G.coll.push(c);G.copies[id]=1;G.team[i]=c;});}
+  checkMailTriggers();checkDailyLogin();
   const feat=DB.filter(c=>c.r>=4);const picks=[];while(picks.length<6&&feat.length>picks.length){const i=~~(Math.random()*feat.length);if(!picks.find(p=>p.id===feat[i].id))picks.push(feat[i]);}
   $('BAN').innerHTML=picks.map(c=>`<span>${c.e}</span>`).join('');upUI();if(loaded)toast('💾 Save loaded!');})();
 </script></body></html>
