@@ -300,6 +300,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:#eee;font-famil
 <div id="Stower" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div></div></div><div class="mi" id="TI"></div><div class="bnav" id="N4"></div></div>
 <div id="Sshop" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div><div class="ci"><div class="cic cd"></div><span class="xD">0</span></div></div></div><div class="mi" id="SI"></div><div class="bnav" id="N5"></div></div>
 <div id="Sarena" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div></div></div><div class="mi" id="AI"></div><div class="bnav" id="N6"></div></div>
+<div id="Spvp" class="S"><div class="topbar"><div class="lvb xL">Lv.1</div><div class="cur"><div class="ci"><div class="cic cc"></div><span class="xC">0</span></div></div></div><div class="mi" id="PI"></div><div class="bnav" id="N7"></div></div>
 <div class="sol" id="SOL"><canvas id="sC"></canvas><div class="rb" id="RB"></div><button class="skb" id="SKB" onclick="skPull()">SKIP ▸</button></div>
 <div class="mr" id="MR" onclick="clMR()"><div style="font-size:20px;font-weight:900;color:var(--gold);margin-bottom:10px">Results — Tap to close</div><div class="mg" id="MG"></div></div>
 <div class="rwp" id="RWP" onclick="resultScreenClick(event)"><h2 id="RWT">🎉 Victory!</h2><div class="rwi" id="RWI"></div><div class="rwacts"><button class="rwghost" id="RSBTN" onclick="event.stopPropagation();toggleResultStats()">View Battle Stats</button><button class="rwok" onclick="event.stopPropagation();clRW()">Continue</button></div><div class="rsbox" id="RSBOX" onclick="event.stopPropagation()"><div class="rsthead"><div><div class="rst">Battle Stats</div><div class="rstsub">Clean split by side with each bar showing that unit's share of its own team total.</div></div><div class="rstabs"><button class="rstab on" id="RSTAB_A" onclick="event.stopPropagation();setResultStatsTab('a')">Your Team</button><button class="rstab enemy" id="RSTAB_E" onclick="event.stopPropagation();setResultStatsTab('e')">Enemy Team</button></div></div><div id="RST"></div></div></div>
@@ -314,8 +315,8 @@ const RW=[45,37.5,15,2,0.5];
 const MXS=[15,13,12,11,10];
 const STAR_NEEDS={0:[4,6,8,10,14,18,22,28,34,40,48,56,65,75,85],1:[3,5,7,9,12,16,20,25,30,36,44,52,60],2:[2,4,6,8,10,13,16,20,25,30,36,42],3:[1,2,3,5,7,9,12,15,18,22,28],4:[1,1,2,3,4,6,8,10,12,15]};
 const STAR_GOLD=[500,1000,2500,5000,10000];
-const NV=[['🎰','Sum','gacha'],['👥','Team','team'],['⚔️','Fight','battle'],['🏰','Spire','dung'],['🗼','Tower','tower'],['⚒️','Forge','shop'],['🏟️','Arena','arena']];
-for(let i=0;i<7;i++){let h='';NV.forEach(([ic,nm,id])=>h+=`<button class="nb" onclick="go('${id}')"><i>${ic}</i>${nm}</button>`);$('N'+i).innerHTML=h;}
+const NV=[['🎰','Sum','gacha'],['👥','Team','team'],['⚔️','Fight','battle'],['🏰','Spire','dung'],['🗼','Tower','tower'],['⚒️','Forge','shop'],['🏟️','Arena','arena'],['👊','PvP','pvp']];
+for(let i=0;i<8;i++){let h='';NV.forEach(([ic,nm,id])=>h+=`<button class="nb" onclick="go('${id}')"><i>${ic}</i>${nm}</button>`);$('N'+i).innerHTML=h;}
 
 const DB=[
 // ═══ N RANK (5 units) — Tank~3x DPS HP, DPS~3x Tank ATK ═══
@@ -445,7 +446,7 @@ const BOOK_SLOTS=['b1','b2','b3'];
 const EQUIP_SLOTS=['w','a','c',...BOOK_SLOTS];
 const SLOT_LABELS={w:'⚔️ Weapon',a:'🛡️ Armor',c:'💍 Accessory',b1:'📘 Skill Book I',b2:'📗 Skill Book II',b3:'📙 Skill Book III'};
 
-const G={coins:5000,gems:300,dust:0,tok:0,lv:1,xp:0,pity:0,megaP:0,team:[null,null,null,null,null],coll:[],copies:{},maxStage:1,auto:1,spd:1,gI:{},hG:{},hT:{},dF:1,dB:0,dR:null,dA:0,dPick:0,tF:1,tR:null,tA:0,aR:1e6,aW:0,sT:0,s1:0,s2:0,curM:'story',cleared:{story:{},tower:{},arena:{}},autoClear:1,skipBattle:0,stageCap:200,rRet:'battle',modeSpd:{},newHeroes:{}};
+const G={coins:5000,gems:300,dust:0,tok:0,lv:1,xp:0,pity:0,megaP:0,team:[null,null,null,null,null],coll:[],copies:{},maxStage:1,auto:1,spd:1,gI:{},hG:{},hT:{},dF:1,dB:0,dR:null,dA:0,dPick:0,tF:1,tR:null,tA:0,aR:1e6,aW:0,sT:0,s1:0,s2:0,curM:'story',cleared:{story:{},tower:{},arena:{}},autoClear:1,skipBattle:0,stageCap:200,rRet:'battle',modeSpd:{},newHeroes:{},pvpName:'',pvpW:0,pvpL:0,pvpHist:[]};
 const COMBAT={attackCharge:30,hitCharge:15,skillFloor:50,damageScale:1.0,allyHpScale:1.0,enemyHpScale:1.0,enemyAtkScale:1.0,frontHp:1.12,frontAtk:.92,backHp:.97,backAtk:1.05,backSpd:2,transformTurn:7,transformAttack:5,transformHit:5,critBase:.10,critMult:1.50,basicScale:1.0,basicAoeScale:.70,skillScale:1.0,skillAoeScale:.80,ultSingleScale:1.20,ultAoeScale:.90,openingGuard:[.90,.95,1.0,1.0,1.0]};
 const TRANSFORMS={
 22:{trigger:'bar',emoji:'💀',name:'★ Death',hp:1.5,atk:1.6,spd:5,pN:'Deathmark',pD:'Kills heal 35%, grant +20% ATK and mark the weakest enemy for +40% damage.',pT:'deathmark',pV:.40,sN:'Soul Harvest',sD:'7x random target. Execute under 35%. Kills refund 50% skill charge.',sM:7,sT:'se',uN:"Death's Dominion",uD:'12x random target. Each kill grants +30 charge and +15% ATK permanently.',uM:12,uT:'s'},
@@ -760,7 +761,7 @@ function pwr(h){const s=getSt(h);return ~~(s.atk*4+s.hp*.5+s.spd*15+(h.stars||0)
 function sCost(r,s){return STAR_NEEDS[r]?.[s]??999;}
 
 function upUI(){const f=n=>n.toLocaleString();$('DC').textContent=f(G.coins);$('DG').textContent=f(G.gems);$('DD').textContent=f(G.dust);$('DT').textContent=f(G.tok);$('DP').textContent=G.pity;$('DM').textContent=G.megaP;$('LVB').textContent='Lv.'+G.lv;document.querySelectorAll('.xL').forEach(e=>e.textContent='Lv.'+G.lv);document.querySelectorAll('.xC').forEach(e=>e.textContent=f(G.coins));document.querySelectorAll('.xG').forEach(e=>e.textContent=f(G.gems));document.querySelectorAll('.xD').forEach(e=>e.textContent=f(G.dust));}
-function go(n){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('S'+n).classList.add('on');if(n==='team')rTeam();if(n==='battle')rStages();if(n==='dung')rDung();if(n==='tower')rTower();if(n==='shop')rShop();if(n==='arena')rArena();upUI();}
+function go(n){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('S'+n).classList.add('on');if(n==='team')rTeam();if(n==='battle')rStages();if(n==='dung')rDung();if(n==='tower')rTower();if(n==='shop')rShop();if(n==='arena')rArena();if(n==='pvp')rPvp();upUI();}
 function infoPanel(title,body){$('DET').innerHTML=`<div class="dh"><div class="dhn" style="color:var(--gold)">${title}</div></div><div style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.45">${body}</div><button class="dcl" onclick="$('HM').classList.remove('on')">Close</button>`;$('HM').classList.add('on');}
 function showRates(){infoPanel('Gacha Rates','N: 45%<br>R: 37.5%<br>SR: 15%<br>SSR: 2%<br>EX: 0.5%<br><br>Pity: SSR+ at 80 pulls<br>Mega pity: EX at 300 pulls<br>×10000 guarantees EX on the last pull.');}
 function showTraitRates(){infoPanel('Trait Chances','Feeble 35%<br>Normal 28%<br>Strong 20%<br>Elite 10%<br>Legendary 5%<br>Mythic 2%');}
@@ -1128,6 +1129,7 @@ function winB(){B.done=1;$('TBT').textContent='BATTLE END';$('TB').textContent='
   let cr,ge,dr,tk,extra='';const storyFirst=md==='story'&&!G.cleared.story[s];if(md==='story'){const rw=stageReward(s);cr=rw.c;ge=rw.g;dr=rw.d;tk=rw.t;if(storyFirst){cr*=2;ge*=2;dr*=2;tk*=2;extra='<div class="rwit"><div class="ri">✨</div>First Clear x2</div>';}}
   else if(md==='dungeon'){cr=80*s;ge=s%10===0?15+s:0;dr=8*s;tk=s%8===0?1:0;}
   else if(md==='arena'){cr=10000;ge=50;dr=2000;tk=0;}
+  else if(md==='pvp'){cr=5000;ge=30;dr=500;tk=1;G.pvpW=(G.pvpW||0)+1;if(G.pvpOpp)G.pvpHist.push({w:1,n:G.pvpOpp.name,p:G.pvpOpp.power,t:G.pvpOpp.team.map(h=>h.e)});if(G.pvpHist.length>20)G.pvpHist=G.pvpHist.slice(-20);}
   else{cr=15000*s;ge=50*s;dr=1500*s;tk=8;}
   G.coins+=cr;G.gems+=ge;G.dust+=dr;G.tok+=tk;G.xp+=50+s*25;
   if(md==='story'){G.cleared.story[s]=1;if(s>=G.maxStage&&G.maxStage<G.stageCap)G.maxStage++;}
@@ -1160,10 +1162,11 @@ function winB(){B.done=1;$('TBT').textContent='BATTLE END';$('TB').textContent='
     upUI();
   }
   const rewardHtml=`<div class="rwit"><div class="ri">🪙</div>${cr.toLocaleString()}</div><div class="rwit"><div class="ri">💎</div>${ge}</div><div class="rwit"><div class="ri">✨</div>${dr}</div>${tk?`<div class="rwit"><div class="ri">🎲</div>${tk}</div>`:''}${extra}`;
-  setTimeout(()=>openResult(md==='dungeon'&&G.dF>100?'🏰 Abyss Cleared!':'🎉 Victory!',rewardHtml,md==='story'?'battle':md==='dungeon'?'dung':md),300);}
+  setTimeout(()=>openResult(md==='dungeon'&&G.dF>100?'🏰 Abyss Cleared!':md==='pvp'?'🏆 PvP Victory!':'🎉 Victory!',rewardHtml,md==='story'?'battle':md==='dungeon'?'dung':md),300);}
 function loseB(){B.done=1;$('TBT').textContent='BATTLE END';$('TB').textContent='💀 DEFEATED';$('TB').style.color='#f44';$('TB').classList.add('result-anim');
   if(B.mode==='dungeon'){const hp={};B.als.forEach(u=>hp[u.id]=0);G.dR.forEach(h=>{if(hp[h.id]!==undefined)h._hp=0;});if(!G.dR.some(h=>h._hp===undefined||h._hp>0))G.dA=0;setTimeout(()=>openResult('💀 Defeat','', 'dung'),300);}
   else if(B.mode==='tower'){setTimeout(()=>openResult('💀 Defeat','', 'tower'),300);}
+  else if(B.mode==='pvp'){G.pvpL=(G.pvpL||0)+1;if(G.pvpOpp)G.pvpHist.push({w:0,n:G.pvpOpp.name,p:G.pvpOpp.power,t:G.pvpOpp.team.map(h=>h.e)});if(G.pvpHist.length>20)G.pvpHist=G.pvpHist.slice(-20);saveG();setTimeout(()=>openResult('💀 Defeat','','pvp'),300);}
   else if(B.mode==='arena'){G.aR=Math.min(1000000,G.aR+Math.max(50,~~(Math.max(1,1000000-G.aR)*.0025)));setTimeout(()=>openResult('💀 Defeat','', 'arena'),300);}
   else setTimeout(()=>openResult('💀 Defeat','', 'battle'),300);}
 function clRW(){$('RWP').classList.remove('on');const ret=G.rRet||'battle';exitB();go(ret);}
@@ -1233,6 +1236,49 @@ function bDustN(n){if(n<=0){toast("Not enough!");return;}for(let i=0;i<n;i++){if
 function bShard(id){const d=DB.find(x=>x.id===id);if(!d)return;const pr=d.r===2?5000:d.r===3?25000:100000;if(G.coins<pr){toast("Not enough!");return;}G.coins-=pr;G.copies[id]=(G.copies[id]||0)+1;if(!G.coll.find(x=>x.id===id))G.coll.push({...d,stars:0,level:1});upUI();toast('+1 '+d.n);rShop();}
 function bShardN(id,n){const d=DB.find(x=>x.id===id);if(!d||n<=0)return;const pr=d.r===2?5000:d.r===3?25000:100000;for(let i=0;i<n;i++){if(G.coins<pr)break;G.coins-=pr;G.copies[id]=(G.copies[id]||0)+1;if(!G.coll.find(x=>x.id===id))G.coll.push({...d,stars:0,level:1});}upUI();toast('+'+n+' '+d.n);rShop();}
 
+// PVP MULTIPLAYER
+function encodeTeam(){const team=G.team.filter(Boolean);if(!team.length){toast('Set a team first!');return null;}
+  const data=team.map(h=>{const owned=G.coll.find(x=>x.id===h.id);return{id:h.id,s:owned?.stars||0,l:owned?.level||1,t:G.hT[h.id]??-1,g:Object.entries(G.hG).filter(([k,v])=>v===h.id).map(([k])=>parseInt(k))};});
+  const obj={n:G.pvpName||'Player',lv:G.lv,d:data,p:team.reduce((s,h)=>s+pwr(h),0)};
+  return btoa(JSON.stringify(obj));}
+function decodeTeam(code){try{const obj=JSON.parse(atob(code));if(!obj||!obj.d||!obj.d.length)return null;
+  const team=obj.d.map(s=>{const base=DB.find(x=>x.id===s.id);if(!base)return null;return{...base,stars:s.s||0,level:s.l||1};}).filter(Boolean);
+  if(!team.length)return null;return{name:obj.n||'Player',lv:obj.lv||1,team,power:obj.p||0};}catch(e){return null;}}
+function pvpShareCode(){const code=encodeTeam();if(!code)return;navigator.clipboard.writeText(code).then(()=>toast('📋 Team code copied!')).catch(()=>{prompt('Copy this team code:',code);});}
+function pvpChallenge(){const code=prompt('Paste opponent team code:');if(!code)return;const opp=decodeTeam(code);if(!opp){toast('Invalid team code!');return;}
+  const myTeam=G.team.filter(Boolean);if(!myTeam.length){toast('Set your team first!');return;}
+  G.pvpOpp=opp;G.curM='pvp';
+  if(!G.skipBattle){document.querySelectorAll('.S').forEach(s=>s.classList.remove('on'));$('Sbattle').classList.add('on');$('SS').style.display='none';$('BA').classList.add('on');}
+  B={stg:1,mode:'pvp',als:[],ens:[],done:0,tQ:[],ti:0,turn:0};
+  const als=myTeam.map((h,i)=>({...h,...getSt(h),maxHp:getSt(h).hp,hp:getSt(h).hp,charge:0,alive:1,side:'a',idx:i,row:i<2?'front':'back',id:h.id,n:h.n,e:h.e,r:h.r,pT:h.pT,efx:[],shield:0,bonusHp:0,blocked:0}));
+  const ens=opp.team.map((h,i)=>({...h,...getSt(h),maxHp:getSt(h).hp,hp:getSt(h).hp,charge:0,alive:1,side:'e',idx:i,row:i<2?'front':'back',id:h.id,n:h.n,e:h.e,r:h.r,pT:h.pT,efx:[],shield:0,bonusHp:0,blocked:0}));
+  B.als=als;B.ens=ens;bQ();
+  if(G.skipBattle){setTimeout(simB,0);return;}
+  if(G.modeSpd['pvp'])G.spd=G.modeSpd['pvp'];$('SB').textContent='×'+G.spd;
+  plU();showBattleIntro().then(()=>{blog(`⚔️ PvP vs ${opp.name}`);rTurns();});}
+function pvpSetName(){const name=prompt('Enter your display name (max 16 chars):',G.pvpName||'');if(name===null)return;G.pvpName=name.substring(0,16).replace(/[<>"'&]/g,'');saveG();toast('Name set: '+G.pvpName);rPvp();}
+function rPvp(){const c=$('PI');const myTeam=G.team.filter(Boolean);const myPwr=myTeam.reduce((s,h)=>s+pwr(h),0);const wins=G.pvpW||0;const losses=G.pvpL||0;
+  let h=`<div class="mt">👊 PvP Multiplayer</div>`;
+  h+=`<div class="mif">Name: <strong>${G.pvpName||'Player'}</strong> · W/L: ${wins}/${losses}</div>`;
+  h+=`<div style="text-align:center;margin:10px 0"><button class="gb gb1" onclick="pvpSetName()" style="margin:3px">✏️ Set Name</button></div>`;
+  h+=`<div style="background:rgba(255,255,255,.04);border-radius:12px;padding:12px;margin:10px 0">`;
+  h+=`<div style="font-size:13px;font-weight:800;color:var(--gold);margin-bottom:8px">📤 Share Your Team</div>`;
+  h+=`<div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:8px">Share your team code with friends. They paste it to battle your team!</div>`;
+  h+=`<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px">${myTeam.map(t=>`<span style="padding:2px 8px;background:rgba(255,255,255,.06);border-radius:6px;font-size:12px">${t.e} ${t.n}</span>`).join('')}</div>`;
+  h+=`<div style="font-size:11px;color:rgba(255,255,255,.4)">Team Power: ⚡${myPwr.toLocaleString()}</div>`;
+  h+=`<button class="gb gb2" onclick="pvpShareCode()" style="margin-top:8px;width:100%">📋 Copy Team Code</button></div>`;
+  h+=`<div style="background:rgba(255,255,255,.04);border-radius:12px;padding:12px;margin:10px 0">`;
+  h+=`<div style="font-size:13px;font-weight:800;color:#f66;margin-bottom:8px">📥 Challenge a Friend</div>`;
+  h+=`<div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:8px">Paste a friend's team code to battle their team with yours!</div>`;
+  h+=`<button class="gb gb3" onclick="pvpChallenge()" style="width:100%">⚔️ Paste Code & Fight</button></div>`;
+  h+=`<div style="background:rgba(255,255,255,.04);border-radius:12px;padding:12px;margin:10px 0">`;
+  h+=`<div style="font-size:13px;font-weight:800;color:var(--gold);margin-bottom:8px">📖 How It Works</div>`;
+  h+=`<div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.6">1. Build your best team in the Team tab<br>2. Click "Copy Team Code" to get your code<br>3. Send the code to a friend (text, Discord, etc.)<br>4. They paste your code in "Challenge a Friend"<br>5. Their heroes fight YOUR heroes in real battle!<br><br>⚡ Heroes use their actual stats, stars, levels, gear & traits.<br>🏆 Track your PvP wins & losses!</div></div>`;
+  // PvP history
+  if(G.pvpHist&&G.pvpHist.length){h+=`<div style="font-size:13px;font-weight:800;color:var(--gold);margin:10px 0">📜 Recent Battles</div>`;
+    G.pvpHist.slice(-10).reverse().forEach(r=>{h+=`<div class="si"><div class="sic">${r.w?'🏆':'💀'}</div><div class="sin"><div class="sinm" style="color:${r.w?'var(--gold)':'#f44'}">${r.w?'Victory':'Defeat'} vs ${r.n}</div><div class="sid">⚡${r.p.toLocaleString()} · ${r.t.join(' ')}</div></div></div>`;});}
+  c.innerHTML=h;}
+
 // ARENA
 function rArena(){const c=$('AI');const ops=[];for(let i=0;i<5;i++){const rk=arenaOpponentRank(G.aR,i);const team=mkArenaTeam(rk);const pf=arenaProfile(rk);const p=team.reduce((s,h)=>s+pwr(h),0);ops.push({nm:['ShadowKing','DragonLord','VoidMaster','StarSlayer','FateBreaker'][i],p,rk,team,pf});}
   let h=`<div class="mt">🏟️ Arena</div><div class="mif">Rank #${G.aR.toLocaleString()} · Wins: ${G.aW}</div><div style="display:flex;justify-content:center;margin:8px 0">${skipBattleMarkup()}</div><div class="fb">`;
@@ -1252,7 +1298,7 @@ function saveG(){try{const d={coins:G.coins,gems:G.gems,dust:G.dust,tok:G.tok,lv
   maxStage:G.maxStage,auto:G.auto,spd:G.spd,gI:G.gI,hG:G.hG,hT:G.hT,
   dF:G.dF,dB:G.dB,dPick:G.dPick,tF:G.tF,aR:G.aR,aW:G.aW,
   curM:G.curM,cleared:G.cleared,autoClear:G.autoClear,skipBattle:G.skipBattle,
-  modeSpd:G.modeSpd,newHeroes:G.newHeroes,_v:1};
+  modeSpd:G.modeSpd,newHeroes:G.newHeroes,pvpName:G.pvpName,pvpW:G.pvpW,pvpL:G.pvpL,pvpHist:(G.pvpHist||[]).slice(-20),_v:1};
   localStorage.setItem(SAVE_KEY,JSON.stringify(d));}catch(e){}}
 function loadG(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return false;const d=JSON.parse(raw);if(!d||!d._v)return false;
   G.coins=d.coins??5000;G.gems=d.gems??300;G.dust=d.dust??0;G.tok=d.tok??0;
@@ -1264,6 +1310,7 @@ function loadG(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return fal
   G.cleared=d.cleared||{story:{},tower:{},arena:{}};
   G.autoClear=d.autoClear??1;G.skipBattle=d.skipBattle??0;
   G.modeSpd=d.modeSpd||{};G.newHeroes=d.newHeroes||{};
+  G.pvpName=d.pvpName||'';G.pvpW=d.pvpW||0;G.pvpL=d.pvpL||0;G.pvpHist=d.pvpHist||[];
   // rebuild collection from saved hero data
   G.coll=[];(d.coll||[]).forEach(s=>{const base=DB.find(x=>x.id===s.id);if(!base)return;
     G.coll.push({...base,stars:s.stars||0,level:s.level||1});});
