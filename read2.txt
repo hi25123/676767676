@@ -1,0 +1,529 @@
+# REALM OF FATE — ADDENDUM: BALANCE PATCH, TRANSFORMATIONS & PROGRESSION
+
+*This document adds onto the main redesign plan. Only changes, additions, and new instructions.*
+
+---
+
+## TABLE OF CONTENTS
+1. Broken Unit Nerfs (Who & Why)
+2. Transformation Mechanic (New System)
+3. Transforming Units (Who Transforms & Their Forms)
+4. Progression & Stage Scaling Philosophy
+5. Stat Scaling Rules (Anti-Exponential)
+6. Balance Instructions for Implementation
+
+---
+
+## 1. BROKEN UNIT NERFS
+
+### Problem
+Several units in the main plan can "full revive all dead allies." This single ability invalidates entire fights — why bother killing anything if one ult undoes all your work? It removes strategy and makes those units mandatory picks.
+
+### Units That Need Changes
+
+---
+
+**ID 29 — Arch Priest (SSR Healer)**
+
+OLD Ult: "Resurrection — Full heal ALL living allies + revive ALL dead allies at 40% HP"
+
+WHY BROKEN: Full-team revive at 40% HP on an SSR unit means you can never close out a fight against him. Enemy kills 3 of your units, Arch Priest ults, all 3 are back. No counterplay.
+
+NEW Ult: **"Resurrection — Heal all living allies 40% + revive the SINGLE most recently dead ally at 25% HP. Revived ally has -30% stats for 3 turns (resurrection sickness)."**
+
+REASONING: Single revive is strong but counterable. The stat penalty means the revived unit is fragile and can be re-killed. Still the best SSR healer, but not game-breaking.
+
+---
+
+**ID 43 — Genesis (EX Healer)**
+
+OLD Ult: "Big Bang — 8x AOE + full heal all allies + 25% shield all + revive all dead at 50%"
+
+WHY BROKEN: Does literally everything — massive AOE damage, full heal, shields, AND full-team revive. One button wins fights.
+
+NEW Ult: **"Big Bang — 6x AOE + heal all living allies 35% + 15% shield all + revive up to 2 dead allies at 30% HP. Revived allies cannot be revived again for the rest of the battle (marked with 'Final Life')."**
+
+REASONING: Still extremely powerful (2 revives is a lot), but revived units get "Final Life" — they can't be revived a second time by any means. Forces you to protect them. Damage and heal numbers also toned down.
+
+---
+
+**ID 49 — Eternal (EX Healer)**
+
+OLD Passive: "Dead allies auto-revived at 20% HP once each (passively, no action needed)"
+OLD Ult: "Full heal all + revive all dead at 60% HP + all allies immune to damage 1 turn"
+
+WHY BROKEN: PASSIVE auto-revive (no action cost!) plus ult revives everyone AGAIN at 60% plus damage immunity. Essentially makes your team unkillable.
+
+NEW Passive: **"Timeless — All heals +30% stronger. All heals can overheal → Bonus HP. The FIRST ally to die each battle is auto-revived at 15% HP (once total, not once per ally). Team regen 3% HP/turn."**
+
+NEW Ult: **"Immortal Light — Heal all allies 50% (can overheal to +30% Bonus HP) + revive 1 most recently dead ally at 35% HP + all allies gain 30% damage reduction for 2 turns."**
+
+REASONING: Passive auto-revive limited to the very first death only (one use total). Ult revives only 1 unit. Damage reduction for 2 turns replaces full immunity (which was broken). Still the best healer in the game, but beatable.
+
+---
+
+**ID 40 — The Absolute (EX DPS)**
+
+OLD Passive: "AOE all attacks. 20% execute. 30% lifesteal. Immune to debuffs. +6% ATK/turn. Revive once at 40%"
+
+WHY BROKEN: Has literally every mechanic in the game on one passive. AOE + execute + lifesteal + immunity + ramping + revive. No weakness whatsoever.
+
+NEW Passive: **"Beyond — All basic attacks hit AOE at 60% damage (skills/ult unchanged). 15% execute threshold. 20% lifesteal (can overheal). Immune to CC (stun/freeze only, NOT immune to ATK reduction/poison/bleed). +4% ATK/turn (max 32%). No revive."**
+
+REASONING: Removed the revive entirely — if you want revive, bring a healer. Narrowed immunity to just CC, not all debuffs (so DoT comps and ATK-reduction tanks can counter him). Lowered execute threshold, lifesteal, and ATK ramp. AOE basic attacks reduced to 60% damage to non-primary targets. Still the strongest DPS in the game, but has actual weaknesses now (DoTs, ATK debuffs, no self-revive, can be worn down).
+
+---
+
+**ID 24 — Celestial Vow (SSR Healer)**
+
+OLD Ult: "Heal all 28% (can overheal) + revive 1 dead ally at 30% HP + 20% shield all"
+
+THIS ONE IS FINE. Single revive at 30% with no stat penalty is strong but fair for SSR. Keep as-is.
+
+---
+
+**ID 47 — The Undying (EX Tank)**
+
+OLD Passive: "On death: revive at 45% HP + 25% shield + 10% lifesteal. Can trigger 3 times per battle."
+
+SLIGHTLY REDUCE: **Can trigger 2 times per battle (not 3).** You have to kill him 3 total times (original + 2 revives). Still extremely tanky identity, but not literally unkillable.
+
+---
+
+### REVIVE RULES SUMMARY (New Global Rule)
+
+To prevent revive-stacking from breaking the game entirely:
+
+1. **Each unit can only be revived a maximum of 1 time per battle** (regardless of source). Once revived, they get the "Final Life" marker — if they die again, they stay dead permanently. No exceptions.
+2. **Passive auto-revives** (Eternal, Undying, Phoenix) count toward this limit.
+3. **The only exception** is The Undying's tank passive, which is specifically his identity — he can self-revive 2 times (but other units cannot revive him beyond that).
+4. This means a healer can revive a dead ally once, but that ally cannot be revived a second time by any means.
+
+This prevents the degenerate loop of "kill unit → revived → kill again → revived again → kill again → revived again" that makes fights unwinnable.
+
+---
+
+## 2. TRANSFORMATION MECHANIC (NEW SYSTEM)
+
+### Concept
+Some special units have a **Transform Bar** — a SECOND bar below their charge bar. It fills slowly over the course of battle. When full, the unit **permanently transforms** into an enhanced "Awakened" form for the rest of the fight.
+
+### How the Transform Bar Works
+- **Separate from charge bar.** Charge bar handles skill/ult as normal. Transform bar is independent
+- **Transform bar fills by:** +5 per turn passively, +3 per basic attack, +5 per skill use, +8 per ult use, +10 per kill, +5 per time this unit takes damage
+- **Transform bar maximum: 100.** At 100, transformation triggers automatically
+- **Average time to transform:** ~8-12 turns into a fight (mid-battle power spike)
+- **Transformation is PERMANENT for the rest of the battle.** No reverting
+- **Visual:** Unit emoji changes, name gets a "★" prefix, brief transformation cutscene (similar to ult animation but more dramatic — screen flash, unit glows, emoji morphs)
+
+### What Changes on Transform
+- **New emoji** (visual change)
+- **Stat boost:** +25% HP (healed by that amount too), +25% ATK, +3 SPD
+- **Enhanced passive:** Passive upgrades to a stronger version
+- **Enhanced skill:** Higher multiplier or added effect
+- **Enhanced ult:** Higher multiplier or added effect
+- **Some units gain entirely new abilities on transform**
+
+### Who Can Transform
+Only select units — NOT everyone. This is a special trait that makes certain units uniquely valuable. Roughly 8 units across the roster have it (mix of rarities, but weighted toward SSR/EX).
+
+---
+
+## 3. TRANSFORMING UNITS
+
+### Which Units Get Transformation + Their Awakened Forms
+
+---
+
+**ID 22 — The Reaper (SSR DPS — Kill-Chain Assassin)**
+*Transform identity: Death incarnate. Already snowballs from kills — transformation supercharges it.*
+
+NORMAL FORM: ⚰️ The Reaper
+AWAKENED FORM: 💀 **★ Death**
+
+Awakened Changes:
+- +25% HP/ATK, +3 SPD
+- Passive upgrade: **Harvest → Deathmark** — On kill: extra turn + heal 25% (up from 15%) + +12% ATK permanently (up from 8%). Additionally, at start of each turn, the lowest-HP enemy gains "Death Mark" — they take +30% damage from all sources for 2 turns
+- Skill upgrade: **Soul Rend → Soul Reap** — 4x single lowest HP (up from 3x). Execute threshold 30% (up from 20%)
+- Ult upgrade: **Death's Embrace → Reaper's Harvest** — 7x single lowest HP (up from 5.5x) + lifesteal 50% (up from 40%) + if this kills, immediately gain another ult charge (one-time chain)
+
+---
+
+**ID 31 — Phoenix (SSR DPS — Burn Stacker)**
+*Transform identity: Reborn from flames. Phoenix rising is the most thematic transformation in the game.*
+
+NORMAL FORM: 🔥 Phoenix
+AWAKENED FORM: 🌟 **★ Solar Phoenix**
+
+Awakened Changes:
+- +25% HP/ATK, +3 SPD. Full HP restore on transformation
+- Passive upgrade: **Rebirth → Eternal Flame** — Revive mechanic removed (already used or saved). Instead: ALL burns on ALL enemies tick TWICE per turn instead of once. All attacks apply 2 burn stacks instead of 1. Burns can no longer be cleansed by enemies
+- Skill upgrade: **Flame Wing → Solar Wave** — 2.5x AOE (up from 2x) + apply 3 burn stacks to all (up from 2) lasting 4 turns
+- Ult upgrade: **Infernal Rising → Supernova Burst** — 3.5x AOE (up from 2.5x) + apply 5 burn stacks all (up from 4) + all existing burns extended 3 turns (up from 2) + enemies cannot heal for 2 turns
+
+---
+
+**ID 25 — Eclipse Knight (SSR Tank — Shield Regen Wall)**
+*Transform identity: The eclipse completes. Becomes an immovable dark fortress.*
+
+NORMAL FORM: 🌗 Eclipse Knight
+AWAKENED FORM: 🌑 **★ Total Eclipse**
+
+Awakened Changes:
+- +30% HP (extra for tanks), +15% ATK, +2 SPD
+- Passive upgrade: **Eclipse → Event Horizon** — Shield regen 15%/turn (up from 10%). 80% taunt (up from 65%). Enemies that attack this unit lose 8% of THEIR max HP as direct damage (gravity crush — the tank now hurts attackers passively)
+- Skill upgrade: **Shadow Guard → Gravity Well** — 1.8x single + taunt all 3t (up from 2t) + self 25% shield (up from 15%) + pull all enemies to front row for 2 turns (so your AOE/splash hits everyone)
+- Ult upgrade: **Total Eclipse → Black Hole** — 5x AOE + self 50% shield (up from 35%) + team 25% shield (up from 15%) + taunt 4 turns + ALL enemies -25% ATK for 3 turns
+
+---
+
+**ID 33 — Blood Moon (SSR DPS — Bleed Stacker)**
+*Transform identity: The blood moon rises. Bleeds become catastrophic.*
+
+NORMAL FORM: 🩸 Blood Moon
+AWAKENED FORM: 🔴 **★ Crimson Moon**
+
+Awakened Changes:
+- +25% HP/ATK, +3 SPD
+- Passive upgrade: **Crimson Tide → Blood Tide** — All attacks apply Bleed (2% HP/turn, up from 1.5%). Each bleed stack amplifies all bleeds by +20% (up from +15%). 15% lifesteal (up from 10%). NEW: When an enemy dies from bleed damage, all their bleed stacks transfer to a random living enemy
+- Skill upgrade: **Blood Lance → Blood Torrent** — 3x single (up from 2.5x) + apply 4 bleed stacks (up from 3) + drain 8% target max HP as heal (up from 5%)
+- Ult upgrade: **Blood Eclipse → Crimson Apocalypse** — 4x single (up from 3x) + apply 7 bleed stacks (up from 5) + all bleeds on ALL enemies reset to 4-turn duration + self heal 30% (up from 20%)
+
+---
+
+**ID 38 — Demon Hunter (SSR DPS — Mega Single-Target)**
+*Transform identity: Unleashes the demon within. The ultimate single-target destroyer becomes even more terrifying.*
+
+NORMAL FORM: 🏹 Demon Hunter
+AWAKENED FORM: 😈 **★ Demon Lord**
+
+Awakened Changes:
+- +25% HP/ATK, +3 SPD
+- Passive upgrade: **Hunter's Mark → Doom Mark** — First attack marks target (same). Marked targets take +30% from all sources (up from +20%). NEW: Mark spreads — when marked target dies, mark transfers to next-lowest HP enemy. Mark also reduces target healing received by 50%
+- Skill upgrade: **Silver Bolt → Demon Bolt** — 5x single (up from 4x) + mark + ignore shields + ignore 30% defense
+- Ult upgrade: **Annihilation → Obliteration** — **22x SINGLE TARGET** (up from 18x). If marked: additional 6x hit (up from 4x). Total on marked: 28x. If this kills, gain +20% ATK permanently
+
+---
+
+**ID 42 — World Eater (EX DPS — Kill-Snowball)**
+*Transform identity: Consumed enough to evolve. Becomes a world-ending entity.*
+
+NORMAL FORM: 🐲 World Eater
+AWAKENED FORM: 🌀 **★ World Ender**
+
+Awakened Changes:
+- +30% HP/ATK, +4 SPD (EX gets bigger boost)
+- Passive upgrade: **Consume → Annihilate** — Heal 30% of ALL damage dealt as overheal (up from 25%). +15% ATK per kill (up from +10%). On kill: fully reset BOTH skill charge to 50% AND gain +25 ult charge. NEW: Every 3rd kill triggers a free ult
+- Skill upgrade: **Devour → Consume Reality** — 5.5x single (up from 4.5x) + heal 40% damage as overheal + steal ALL buffs from target (up from 1)
+- Ult upgrade: **World End → Reality Collapse** — 11x single highest HP (up from 9x) + heal 60% as overheal + permanently steal 5% of target's ATK (added to World Ender's ATK)
+
+---
+
+**ID 47 — The Undying (EX Tank — Multi-Revive Wall)**
+*Transform identity: Has died enough times to transcend death itself.*
+
+SPECIAL: The Undying transforms NOT from a transform bar, but **automatically after his 2nd self-revive.** When he comes back the second time, he transforms. This is thematic — he's died so many times he's become something else.
+
+NORMAL FORM: 💀 The Undying
+AWAKENED FORM: 👻 **★ The Deathless**
+
+Awakened Changes:
+- +40% HP, +20% ATK, +2 SPD. Fully healed on transform
+- Passive upgrade: **Deathless → Beyond Death** — 90% taunt (up from 80%). -30% damage taken (up from -25%). 15% lifesteal (up from 10%). **Cannot die for 3 turns after transforming** (HP cannot drop below 1). After 3 turns, can die normally but no more revives
+- Skill upgrade: **Death Grip → Chains of Death** — 2.5x single (up from 2x) + lifesteal 40% (up from 30%) + taunt all 3t + target -20% ATK 3t
+- Ult upgrade: **Immortal → Undying Fortress** — 5x AOE + full self heal + 60% shield (up from 50%) + taunt all 5 turns + reflect 30% damage (up from 25%) + team 15% shield
+
+---
+
+**ID 44 — The Fool (EX Support — Chaos RNG)**
+*Transform identity: The Fool reveals their true nature — was playing dumb the whole time.*
+
+NORMAL FORM: 🃏 The Fool
+AWAKENED FORM: 👁️ **★ The Arcana**
+
+Awakened Changes:
+- +25% HP/ATK, +5 SPD (becomes fastest unit in the game)
+- Passive upgrade: **Fate Weaver → Fate Master** — Instead of copying random passives, now **copies the BEST passive on the field** (highest impact). 25% chance per turn to copy another (up from 10%). Additionally: at start of each turn, randomly buff 1 ally with +15% ATK or +15% HP or +15% SPD for 2 turns
+- Skill upgrade: **Wild Card → Loaded Dice** — Multiplier is now 6x-10x (up from 3x-9x, floor raised). Always targets optimally (lowest HP for DPS effect, highest ATK enemy for debuffs). Random effect is now always beneficial (no longer truly random — weighted toward the most useful effect for the situation)
+- Ult upgrade: **Chaos Destiny → Grand Arcana** — 9x AOE (up from 7x) + copy the STRONGEST ult that's been used in this battle and apply its effect + all allies +25% all stats 3t (up from +20%)
+
+---
+
+### TRANSFORM BAR SUMMARY
+
+| ID | Unit | Rarity | Transform Trigger | Normal → Awakened |
+|----|------|--------|-------------------|-------------------|
+| 22 | The Reaper | SSR | Bar reaches 100 | ⚰️ → 💀 ★ Death |
+| 25 | Eclipse Knight | SSR | Bar reaches 100 | 🌗 → 🌑 ★ Total Eclipse |
+| 31 | Phoenix | SSR | Bar reaches 100 | 🔥 → 🌟 ★ Solar Phoenix |
+| 33 | Blood Moon | SSR | Bar reaches 100 | 🩸 → 🔴 ★ Crimson Moon |
+| 38 | Demon Hunter | SSR | Bar reaches 100 | 🏹 → 😈 ★ Demon Lord |
+| 42 | World Eater | EX | Bar reaches 100 | 🐲 → 🌀 ★ World Ender |
+| 44 | The Fool | EX | Bar reaches 100 | 🃏 → 👁️ ★ The Arcana |
+| 47 | The Undying | EX | After 2nd self-revive | 💀 → 👻 ★ The Deathless |
+
+---
+
+## 4. PROGRESSION & STAGE SCALING PHILOSOPHY
+
+### Core Principle: NO EXPONENTIAL STAT WALLS
+
+The game should NEVER reach a point where "your units simply can't damage the enemies because their stats are too high." Every fight should be winnable with the right composition, even if your raw power is lower.
+
+### How This Works
+
+**Enemy HP Scaling: LINEAR, not exponential.**
+
+Current bad example (exponential):
+```
+Stage 1:  2,000 HP    ← fine
+Stage 10: 25,000 HP   ← fine
+Stage 25: 500,000 HP  ← getting steep
+Stage 50: 50,000,000 HP  ← impossible without specific units
+Stage 100: 5,000,000,000 HP  ← only The Absolute can touch this
+```
+
+Correct approach (linear with soft bumps):
+```
+Stage 1:   2,000 HP
+Stage 10:  8,000 HP       (×4 from start)
+Stage 25:  20,000 HP      (×10 from start)
+Stage 50:  50,000 HP      (×25 from start)
+Stage 75:  90,000 HP      (×45 from start)
+Stage 100: 150,000 HP     (×75 from start)
+Stage 150: 250,000 HP     (×125 from start)
+Stage 200: 400,000 HP     (×200 from start)
+```
+
+The ratio between stage 1 and stage 200 is 200×, not 2,500,000×. A well-composed team of level 300 units can handle stage 200 enemies. You don't need level 500 ★10 EX units for anything — they just make it easier/faster.
+
+**Enemy ATK Scaling: Same principle.**
+```
+Stage 1:   80 ATK
+Stage 50:  800 ATK       (×10)
+Stage 100: 2,000 ATK     (×25)
+Stage 200: 5,000 ATK     (×62)
+```
+
+### More Stages
+Increase total story stages from 100 to **200 stages.** The extra stages provide:
+- More room for gradual difficulty ramping
+- More reward checkpoints
+- No sudden difficulty spikes
+- Every 20 stages introduces a new enemy composition challenge (not just higher numbers)
+
+### Difficulty Progression by Stage Range
+
+| Stages | Difficulty Source | NOT About |
+|--------|------------------|-----------|
+| 1–20 | Learn basics. Any team works. | Stats |
+| 21–40 | Need a tank. Need a healer. 5 DPS doesn't work anymore | Need role coverage |
+| 41–60 | Enemies have synergies. Need to counter their comp | Enemy composition |
+| 61–80 | Enemies have strong DoTs/CC. Need cleanse/immunity | Status effects |
+| 81–100 | Enemies have tanks + assassins. Need to outmaneuver | Positioning/targeting |
+| 101–120 | Enemies buff each other heavily. Need debuffers/buff strippers | Support warfare |
+| 121–140 | Enemies have transforming units. Need burst to kill before transform | Timing/DPS check |
+| 141–160 | Mixed compositions. Enemies adapt roles per stage | Versatile roster |
+| 161–180 | Boss rush. Every 5 stages is a themed boss team | Specific counters |
+| 181–200 | Pinnacle. Full EX enemy teams with synergies | Everything combined |
+
+**At NO point is the answer "just get higher stats."** The answer is always "bring the right team."
+
+### Tower & Dungeon: Same Philosophy
+- Tower floor scaling: linear. Floor 1 = stage 1 difficulty, floor 200 = stage 100 difficulty, floor 500 = stage 150 difficulty
+- Infinite tower continues past 500 but stats increase only 0.5% per floor (very slow creep)
+- Dungeon: same linear scaling
+
+---
+
+## 5. STAT SCALING RULES (ANTI-EXPONENTIAL)
+
+### Player Unit Stat Growth
+
+**Level scaling formula:**
+```
+stat = base × (1 + (level - 1) × 0.006) × star_multiplier
+```
+
+At key levels:
+- Level 1: 1.0× base
+- Level 50: 1.29× base
+- Level 100: 1.59× base
+- Level 200: 2.19× base
+- Level 300: 2.79× base
+- Level 500: 3.99× base
+
+**Star multiplier:**
+```
+star_multiplier = 1 + (stars × 0.10)
+```
+- ★0: 1.0×
+- ★5: 1.5×
+- ★10: 2.0×
+
+**Combined max (level 500, ★10):**
+```
+stat = base × 3.99 × 2.0 = base × 7.98
+```
+
+So the absolute strongest a unit gets is ~8× their base stats. An EX DPS with 700 base ATK reaches ~5,586 ATK at max. An N DPS with 140 base ATK reaches ~1,117 ATK at max.
+
+**The gap between a maxed N and a maxed EX is about 5×, not 500×.** This means composition still matters more than rarity — a well-built team of SR units can absolutely compete with poorly composed EX teams.
+
+### Enemy Stat Scaling
+
+**Story mode enemy formula:**
+```
+enemy_hp = base_hp × (1 + stage × 0.35)
+enemy_atk = base_atk × (1 + stage × 0.25)
+```
+
+Where base_hp/base_atk come from the DB unit's base stats.
+
+At key stages:
+- Stage 1: 1.35× base
+- Stage 50: 18.5× base
+- Stage 100: 36× base  
+- Stage 200: 71× base
+
+**Why this works:** A maxed player unit (8× base) vs a stage 200 enemy (71× base enemy stats) — the enemy is about 9× stronger per-unit. But you have 5 units with synergies, heals, shields, and composition advantages. A well-built team absolutely handles this.
+
+### The Key Ratio
+At every point in the game, the ratio between enemy effective power and player effective power should be **beatable with good composition** and **unbeatable with bad composition**, regardless of raw stats.
+
+Target ratio: Enemy team total effective power should be 1.2×–2.5× your team's raw stat total. The gap is closed by:
+- Tank soaking damage (+40-60% effective team HP)
+- Healer sustaining (+30-50% effective team HP)
+- Support buffs (+20-40% effective team damage)
+- DPS targeting priority (focusing key enemies)
+- CC/debuffs (reducing enemy output 20-40%)
+
+All of these combined turn a 2.5× stat disadvantage into an even or winning fight.
+
+---
+
+## 6. BALANCE INSTRUCTIONS FOR IMPLEMENTATION
+
+### Rule 1: NEVER Use Exponential Scaling
+- No `Math.pow(base, stage)` for enemy stats. Always use `base × (1 + stage × coefficient)`
+- No `Math.pow(multiplier, level)` for player stats. Always use `base × (1 + level × coefficient)`
+- Test: at every 20-stage interval, check if a team of appropriate-rarity units at reasonable levels can win. If not, the scaling is too steep
+
+### Rule 2: Role Ratios Are Sacred
+Tanks must always have:
+- HP: 3–5× a same-rarity DPS
+- ATK: 0.25–0.40× a same-rarity DPS
+- Their value comes from taunt, shields, and survival — NEVER from damage
+
+DPS must always have:
+- ATK: highest of any role
+- HP: lowest of any role (50-70% of a tank)
+- Without a tank, they WILL die to focused attacks
+
+Healers must always have:
+- Healing output that can sustain a team through 2-3 enemy attacks per turn
+- Low personal damage (40-60% of a DPS)
+- Without a healer, teams should lose any fight lasting more than 6-8 turns
+
+### Rule 3: Composition Advantage Formula
+When calculating battle outcomes (especially for skip/sim):
+```
+effective_power = raw_power × composition_bonus
+
+composition_bonus:
+  +0.00 base
+  +0.25 if team has at least 1 Tank
+  +0.25 if team has at least 1 Healer
+  +0.15 if team has at least 1 Support
+  +0.10 if team has at least 1 DPS
+  +0.10 if team has mixed damage types (physical + magic + DoT)
+  +0.15 if no duplicate roles beyond 2
+
+  -0.30 if team has 0 Tanks
+  -0.30 if team has 0 Healers
+  -0.20 if team has 4+ of the same role
+  -0.40 if team is all one role
+```
+
+So a balanced team (Tank + Healer + Support + 2 DPS) gets +0.85 bonus = 1.85× effective power.
+A 5-DPS team gets +0.10 - 0.30 - 0.30 - 0.20 = -0.70 = 0.30× effective power.
+The balanced team is 6× more effective than the 5-DPS team at the same raw stats.
+
+### Rule 4: Enemy Team Composition Rules
+Enemies should ALSO follow composition rules so fights feel fair and strategic:
+
+- Stages 1–40: Enemies can have unbalanced teams (2-3 DPS, maybe no healer) — player learns that balanced teams beat them
+- Stages 41–80: Enemies always have at least 1 Tank and 1 Healer — player must now deal with sustain
+- Stages 81–120: Enemies have synergistic compositions (DoT team, CC team, burst team, sustain team) — player must counter-pick
+- Stages 121–160: Enemies have transforming units — player must burst them down before transform or bring their own transformers
+- Stages 161–200: Enemies have optimized compositions — the final challenge
+
+### Rule 5: Revive Limits (Global)
+- Any unit can be revived max 1 time per battle (Final Life rule)
+- Exception: The Undying (2 self-revives, it's his identity)
+- If a revive ability would target a unit with Final Life, it picks the next eligible dead unit, or fizzles if none
+
+### Rule 6: Transformation Balance
+- Transform should feel powerful but not instant-win
+- Transform bar fills in ~8-12 turns on average — this means it kicks in during mid-to-long fights
+- In short fights (stages you outlevel), you'll win before transformation triggers
+- In hard fights, transformation is the tide-turner — but enemies can ALSO have transforming units
+- The stat boost (+25% HP/ATK) is significant but not doubled. The real power is the enhanced abilities
+- Awakened form keeps the same role. A transforming tank is still a tank, just a better one
+
+### Rule 7: No Single Unit Should Be Mandatory
+Test: Can a team without [any specific unit] clear all content?
+- Without The Absolute: Yes (use other EX DPS or well-built SSR DPS)
+- Without any healer: No (by design — role coverage is mandatory, not any specific unit)
+- Without any specific EX: Yes (SSR teams can clear everything, EX just makes it easier/faster)
+
+### Rule 8: DoT Balance
+DoTs (burn, bleed, poison) deal % max HP damage. This means they naturally scale with enemy HP — they're always relevant regardless of stage. This is intentional. DoT teams are a legitimate strategy at all stages.
+
+But cap total DoT damage:
+- Maximum total DoT ticks per turn on one target: 25% max HP
+- This prevents infinite bleed stacking from one-shotting through raw ticks alone
+- Blood Moon can still stack 15+ bleeds, but total tick damage caps at 25% HP/turn — still devastating (5 turns to kill from DoTs alone) but not instant
+
+### Rule 9: Testing Checklist Before Release
+For every stage/floor, verify:
+- [ ] A team of 5 appropriate-rarity units at reasonable levels can beat it
+- [ ] A poorly composed team of HIGHER rarity units can LOSE to it
+- [ ] The fight lasts at least 4 turns (not instant either way)
+- [ ] Enemy healer actually heals, enemy tank actually taunts, enemy DPS actually damages
+- [ ] Player can see enemy team before entering and make composition decisions
+- [ ] Rewards feel meaningful (can level up or star up something after a few clears)
+
+### Rule 10: Resource Pacing
+At every stage of the game, the player should be able to:
+- Level up their main team's units by 5-10 levels after 3-5 stage clears
+- Star up one unit every 20-30 stage clears (from shard drops + shop)
+- Acquire 1 new piece of gear every 10-15 stage clears
+- Do 1-2 gacha pulls every 5-10 stage clears
+
+This means the player always feels forward momentum. There is never a point where "I need to grind the same stage 500 times to afford one level-up."
+
+---
+
+## COMPLETE LIST OF CHANGES IN THIS ADDENDUM
+
+| # | Change | Details |
+|---|--------|---------|
+| 1 | Arch Priest ult nerfed | Revives 1 ally (not all) at 25% with stat penalty |
+| 2 | Genesis ult nerfed | Revives up to 2 (not all) at 30%, marked Final Life |
+| 3 | Eternal passive nerfed | Auto-revive limited to first death only (once total) |
+| 4 | Eternal ult nerfed | Revives 1 (not all), damage reduction replaces immunity |
+| 5 | The Absolute passive nerfed | Removed revive, narrowed immunity, lowered numbers |
+| 6 | The Undying passive reduced | 2 self-revives (not 3) |
+| 7 | Global revive rule | Max 1 revive per unit per battle (Final Life) |
+| 8 | Transformation mechanic added | Second bar, fills over ~8-12 turns, permanent awakened form |
+| 9 | 8 transforming units defined | Reaper, Phoenix, Eclipse Knight, Blood Moon, Demon Hunter, World Eater, The Fool, The Undying |
+| 10 | Story stages: 100 → 200 | Double the content, more gradual progression |
+| 11 | Anti-exponential scaling | Linear stat growth for both players and enemies |
+| 12 | Player max stats: ~8× base | Level 500 ★10 = roughly 8× base stats |
+| 13 | Enemy scaling: linear | stage × coefficient, never exponential |
+| 14 | Composition bonus formula | Balanced teams get 1.85× effective power, 5-DPS gets 0.30× |
+| 15 | Enemy composition rules | Enemies also build proper teams by stage range |
+| 16 | DoT damage cap | Max 25% HP/turn from all DoTs combined |
+| 17 | Resource pacing rules | Player always has forward momentum, never stuck grinding |
+| 18 | Difficulty = composition, not stats | Every stage range introduces a new strategic challenge |
